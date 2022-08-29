@@ -10,7 +10,6 @@
 #define Q 60
 
 void desenha_nivel(Mapa *mapa);
-void gravidade(Mapa *mapa);
 
 typedef enum GameScreen { TITLE = 0, GAMEPLAY, ENDING } GameScreen;
 
