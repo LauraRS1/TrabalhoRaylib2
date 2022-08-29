@@ -1,0 +1,79 @@
+# depslib dependency file v1.0
+1661790029 source:c:\users\nicol\onedrive\Área de trabalho\projetofinal2\projetofinal2\controle_jogo.c
+	<stdio.h>
+	"jogador.h"
+	"coordenadas.h"
+	"mapa.h"
+
+1661789785 c:\users\nicol\onedrive\Área de trabalho\projetofinal2\projetofinal2\jogador.h
+	"coordenadas.h"
+
+1661789918 c:\users\nicol\onedrive\Área de trabalho\projetofinal2\projetofinal2\coordenadas.h
+
+1661789974 c:\users\nicol\onedrive\Área de trabalho\projetofinal2\projetofinal2\mapa.h
+	"jogador.h"
+	"coordenadas.h"
+
+1661790422 source:c:\users\nicol\onedrive\Área de trabalho\projetofinal2\projetofinal2\coordenadas.c
+	"coordenadas.h"
+
+1661790248 source:c:\users\nicol\onedrive\Área de trabalho\projetofinal2\projetofinal2\jogador.c
+	"jogador.h"
+	"coordenadas.h"
+	<string.h>
+	<stdio.h>
+
+1661795907 source:c:\users\nicol\onedrive\Área de trabalho\projetofinal2\projetofinal2\main.c
+	<stdio.h>
+	"raylib.h"
+	"mapa.h"
+
+1661796559 source:c:\users\nicol\onedrive\Área de trabalho\projetofinal2\projetofinal2\mapa.c
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	"jogador.h"
+	"mapa.h"
+
+1661790029 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\controle_jogo.c
+	<stdio.h>
+	"jogador.h"
+	"coordenadas.h"
+	"mapa.h"
+
+1661789785 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\jogador.h
+	"coordenadas.h"
+
+1661789918 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\coordenadas.h
+
+1661789974 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\mapa.h
+	"jogador.h"
+	"coordenadas.h"
+
+1661790422 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\coordenadas.c
+	"coordenadas.h"
+
+1661798494 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\jogador.c
+	"jogador.h"
+	"coordenadas.h"
+	<string.h>
+	<stdio.h>
+
+1661798924 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\main.c
+	<stdio.h>
+	"raylib.h"
+	"mapa.h"
+	"desenha_menu.h"
+
+1661796559 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\mapa.c
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	"jogador.h"
+	"mapa.h"
+
+1661798809 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\desenha_menu.c
+	"raylib.h"
+
+1661798924 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\desenha_menu.h
+
