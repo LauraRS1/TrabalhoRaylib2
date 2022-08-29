@@ -1,14 +1,5 @@
-
-#include "raylib.h"
-#define OPCOES 4
-#define TAMANHO_FONTE 20
-#define TAMANHO_FONTE_MAIOR 60
-#define TAMANHO_TEXTO 20
-#define MEIO 400
-#define ESPACO 100
-
-
-void DesenhaMenu(int selecionada) {
+#include "desenha.h"
+void desenha_menu(int selecionada) {
     char menu[OPCOES][TAMANHO_TEXTO] = {"Novo Jogo", "Carregar Jogo","Ranking de Pontos", "Sair"};
     char mudado[TAMANHO_TEXTO];  // string para guardar o texto modificado
     // desenha o texto de acordo com o parametro dado
@@ -52,3 +43,37 @@ void DesenhaMenu(int selecionada) {
 
       }
 }
+void desenha_nivel(Mapa *mapa){
+
+    int i, j;
+    for(i = 0; i < mapa->dimencao.linha; i++){
+        for(j = 0; j < mapa->dimencao.coluna; j++){
+                //Parede
+                if(mapa->mapa[i][j] == 'X')
+                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, GRAY);
+                //Jogador
+                 if(mapa->mapa[i][j] == 'D')
+                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, RED);
+                //Jogador na escada
+                if((mapa->mapa[i][j] == 'D') && (mapa->escada == 1))
+                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, GREEN);
+                //Jogador na porta
+                if((mapa->mapa[i][j] == 'D') && (mapa->porta != ' '))
+                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, ORANGE);
+                //Jogador no baú
+                if((mapa->mapa[i][j] == 'D') && (mapa->bau == 1))
+                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, PURPLE);
+                //Baú
+                if(mapa->mapa[i][j] == 'C')
+                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, PINK);
+                //Escada
+                if(mapa->mapa[i][j] == 'H')
+                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, BROWN);
+                //Portas
+                if((mapa->mapa[i][j] == '1') || (mapa->mapa[i][j] == '2'))
+                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, YELLOW);
+
+
+                }
+        }
+ }
