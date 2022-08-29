@@ -42,6 +42,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="desenha_menu.h" />
+		<Unit filename="gravidade.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="gravidade.h" />
 		<Unit filename="jogador.c">
 			<Option compilerVar="CC" />
 		</Unit>
