@@ -7,3 +7,4 @@ void controle_abre_bau(Mapa *mapa);
 void controle_proxima_fase(Mapa *mapa);
 
 #endif // CONTROLE
+

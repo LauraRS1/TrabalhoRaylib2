@@ -222,3 +222,56 @@
 1661894523 c:\users\nicol\onedrive\¡rea de trabalho\testetrabalhoter«a\trabalhoraylib2\trabalhoraylib2\bau.h
 	"coordenadas.h"
 
+1661903294 source:c:\users\thiag_000\desktop\server\trabalhoraylib2\coordenadas.c
+	"coordenadas.h"
+
+1661903294 c:\users\thiag_000\desktop\server\trabalhoraylib2\coordenadas.h
+
+1661903294 source:c:\users\thiag_000\desktop\server\trabalhoraylib2\gravidade.c
+	"mapa.h"
+
+1661903294 c:\users\thiag_000\desktop\server\trabalhoraylib2\mapa.h
+	"jogador.h"
+	"coordenadas.h"
+	"bau.h"
+
+1661903294 c:\users\thiag_000\desktop\server\trabalhoraylib2\jogador.h
+	"coordenadas.h"
+
+1661903294 c:\users\thiag_000\desktop\server\trabalhoraylib2\bau.h
+	"coordenadas.h"
+
+1661903294 source:c:\users\thiag_000\desktop\server\trabalhoraylib2\jogador.c
+	"jogador.h"
+	"coordenadas.h"
+	<string.h>
+	<stdio.h>
+
+1661903294 source:c:\users\thiag_000\desktop\server\trabalhoraylib2\main.c
+	<stdio.h>
+	"raylib.h"
+	"mapa.h"
+	"desenha.h"
+	"gravidade.h"
+	"controle.h"
+
+1661903492 c:\users\thiag_000\desktop\server\trabalhoraylib2\desenha.h
+	"raylib.h"
+	"mapa.h"
+
+1661903294 c:\users\thiag_000\desktop\server\trabalhoraylib2\gravidade.h
+
+1661903516 c:\users\thiag_000\desktop\server\trabalhoraylib2\controle.h
+	"telas.h"
+
+1661903294 c:\users\thiag_000\desktop\server\trabalhoraylib2\telas.h
+
+1661903294 source:c:\users\thiag_000\desktop\server\trabalhoraylib2\mapa.c
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	"jogador.h"
+	"mapa.h"
+	"desenha.h"
+	"bau.h"
+
