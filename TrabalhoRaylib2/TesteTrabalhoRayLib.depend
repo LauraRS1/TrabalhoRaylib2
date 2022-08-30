@@ -158,3 +158,67 @@
 
 1661809156 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\telas.h
 
+1661896036 source:c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\controle.c
+	<stdio.h>
+	"jogador.h"
+	"coordenadas.h"
+	"mapa.h"
+	"telas.h"
+	"raylib.h"
+
+1661890330 c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\jogador.h
+	"coordenadas.h"
+
+1661890330 c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\coordenadas.h
+
+1661896381 c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\mapa.h
+	"jogador.h"
+	"coordenadas.h"
+	"bau.h"
+
+1661890534 c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\telas.h
+
+1661890330 source:c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\coordenadas.c
+	"coordenadas.h"
+
+1661894877 source:c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\desenha.c
+	"desenha.h"
+
+1661890330 c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\desenha.h
+	"raylib.h"
+	"mapa.h"
+
+1661890330 source:c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\gravidade.c
+	"mapa.h"
+
+1661890330 source:c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\jogador.c
+	"jogador.h"
+	"coordenadas.h"
+	<string.h>
+	<stdio.h>
+
+1661896625 source:c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\main.c
+	<stdio.h>
+	"raylib.h"
+	"mapa.h"
+	"desenha.h"
+	"gravidade.h"
+	"controle.h"
+
+1661890330 c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\gravidade.h
+
+1661895442 c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\controle.h
+	"telas.h"
+
+1661894764 source:c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\mapa.c
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	"jogador.h"
+	"mapa.h"
+	"desenha.h"
+	"bau.h"
+
+1661894523 c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\bau.h
+	"coordenadas.h"
+

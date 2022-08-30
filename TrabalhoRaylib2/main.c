@@ -7,13 +7,16 @@
 
 int main() {
     int n;
+    int morte = 0;
     n = 0;
     Mapa mapa;
+    mapa_carrega(&mapa);
+
     InitWindow(LARGURA, ALTURA, "Jogo");
     GameScreen currentScreen = MENU;
     //Quadros por segundo
     SetTargetFPS(60);
-    mapa_carrega(&mapa);
+
     //Rodar enquanto nao aperta ESC
 
 
@@ -56,7 +59,6 @@ int main() {
         }
 
         EndDrawing();
-
 
     }
 

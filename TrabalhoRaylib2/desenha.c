@@ -73,7 +73,10 @@ void desenha_nivel(Mapa *mapa){
                 if((mapa->mapa[i][j] == '1') || (mapa->mapa[i][j] == '2'))
                     DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, YELLOW);
 
-
+                if((mapa->mapa[i][j] == 'P') && (mapa->chave == 1))
+                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, GREEN);
                 }
+
+
         }
  }

@@ -35,6 +35,9 @@ void controle_menu(int *n, GameScreen *tela){
 void controle_gameplay(Mapa *mapa){
     if(IsKeyPressed(KEY_UP)){
         mapa_movimenta(mapa, 'c');
+        controle_proxima_fase(mapa);
+        if(mapa->bau == 1)
+            controle_abre_bau(mapa);
     }
     if(IsKeyPressed(KEY_DOWN)){
         mapa_movimenta(mapa, 'b');
@@ -48,6 +51,52 @@ void controle_gameplay(Mapa *mapa){
 
 }
 
+void controle_abre_bau(Mapa *mapa){
+        int i;
+        mapa_localiza_jogador(mapa);
+        for(i = 0; i < mapa->qtdBaus; i++){
+            if((mapa->baus[i].localizacao.linha == mapa->jogador.localizacao.linha) && (mapa->baus[i].localizacao.coluna == mapa->jogador.localizacao.coluna) && (mapa->baus[i].aberto == 0)){
+
+                mapa->baus[i].aberto = 1;
+                switch(mapa->baus[i].item){
+                    case '!':
+                        jog_aumenta_pontuacao(&(mapa->jogador), 50);
+                        break;
+
+                    case '@':
+                        jog_aumenta_pontuacao(&(mapa->jogador), 100);
+                        break;
+
+                    case '#':
+                        jog_aumenta_pontuacao(&(mapa->jogador), 150);
+                        break;
+
+                    case '$':
+                        jog_aumenta_pontuacao(&(mapa->jogador), 200);
+                        break;
+
+                    case '%':
+                        jog_aumenta_pontuacao(&(mapa->jogador), 300);
+                        break;
+                    case 'P':
+                        mapa->chave = 1;
+                        break;
+
+                }
+
+            }
+
+        }
+        printf("\nPONTUACAO: %d", mapa->jogador.pontuacao);
+
+
+}
+
+void controle_proxima_fase(Mapa *mapa){
+    if((mapa->deletado == 'P') && (mapa->chave == 1)){
+        printf("+++++++++++++++++++++++\n\n FASE CONCLUIDA\n\n++++++++++++++++++");
+    }
+}
 
 
 

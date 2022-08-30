@@ -4,9 +4,11 @@
 #include <ctype.h>
 #include "jogador.h"
 #include "mapa.h"
-
+#include "desenha.h"
+#include "bau.h"
 
 void mapa_carrega(Mapa *mapa) {
+    int i;
     strcpy(mapa->mapa[0], "XXXXXXXXXX");
     strcpy(mapa->mapa[1], "X1 C  C2 X");
     strcpy(mapa->mapa[2], "XXHX  XX X");
@@ -22,7 +24,8 @@ void mapa_carrega(Mapa *mapa) {
     mapa->deletado = ' ';
     mapa->escada = 0;
     mapa->bau = 0;
-    mapa->jogador = jog_inicializa(0, 0);
+    mapa->chave = 0;
+    mapa->jogador = jog_inicializa(8, 8);
 
     //Váriavél deletado, guarda o char da matriz em que o char 'D' começou a ocupar
     if(mapa->escada == 1){
@@ -34,6 +37,23 @@ void mapa_carrega(Mapa *mapa) {
     if(mapa->bau == 1){
         mapa->deletado = 'C';
     }
+
+    mapa->qtdBaus = mapa_bau_quantidade(mapa);
+
+    mapa_bau_cria(mapa);
+
+    i = 0;
+    while(i < mapa->qtdBaus){
+        //Posteriormente função que faz isso sozinho
+        printf("Item: ");
+        scanf(" %c", &(mapa->baus[i].item));
+        printf("\nITEM:%c", mapa->baus[i].item);
+        /*printf("\nABERTO:%d", mapa->baus[i].aberto);
+        printf("\nCOLUNA:%d", mapa->baus[i].localizacao.coluna);
+        printf("\nINHA:%d", mapa->baus[i].localizacao.linha);*/
+        i++;
+    }
+
 
 }
 
@@ -183,6 +203,38 @@ void mapa_busca_porta(Mapa mapa, char porta, Localizacao *local_porta) {
         }
     }
 }
+
+int mapa_bau_quantidade(Mapa *mapa){
+    int i, j, b;
+    b = 0;
+    for(i = 0; i < mapa->dimencao.linha; i++){
+        for(j = 0; j < mapa->dimencao.coluna; j++){
+            if((mapa->mapa[i][j] == 'C') || ((mapa->mapa[i][j] == 'D') && (mapa->bau == 1)))
+                b++;
+        }
+    }
+    return b;
+}
+//problema:
+void mapa_bau_cria(Mapa *mapa){
+    int i, j, b;
+    b = 0;
+        for(i = 0; i < mapa->dimencao.linha; i++){
+            for(j = 0; j < mapa->dimencao.coluna; j++){
+
+                if((mapa->mapa[i][j] == 'C') || ((mapa->mapa[i][j] == 'D') && (mapa->bau == 1))){
+
+                    mapa->baus[b].localizacao.linha = i;
+                    mapa->baus[b].localizacao.coluna = j;
+                    mapa->baus[b].aberto = 0;
+                    mapa->baus[b].item = ' ';
+                    b++;
+                }
+            }
+
+        }
+}
+
 /*
 void chama_mensagem_bau() {
     char abrir;
