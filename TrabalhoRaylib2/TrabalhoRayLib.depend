@@ -239,19 +239,19 @@
 1661958055 source:c:\users\laura\onedrive\햞ea de trabalho\2022_1_cc\algoritmos e programa豫o\trabalhoraylib2\trabalhoraylib2\desenha.c
 	"desenha.h"
 
-1661974474 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\coordenadas.c
+1661979613 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\coordenadas.c
 	"coordenadas.h"
 
-1661974474 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\coordenadas.h
+1661979604 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\coordenadas.h
 
-1661974474 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\desenha.c
+1661982614 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\desenha.c
 	"desenha.h"
 
-1661974474 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\desenha.h
+1661982585 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\desenha.h
 	"raylib.h"
 	"mapa.h"
 
-1661974749 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\mapa.h
+1661980208 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\mapa.h
 	"jogador.h"
 	"coordenadas.h"
 	"bau.h"
@@ -261,4 +261,47 @@
 
 1661974474 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\bau.h
 	"coordenadas.h"
+
+1661982507 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\controle.c
+	<stdio.h>
+	"jogador.h"
+	"coordenadas.h"
+	"mapa.h"
+	"telas.h"
+	"raylib.h"
+
+1661982309 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\telas.h
+
+1661974585 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\gravidade.c
+	"mapa.h"
+	"stdio.h"
+	"jogador.h"
+
+1661981531 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\jogador.c
+	"jogador.h"
+	"coordenadas.h"
+	<string.h>
+	<stdio.h>
+
+1661982555 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\main.c
+	<stdio.h>
+	"raylib.h"
+	"mapa.h"
+	"desenha.h"
+	"gravidade.h"
+	"controle.h"
+
+1661974474 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\gravidade.h
+
+1661982554 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\controle.h
+	"telas.h"
+
+1661981977 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\mapa.c
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	"jogador.h"
+	"mapa.h"
+	"desenha.h"
+	"bau.h"
 

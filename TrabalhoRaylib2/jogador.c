@@ -19,6 +19,8 @@ int jog_diminui_vida(Jogador *jogador){
 
 void jog_aumenta_pontuacao(Jogador *jogador, int pontos){
     jogador->pontuacao += pontos;
+    if(jogador->pontuacao < 0)
+        jogador->pontuacao = 0;
 }
 
 void jog_le_nome(Jogador *jogador){

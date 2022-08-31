@@ -1,4 +1,13 @@
 #include "desenha.h"
+void desenha_load(){
+    DrawText("Carregando...", (LARGURA-MeasureText("Carregando...",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
+
+}
+
+void desenha_proximo(){
+    DrawText("Passou de Nivel", (LARGURA-MeasureText("Passou de Nivel",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
+
+}
 void desenha_menu(int selecionada) {
     char menu[OPCOES][TAMANHO_TEXTO] = {"Novo Jogo", "Carregar Jogo","Ranking de Pontos", "Sair"};
     char mudado[TAMANHO_TEXTO];  // string para guardar o texto modificado

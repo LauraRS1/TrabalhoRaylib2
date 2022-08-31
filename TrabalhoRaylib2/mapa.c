@@ -19,14 +19,14 @@ void mapa_carrega(Mapa *mapa) {
     strcpy(mapa->mapa[7], "X HXX XXXX");
     strcpy(mapa->mapa[8], "XDHCX   PX");
     strcpy(mapa->mapa[9], "XXXXXXXXXX");
-    mapa->dimencao = localizacao_cria(10,10);
-    mapa->spawn = localizacao_cria(8,1);
+    mapa->dimencao = mapa_set_dimencao(mapa->mapa);
+    mapa_set_spawn(mapa);
     mapa->porta = ' ';
     mapa->deletado = ' ';
     mapa->escada = 0;
     mapa->bau = 0;
     mapa->chave = 0;
-    mapa->jogador = jog_inicializa(8, 1);
+    mapa->jogador = jog_inicializa(mapa->spawn.linha, mapa->spawn.coluna);
 
     //Váriavél deletado, guarda o char da matriz em que o char 'D' começou a ocupar
     if(mapa->escada == 1){
@@ -43,6 +43,14 @@ void mapa_carrega(Mapa *mapa) {
 
     mapa_bau_cria(mapa);
 
+    mapa->baus[0].item = 'B';
+    mapa->baus[1].item = 'P';
+    mapa->baus[2].item = '@';
+    mapa->baus[3].item = '#';
+    mapa->baus[4].item = '#';
+    mapa->baus[5].item = '%';
+
+    /*
     i = 0;
     while(i < mapa->qtdBaus){
         //Posteriormente função que faz isso sozinho
@@ -52,8 +60,8 @@ void mapa_carrega(Mapa *mapa) {
         /*printf("\nABERTO:%d", mapa->baus[i].aberto);
         printf("\nCOLUNA:%d", mapa->baus[i].localizacao.coluna);
         printf("\nINHA:%d", mapa->baus[i].localizacao.linha);*/
-        i++;
-    }
+        //i++;
+    //}
 
 
 }
@@ -172,17 +180,6 @@ void mapa_movimenta(Mapa *mapa, char direcao) {
 }
 
 
-void mapa_imprime(Mapa mapa) {
-    int i, j;
-    for(i = 0; i < mapa.dimencao.linha; i++){
-        for(j = 0; j < mapa.dimencao.coluna; j++){
-            printf("%c", mapa.mapa[i][j]);
-        }
-        printf("\n");
-    }
-    jog_print_info(mapa.jogador);
-}
-
 void mapa_localiza_jogador(Mapa *mapa) {
     int i, j;
     for(i = 0; i < mapa->dimencao.linha; i++){
@@ -236,7 +233,44 @@ void mapa_bau_cria(Mapa *mapa){
         }
 }
 
+Localizacao mapa_set_dimencao(char mapa[MAPA_L][MAPA_C]){
+    int i, j;
+    Localizacao dimencao;
+    i = 0;
+    j = 0;
+    while(mapa[0][i] == 'X')
+        i++;
+    while(mapa[j][0] == 'X')
+        j++;
+
+    dimencao = localizacao_cria(j, i);
+    return dimencao;
+}
+
+void mapa_set_spawn(Mapa *mapa){
+    int i, j;
+    for(i = 0; i < mapa->dimencao.linha; i++){
+        for(j = 0; j < mapa->dimencao.coluna; j++){
+            if(mapa->mapa[i][j] == 'D'){
+                mapa->spawn.linha = i;
+                mapa->spawn.coluna = j;
+            }
+        }
+    }
+
+
+}
 /*
+void mapa_imprime(Mapa mapa) {
+    int i, j;
+    for(i = 0; i < mapa.dimencao.linha; i++){
+        for(j = 0; j < mapa.dimencao.coluna; j++){
+            printf("%c", mapa.mapa[i][j]);
+        }
+        printf("\n");
+    }
+    jog_print_info(mapa.jogador);
+}
 void chama_mensagem_bau() {
     char abrir;
     printf("\nVoce encontrou um bau. Deseja abri-lo? [s]im");

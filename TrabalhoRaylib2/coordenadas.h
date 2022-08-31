@@ -6,5 +6,6 @@ typedef struct{
 }Localizacao;
 
 Localizacao localizacao_cria(int linha, int coluna);
+
 #endif // COORDENADAS_H
 

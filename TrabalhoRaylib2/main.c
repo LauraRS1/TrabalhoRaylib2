@@ -4,6 +4,7 @@
 #include "desenha.h"
 #include "gravidade.h"
 #include "controle.h"
+#include <limits.h>
 
 int main() {
     int n;
@@ -13,9 +14,8 @@ int main() {
     n = 0;
     Mapa mapa;
     mapa_carrega(&mapa);
-    vida_atual = 3;
     InitWindow(LARGURA, ALTURA, "Jogo");
-    GameScreen currentScreen = MENU;
+    GameScreen currentScreen = LOAD;
     //Quadros por segundo
     SetTargetFPS(60);
 
@@ -24,10 +24,16 @@ int main() {
 
     //Rodar enquanto nao aperta ESC
     morte = 0;
+    vida_atual = mapa.jogador.vidas;
     while (!WindowShouldClose()) {
 
         switch(currentScreen){
 
+            case LOAD:
+                if(framecount == 60)
+                    currentScreen = MENU;
+
+                break;
             case MENU:
                 controle_menu(&n, &currentScreen);
                 //Desenhando a capa
@@ -35,16 +41,16 @@ int main() {
                 break;
 
             case GAMEPLAY:
-                    controle_gameplay_loop(&mapa, &morte, &framecount, &vida_atual);
+                    controle_gameplay_loop(&mapa, &morte, &framecount, &vida_atual, &currentScreen);
 
                     if(framecount%10 == 0)
                         gravidade(&mapa);
-                    if(framecount%60 == 0)
+                    if(framecount%120 == 0)
                         printf("VIDA JOGADOR: %d\n",mapa.jogador.vidas);
-                    if(framecount%60 == 0)
-                        printf("VIDA ATUAL %d\n",vida_atual);
-                    if(framecount%60 == 0)
-                        printf("MORTE %d\n",morte);
+
+                break;
+
+            case PROXIMO:
                 break;
 
             case ENDING:
@@ -59,6 +65,9 @@ int main() {
 
         //Chama a funcao DesenhaMenu
         switch(currentScreen){
+            case LOAD:
+                desenha_load();
+                break;
 
             case MENU:
                 desenha_menu(n);
@@ -68,6 +77,10 @@ int main() {
                 desenha_nivel(&mapa);
                 break;
 
+            case PROXIMO:
+                desenha_proximo();
+                break;
+
             case ENDING:
                 break;
 
@@ -75,6 +88,8 @@ int main() {
 
         EndDrawing();
         framecount++;
+        if(framecount == INT_MAX)
+            framecount = 61;
 
     }
 

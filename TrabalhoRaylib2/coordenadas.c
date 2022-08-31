@@ -7,3 +7,5 @@ Localizacao localizacao_cria(int linha, int coluna){
     coordenada.coluna = coluna;
     return coordenada;
 }
+
+

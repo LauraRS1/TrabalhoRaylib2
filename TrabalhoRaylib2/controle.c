@@ -5,6 +5,7 @@
 #include "telas.h"
 #include "raylib.h"
 
+
 void controle_menu(int *n, GameScreen *tela){
 
     if(IsKeyPressed(KEY_UP))
@@ -32,10 +33,10 @@ void controle_menu(int *n, GameScreen *tela){
     }
 }
 
-void controle_gameplay(Mapa *mapa){
+void controle_gameplay(Mapa *mapa, GameScreen *tela){
     if(IsKeyPressed(KEY_UP)){
         mapa_movimenta(mapa, 'c');
-        controle_proxima_fase(mapa);
+        controle_proxima_fase(mapa, tela);
         if(mapa->bau == 1)
             controle_abre_bau(mapa);
     }
@@ -60,26 +61,39 @@ void controle_abre_bau(Mapa *mapa){
                 mapa->baus[i].aberto = 1;
                 switch(mapa->baus[i].item){
                     case '!':
+                        printf("=+50A=");
                         jog_aumenta_pontuacao(&(mapa->jogador), 50);
                         break;
 
                     case '@':
+                        printf("=+100=");
                         jog_aumenta_pontuacao(&(mapa->jogador), 100);
                         break;
 
                     case '#':
+                        printf("=+150=");
                         jog_aumenta_pontuacao(&(mapa->jogador), 150);
                         break;
 
                     case '$':
+                        printf("=+200=");
                         jog_aumenta_pontuacao(&(mapa->jogador), 200);
                         break;
 
                     case '%':
+                        printf("=+300=");
                         jog_aumenta_pontuacao(&(mapa->jogador), 300);
                         break;
                     case 'P':
+                        printf("=CHAVE=");
                         mapa->chave = 1;
+                        break;
+
+                        //Bomba
+                    case 'B':
+                        printf("=BOMBA=");
+                        jog_diminui_vida(&(mapa->jogador));
+                        jog_aumenta_pontuacao(&(mapa->jogador), -500);
                         break;
 
                 }
@@ -92,22 +106,22 @@ void controle_abre_bau(Mapa *mapa){
 
 }
 
-void controle_proxima_fase(Mapa *mapa){
+void controle_proxima_fase(Mapa *mapa, GameScreen *tela){
     if((mapa->deletado == 'P') && (mapa->chave == 1)){
+        *tela = PROXIMO;
         printf("+++++++++++++++++++++++\n\n FASE CONCLUIDA\n\n++++++++++++++++++");
     }
 }
 
-void controle_gameplay_loop(Mapa *mapa, int *morte, int *frames, int *vida_atual){
+void controle_gameplay_loop(Mapa *mapa, int *morte, int *frames, int *vida_atual, GameScreen *tela){
     char aux;
 
     //Caso o jogador esteja vivo, permitir que controle o personagaem
     if(*morte == 0){
-        controle_gameplay(mapa);
+        controle_gameplay(mapa, tela);
 
     }else{
         //Senão, jogador perde vida e atualiza vida_atual com a vida do jogador
-        printf("\nJogador morreu");
         *vida_atual = mapa->jogador.vidas;
 
     }
@@ -119,6 +133,7 @@ void controle_gameplay_loop(Mapa *mapa, int *morte, int *frames, int *vida_atual
 
     //Depois de passar 1 segundo da morte do jogador
     if((*frames - *morte) == 60){
+        printf("=MORTE POR QUEDA=");
         //Coloca o jogador no local de spawn da fase.
         mapa_localiza_jogador(mapa);
         aux = mapa->mapa[mapa->spawn.linha][mapa->spawn.coluna];
