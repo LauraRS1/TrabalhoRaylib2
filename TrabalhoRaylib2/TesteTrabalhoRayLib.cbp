@@ -31,17 +31,17 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="controle_jogo.c">
+		<Unit filename="controle.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="coordenadas.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="coordenadas.h" />
-		<Unit filename="desenha_menu.c">
+		<Unit filename="desenha.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="desenha_menu.h" />
+		<Unit filename="desenha.h" />
 		<Unit filename="gravidade.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -57,6 +57,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="mapa.h" />
+		<Unit filename="telas.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
