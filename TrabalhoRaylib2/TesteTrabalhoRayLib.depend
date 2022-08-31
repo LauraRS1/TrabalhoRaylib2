@@ -227,27 +227,29 @@
 
 1661903294 c:\users\thiag_000\desktop\server\trabalhoraylib2\coordenadas.h
 
-1661903294 source:c:\users\thiag_000\desktop\server\trabalhoraylib2\gravidade.c
+1661907951 source:c:\users\thiag_000\desktop\server\trabalhoraylib2\gravidade.c
 	"mapa.h"
+	"stdio.h"
+	"jogador.h"
 
-1661903294 c:\users\thiag_000\desktop\server\trabalhoraylib2\mapa.h
+1661906106 c:\users\thiag_000\desktop\server\trabalhoraylib2\mapa.h
 	"jogador.h"
 	"coordenadas.h"
 	"bau.h"
 
-1661903294 c:\users\thiag_000\desktop\server\trabalhoraylib2\jogador.h
+1661906106 c:\users\thiag_000\desktop\server\trabalhoraylib2\jogador.h
 	"coordenadas.h"
 
 1661903294 c:\users\thiag_000\desktop\server\trabalhoraylib2\bau.h
 	"coordenadas.h"
 
-1661903294 source:c:\users\thiag_000\desktop\server\trabalhoraylib2\jogador.c
+1661907265 source:c:\users\thiag_000\desktop\server\trabalhoraylib2\jogador.c
 	"jogador.h"
 	"coordenadas.h"
 	<string.h>
 	<stdio.h>
 
-1661903294 source:c:\users\thiag_000\desktop\server\trabalhoraylib2\main.c
+1661904209 source:c:\users\thiag_000\desktop\server\trabalhoraylib2\main.c
 	<stdio.h>
 	"raylib.h"
 	"mapa.h"
@@ -266,7 +268,7 @@
 
 1661903294 c:\users\thiag_000\desktop\server\trabalhoraylib2\telas.h
 
-1661903294 source:c:\users\thiag_000\desktop\server\trabalhoraylib2\mapa.c
+1661906106 source:c:\users\thiag_000\desktop\server\trabalhoraylib2\mapa.c
 	<stdio.h>
 	<string.h>
 	<ctype.h>
@@ -274,4 +276,15 @@
 	"mapa.h"
 	"desenha.h"
 	"bau.h"
+
+1661903431 source:c:\users\thiag_000\desktop\server\trabalhoraylib2\controle.c
+	<stdio.h>
+	"jogador.h"
+	"coordenadas.h"
+	"mapa.h"
+	"telas.h"
+	"raylib.h"
+
+1661903464 source:c:\users\thiag_000\desktop\server\trabalhoraylib2\desenha.c
+	"desenha.h"
 
