@@ -10,7 +10,7 @@
 #define ESPACO 160
 #define ALTURA 660
 #define LARGURA 800
-#define LADO_QUADRADO 60
+#define LADO_QUADRADO 66
 
 void desenha_menu(int selecionada);
 void desenha_nivel(Mapa *mapa);
