@@ -7,7 +7,7 @@
 #define TAMANHO_FONTE_MAIOR 60
 #define TAMANHO_TEXTO 20
 #define MEIO 400
-#define ESPACO 100
+#define ESPACO 160
 #define ALTURA 660
 #define LARGURA 800
 #define LADO_QUADRADO 60

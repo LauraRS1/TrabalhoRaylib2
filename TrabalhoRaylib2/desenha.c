@@ -8,37 +8,37 @@ void desenha_menu(int selecionada) {
 
             //Menu de opcoes Novo Jogo selecionado
             sprintf(mudado, "-> %s <-", menu[0]);
-            DrawText(mudado, MEIO - MeasureText(mudado, TAMANHO_FONTE_MAIOR)/2, ESPACO, TAMANHO_FONTE_MAIOR, PURPLE);
-            DrawText(menu[1], MEIO - MeasureText(menu[1], TAMANHO_FONTE)/2, ESPACO*2, TAMANHO_FONTE, GRAY);
-            DrawText(menu[2], MEIO - MeasureText(menu[2], TAMANHO_FONTE)/2, ESPACO*3, TAMANHO_FONTE, GRAY);
-            DrawText(menu[3], MEIO - MeasureText(menu[3], TAMANHO_FONTE)/2, ESPACO*4, TAMANHO_FONTE, GRAY);
+            DrawText(mudado, MEIO - MeasureText(mudado, TAMANHO_FONTE_MAIOR)/2, ESPACO, TAMANHO_FONTE_MAIOR, WHITE);
+            DrawText(menu[1], MEIO - MeasureText(menu[1], TAMANHO_FONTE)/2, ESPACO*1.625, TAMANHO_FONTE, GRAY);
+            DrawText(menu[2], MEIO - MeasureText(menu[2], TAMANHO_FONTE)/2, ESPACO*2.25, TAMANHO_FONTE, GRAY);
+            DrawText(menu[3], MEIO - MeasureText(menu[3], TAMANHO_FONTE)/2, ESPACO*2.875, TAMANHO_FONTE, GRAY);
             break;
 
         case 1:
             //Menu de opcoes Carregar o Jogo selecionado
             DrawText(menu[0], MEIO - MeasureText(menu[0], TAMANHO_FONTE)/2, ESPACO, TAMANHO_FONTE, GRAY);
             sprintf(mudado, "-> %s <-", menu[1]);
-            DrawText(mudado, MEIO - MeasureText(mudado, TAMANHO_FONTE_MAIOR)/2, ESPACO*2, TAMANHO_FONTE_MAIOR, GREEN);
-            DrawText(menu[2], MEIO - MeasureText(menu[2], TAMANHO_FONTE)/2, ESPACO*3, TAMANHO_FONTE, GRAY);
-            DrawText(menu[3], MEIO - MeasureText(menu[3], TAMANHO_FONTE)/2, ESPACO*4, TAMANHO_FONTE, GRAY);
+            DrawText(mudado, MEIO - MeasureText(mudado, TAMANHO_FONTE_MAIOR)/2, ESPACO*1.625, TAMANHO_FONTE_MAIOR, WHITE);
+            DrawText(menu[2], MEIO - MeasureText(menu[2], TAMANHO_FONTE)/2, ESPACO*2.25, TAMANHO_FONTE, GRAY);
+            DrawText(menu[3], MEIO - MeasureText(menu[3], TAMANHO_FONTE)/2, ESPACO*2.875, TAMANHO_FONTE, GRAY);
             break;
 
         case 2:
             //Menu de opcoes Ranking Pontos Selecionado
             DrawText(menu[0], MEIO - MeasureText(menu[0], TAMANHO_FONTE)/2, ESPACO, TAMANHO_FONTE, GRAY);
-            DrawText(menu[1], MEIO - MeasureText(menu[1], TAMANHO_FONTE)/2, ESPACO*2, TAMANHO_FONTE, GRAY);
+            DrawText(menu[1], MEIO - MeasureText(menu[1], TAMANHO_FONTE)/2, ESPACO*1.625, TAMANHO_FONTE, GRAY);
             sprintf(mudado, "-> %s <-", menu[2]);
-            DrawText(mudado, MEIO - MeasureText(mudado, TAMANHO_FONTE_MAIOR)/2, ESPACO*3, TAMANHO_FONTE_MAIOR, BLUE);
-            DrawText(menu[3], MEIO - MeasureText(menu[3], TAMANHO_FONTE)/2, ESPACO*4, TAMANHO_FONTE, GRAY);
+            DrawText(mudado, MEIO - MeasureText(mudado, TAMANHO_FONTE_MAIOR)/2, ESPACO*2.25, TAMANHO_FONTE_MAIOR, WHITE);
+            DrawText(menu[3], MEIO - MeasureText(menu[3], TAMANHO_FONTE)/2, ESPACO*2.875, TAMANHO_FONTE, GRAY);
             break;
 
        case 3:
             //Menu de opcoes Sair selecionado
             DrawText(menu[0], MEIO - MeasureText(menu[0], TAMANHO_FONTE)/2, ESPACO, TAMANHO_FONTE, GRAY);
-            DrawText(menu[1], MEIO - MeasureText(menu[1], TAMANHO_FONTE)/2, ESPACO*2, TAMANHO_FONTE, GRAY);
-            DrawText(menu[2], MEIO - MeasureText(menu[2], TAMANHO_FONTE)/2, ESPACO*3, TAMANHO_FONTE, GRAY);
+            DrawText(menu[1], MEIO - MeasureText(menu[1], TAMANHO_FONTE)/2, ESPACO*1.625, TAMANHO_FONTE, GRAY);
+            DrawText(menu[2], MEIO - MeasureText(menu[2], TAMANHO_FONTE)/2, ESPACO*2.25, TAMANHO_FONTE, GRAY);
             sprintf(mudado, "-> %s <-", menu[3]);
-            DrawText(mudado, MEIO - MeasureText(mudado, TAMANHO_FONTE_MAIOR)/2, ESPACO*4, TAMANHO_FONTE_MAIOR, RED);
+            DrawText(mudado, MEIO - MeasureText(mudado, TAMANHO_FONTE_MAIOR)/2, ESPACO*2.875, TAMANHO_FONTE_MAIOR, WHITE);
             break;
 
       }

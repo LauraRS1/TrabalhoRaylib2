@@ -17,15 +17,18 @@ int main() {
     //Quadros por segundo
     SetTargetFPS(60);
 
+    //capa do jogo, deve abrir depois de iniciar a janela
+    Texture2D capa= LoadTexture("capa.png");
+
     //Rodar enquanto nao aperta ESC
-
-
     while (!WindowShouldClose()) {
 
         switch(currentScreen){
 
             case MENU:
                 controle_menu(&n, &currentScreen);
+                //Desenhando a capa
+                DrawTexture(capa, 0, 20, BLUE);
                 break;
 
             case GAMEPLAY:
@@ -42,6 +45,7 @@ int main() {
         BeginDrawing();
         // Tela preta
         ClearBackground(BLACK);
+
         //Chama a funcao DesenhaMenu
         switch(currentScreen){
 
