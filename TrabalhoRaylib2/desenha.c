@@ -50,31 +50,31 @@ void desenha_nivel(Mapa *mapa){
         for(j = 0; j < mapa->dimencao.coluna; j++){
                 //Parede
                 if(mapa->mapa[i][j] == 'X')
-                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, GRAY);
+                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, GRAY);
                 //Jogador
                  if(mapa->mapa[i][j] == 'D')
-                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, RED);
+                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, RED);
                 //Jogador na escada
                 if((mapa->mapa[i][j] == 'D') && (mapa->escada == 1))
-                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, GREEN);
+                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, GREEN);
                 //Jogador na porta
                 if((mapa->mapa[i][j] == 'D') && (mapa->porta != ' '))
-                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, ORANGE);
+                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, ORANGE);
                 //Jogador no baú
                 if((mapa->mapa[i][j] == 'D') && (mapa->bau == 1))
-                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, PURPLE);
+                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, PURPLE);
                 //Baú
                 if(mapa->mapa[i][j] == 'C')
-                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, PINK);
+                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, PINK);
                 //Escada
                 if(mapa->mapa[i][j] == 'H')
-                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, BROWN);
+                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, BROWN);
                 //Portas
                 if((mapa->mapa[i][j] == '1') || (mapa->mapa[i][j] == '2'))
-                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, YELLOW);
+                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, YELLOW);
 
                 if((mapa->mapa[i][j] == 'P') && (mapa->chave == 1))
-                    DrawRectangle((0 + LADO_QUADRADO * j), (0 + LADO_QUADRADO * i), LADO_QUADRADO, LADO_QUADRADO, GREEN);
+                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, GREEN);
                 }
 
 
