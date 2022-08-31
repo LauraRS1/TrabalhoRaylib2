@@ -1,6 +1,6 @@
 #ifndef MAPA_H
 #define MAPA_H
-#define MAPA_L 120
+#define MAPA_L 30
 #define MAPA_C 120
 #include "jogador.h"
 #include "coordenadas.h"

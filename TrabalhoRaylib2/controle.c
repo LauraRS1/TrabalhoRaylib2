@@ -43,6 +43,8 @@ void controle_gameplay(Mapa *mapa, GameScreen *tela){
     if(IsKeyPressed(KEY_DOWN)){
         mapa_movimenta(mapa, 'b');
     }
+
+
     if(IsKeyPressed(KEY_LEFT)){
         mapa_movimenta(mapa, 'e');
     }
@@ -86,6 +88,7 @@ void controle_abre_bau(Mapa *mapa){
                         break;
                     case 'P':
                         printf("=CHAVE=");
+                        jog_aumenta_pontuacao(&(mapa->jogador), 1000);
                         mapa->chave = 1;
                         break;
 

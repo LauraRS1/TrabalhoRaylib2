@@ -127,7 +127,7 @@ void mapa_movimenta(Mapa *mapa, char direcao) {
     }
 
     //Caso for para esquerda ou para a direita
-    if((direcao == 'e') || (direcao == 'd')){
+    if(((direcao == 'e') || (direcao == 'd')) && ((mapa->mapa[x_jog + 1][y_jog] == 'X') || (mapa->mapa[x_jog + 1][y_jog] == 'H'))){
         aux = mapa->mapa[x_jog][y_jog + dir_int];
 
             //Caso não for uma parede
