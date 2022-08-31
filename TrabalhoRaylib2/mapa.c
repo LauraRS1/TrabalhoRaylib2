@@ -20,12 +20,13 @@ void mapa_carrega(Mapa *mapa) {
     strcpy(mapa->mapa[8], "XDHCX   PX");
     strcpy(mapa->mapa[9], "XXXXXXXXXX");
     mapa->dimencao = localizacao_cria(10,10);
+    mapa->spawn = localizacao_cria(8,1);
     mapa->porta = ' ';
     mapa->deletado = ' ';
     mapa->escada = 0;
     mapa->bau = 0;
     mapa->chave = 0;
-    mapa->jogador = jog_inicializa(8, 8);
+    mapa->jogador = jog_inicializa(8, 1);
 
     //Váriavél deletado, guarda o char da matriz em que o char 'D' começou a ocupar
     if(mapa->escada == 1){

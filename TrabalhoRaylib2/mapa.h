@@ -9,6 +9,7 @@
 typedef struct{
     char mapa[MAPA_L][MAPA_C];
     Localizacao dimencao;
+    Localizacao spawn;
     int escada;
     char porta;
     int bau;

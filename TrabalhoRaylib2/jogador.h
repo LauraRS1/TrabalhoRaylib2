@@ -7,6 +7,7 @@ typedef struct{
     Localizacao localizacao;
     int vidas;
     int pontuacao;
+    int altura_relativa;
 }Jogador;
 
 Jogador jog_inicializa(int x, int y);

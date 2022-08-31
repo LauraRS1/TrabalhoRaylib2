@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 Jogador jog_inicializa(int x, int y){
-    Jogador jogador = {"Sem Nome", {x, y}, 3, 0};
+    Jogador jogador = {"Sem Nome", {x, y}, 3, 0, 1};
     return jogador;
 }
 

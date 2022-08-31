@@ -8,10 +8,12 @@
 int main() {
     int n;
     int morte = 0;
+    int vida_atual;
+    int framecount = 0;
     n = 0;
     Mapa mapa;
     mapa_carrega(&mapa);
-
+    vida_atual = 3;
     InitWindow(LARGURA, ALTURA, "Jogo");
     GameScreen currentScreen = MENU;
     //Quadros por segundo
@@ -21,6 +23,7 @@ int main() {
     Texture2D capa= LoadTexture("capa.png");
 
     //Rodar enquanto nao aperta ESC
+    morte = 0;
     while (!WindowShouldClose()) {
 
         switch(currentScreen){
@@ -32,8 +35,16 @@ int main() {
                 break;
 
             case GAMEPLAY:
-                    controle_gameplay(&mapa);
-                    gravidade(&mapa);
+                    controle_gameplay_loop(&mapa, &morte, &framecount, &vida_atual);
+
+                    if(framecount%10 == 0)
+                        gravidade(&mapa);
+                    if(framecount%60 == 0)
+                        printf("VIDA JOGADOR: %d\n",mapa.jogador.vidas);
+                    if(framecount%60 == 0)
+                        printf("VIDA ATUAL %d\n",vida_atual);
+                    if(framecount%60 == 0)
+                        printf("MORTE %d\n",morte);
                 break;
 
             case ENDING:
@@ -63,6 +74,7 @@ int main() {
         }
 
         EndDrawing();
+        framecount++;
 
     }
 
