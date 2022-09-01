@@ -31,9 +31,15 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="TrabalhoRayLib.cbp" />
+		<Unit filename="TrabalhoRayLib.depend" />
+		<Unit filename="TrabalhoRayLib.layout" />
+		<Unit filename="bau.h" />
+		<Unit filename="capa.png" />
 		<Unit filename="controle.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="controle.h" />
 		<Unit filename="coordenadas.c">
 			<Option compilerVar="CC" />
 		</Unit>

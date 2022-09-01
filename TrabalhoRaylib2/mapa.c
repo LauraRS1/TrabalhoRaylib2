@@ -3,12 +3,13 @@
 #include <string.h>
 #include <ctype.h>
 #include "jogador.h"
+#include "raylib.h"
 #include "mapa.h"
 #include "desenha.h"
 #include "bau.h"
 
 void mapa_carrega(Mapa *mapa) {
-    int i;
+
     strcpy(mapa->mapa[0], "XXXXXXXXXX");
     strcpy(mapa->mapa[1], "X1 C  C2 X");
     strcpy(mapa->mapa[2], "XXHX  XX X");
@@ -40,32 +41,13 @@ void mapa_carrega(Mapa *mapa) {
     }
 
     mapa->qtdBaus = mapa_bau_quantidade(mapa);
-
     mapa_bau_cria(mapa);
+    mapa_bau_gera_itens(mapa, 1);
 
-    mapa->baus[0].item = 'B';
-    mapa->baus[1].item = 'P';
-    mapa->baus[2].item = '@';
-    mapa->baus[3].item = '#';
-    mapa->baus[4].item = '#';
-    mapa->baus[5].item = '%';
 
-    /*
-    i = 0;
-    while(i < mapa->qtdBaus){
-        //Posteriormente função que faz isso sozinho
-        printf("Item: ");
-        scanf(" %c", &(mapa->baus[i].item));
-        printf("\nITEM:%c", mapa->baus[i].item);
-        /*printf("\nABERTO:%d", mapa->baus[i].aberto);
-        printf("\nCOLUNA:%d", mapa->baus[i].localizacao.coluna);
-        printf("\nINHA:%d", mapa->baus[i].localizacao.linha);*/
-        //i++;
-    //}
 
 
 }
-
 void mapa_movimenta(Mapa *mapa, char direcao) {
     Localizacao local_porta;//Váriavel da localização da porta
     mapa_localiza_jogador(mapa);//Atualiza a localização do jogador
@@ -178,8 +160,6 @@ void mapa_movimenta(Mapa *mapa, char direcao) {
     }
 
 }
-
-
 void mapa_localiza_jogador(Mapa *mapa) {
     int i, j;
     for(i = 0; i < mapa->dimencao.linha; i++){
@@ -201,7 +181,6 @@ void mapa_busca_porta(Mapa mapa, char porta, Localizacao *local_porta) {
         }
     }
 }
-
 int mapa_bau_quantidade(Mapa *mapa){
     int i, j, b;
     b = 0;
@@ -213,8 +192,12 @@ int mapa_bau_quantidade(Mapa *mapa){
     }
     return b;
 }
-//problema:
 void mapa_bau_cria(Mapa *mapa){
+/*
+    Função que determina a dimenção de um mapa
+    @param *mapa: ponteiro para um Mapa;
+
+*/
     int i, j, b;
     b = 0;
         for(i = 0; i < mapa->dimencao.linha; i++){
@@ -232,7 +215,6 @@ void mapa_bau_cria(Mapa *mapa){
 
         }
 }
-
 Localizacao mapa_set_dimencao(char mapa[MAPA_L][MAPA_C]){
     int i, j;
     Localizacao dimencao;
@@ -246,7 +228,10 @@ Localizacao mapa_set_dimencao(char mapa[MAPA_L][MAPA_C]){
     dimencao = localizacao_cria(j, i);
     return dimencao;
 }
-
+/*
+    Função responsável por atribuir o valor correto para o spawn do mapa, localização em que o jogador começa e retorna ao morrer.
+    @param *mapa: ponteiro para um Mapa;
+*/
 void mapa_set_spawn(Mapa *mapa){
     int i, j;
     for(i = 0; i < mapa->dimencao.linha; i++){
@@ -259,6 +244,59 @@ void mapa_set_spawn(Mapa *mapa){
     }
 
 
+}
+/*
+    Função que gera o item da chave em um baú aleatório
+    @param *mapa: ponteiro para um Mapa;
+*/
+void mapa_gera_chave(Mapa *mapa){
+    int rand;
+    rand = GetRandomValue(0, mapa->qtdBaus - 1);
+    mapa->baus[rand].item = 'P';
+}
+
+/*
+    Função que gera as bombas de uma determinada fase, número de bombas na fase é igual o número da fase.
+    @param *mapa: Ponteiro para um Mapa;
+    @param fase: Número da fase
+*/
+void mapa_gera_bomba(Mapa *mapa, int fase){
+    int rand;
+    while(fase > 0){
+        rand = GetRandomValue(0, mapa->qtdBaus - 1);
+
+        //Atribui a bomba ao báu caso esteja vazio(sem a chave)
+        if(mapa->baus[rand].item == ' '){
+            mapa->baus[rand].item = 'B';
+            fase--;
+        }
+    }
+}
+/*
+    Função que gera o restante dos itens
+    @param *mapa: Ponteiro para um Mapa
+    @param fase: Número da fase
+*/
+void mapa_gera_outros(Mapa *mapa, int fase){
+    //Variável limite: Número de Báus do mapa - Quantidade de bombas(fase) - número de chaves(1)
+    int limite = mapa->qtdBaus - fase - 1;
+    int rand, rand2;
+    char itens[5] = {'!','@','#','$','%'};
+     while(limite > 0){
+        rand = GetRandomValue(0, mapa->qtdBaus - 1);
+        rand2 = GetRandomValue(0, 4);
+        //Atribui o item ao baú caso ele sem itens;
+        if(mapa->baus[rand].item == ' '){
+            mapa->baus[rand].item = itens[rand2];
+            limite--;
+        }
+    }
+
+}
+void mapa_bau_gera_itens(Mapa *mapa, int fase){
+    mapa_gera_chave(mapa);
+    mapa_gera_bomba(mapa, fase);
+    mapa_gera_outros(mapa, fase);
 }
 /*
 void mapa_imprime(Mapa mapa) {

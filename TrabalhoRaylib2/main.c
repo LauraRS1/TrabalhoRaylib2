@@ -5,12 +5,14 @@
 #include "gravidade.h"
 #include "controle.h"
 #include <limits.h>
+#include <time.h>
 
 int main() {
     int n;
     int morte = 0;
     int vida_atual;
     int framecount = 0;
+    srand(time(NULL));
     n = 0;
     Mapa mapa;
     mapa_carrega(&mapa);
@@ -45,8 +47,8 @@ int main() {
 
                     if(framecount%10 == 0)
                         gravidade(&mapa);
-                    if(framecount%120 == 0)
-                        printf("VIDA JOGADOR: %d\n",mapa.jogador.vidas);
+                    if(framecount%240 == 0)
+                        jog_print_info(mapa.jogador);
 
                 break;
 
