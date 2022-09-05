@@ -8,48 +8,50 @@
 #include <time.h>
 
 int main() {
-    int n;
+    int n =0;
     int morte = 0;
-    int vida_atual;
     int framecount = 0;
+    int vida_atual;
+
     srand(time(NULL));
-    n = 0;
     Mapa mapa;
     mapa_carrega(&mapa);
+
     InitWindow(LARGURA, ALTURA, "Jogo");
     GameScreen currentScreen = LOAD;
-    //Quadros por segundo
     SetTargetFPS(60);
 
     //capa do jogo, deve abrir depois de iniciar a janela
     Texture2D capa= LoadTexture("capa.png");
 
-    //Rodar enquanto nao aperta ESC
-    morte = 0;
     vida_atual = mapa.jogador.vidas;
+
+    //Rodar enquanto nao aperta ESC
     while (!WindowShouldClose()) {
 
+        //Comeca a desenhar a tela
+        BeginDrawing();
+        // Tela preta
+        ClearBackground(BLACK);
+
+        //switch de controle do jogo
         switch(currentScreen){
 
             case LOAD:
                 if(framecount == 60)
                     currentScreen = MENU;
-
                 break;
+
             case MENU:
                 controle_menu(&n, &currentScreen);
-                //Desenhando a capa
-                DrawTexture(capa, 0, 20, BLUE);
                 break;
 
             case GAMEPLAY:
-                    controle_gameplay_loop(&mapa, &morte, &framecount, &vida_atual, &currentScreen);
-
-                    if(framecount%10 == 0)
-                        gravidade(&mapa);
-                    if(framecount%240 == 0)
-                        jog_print_info(mapa.jogador);
-
+                controle_gameplay_loop(&mapa, &morte, &framecount, &vida_atual, &currentScreen);
+                if(framecount%10 == 0)
+                    gravidade(&mapa);
+                if(framecount%240 == 0)
+                    jog_print_info(mapa.jogador);
                 break;
 
             case PROXIMO:
@@ -58,20 +60,17 @@ int main() {
             case ENDING:
                 break;
 
-    }
+        }
 
-        //Comeca a desenhar a tela
-        BeginDrawing();
-        // Tela preta
-        ClearBackground(BLACK);
-
-        //Chama a funcao DesenhaMenu
+        //switch da parte visual
         switch(currentScreen){
             case LOAD:
                 desenha_load();
                 break;
 
             case MENU:
+                //Desenhando a capa
+                DrawTexture(capa, 0, 20, BLUE);
                 desenha_menu(n);
                 break;
 
