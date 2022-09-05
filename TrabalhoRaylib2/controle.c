@@ -63,38 +63,38 @@ void controle_abre_bau(Mapa *mapa){
                 mapa->baus[i].aberto = 1;
                 switch(mapa->baus[i].item){
                     case '!':
-                        printf("=+50A=");
+                        printf("\n=+50A=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 50);
                         break;
 
                     case '@':
-                        printf("=+100=");
+                        printf("\n=+100=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 100);
                         break;
 
                     case '#':
-                        printf("=+150=");
+                        printf("\n=+150=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 150);
                         break;
 
                     case '$':
-                        printf("=+200=");
+                        printf("\n=+200=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 200);
                         break;
 
                     case '%':
-                        printf("=+300=");
+                        printf("\n=+300=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 300);
                         break;
                     case 'P':
-                        printf("=CHAVE=");
+                        printf("\n=CHAVE=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 1000);
                         mapa->chave = 1;
                         break;
 
                         //Bomba
                     case 'B':
-                        printf("=BOMBA=");
+                        printf("\n=BOMBA=\n");
                         jog_diminui_vida(&(mapa->jogador));
                         jog_aumenta_pontuacao(&(mapa->jogador), -500);
                         break;
@@ -136,7 +136,7 @@ void controle_gameplay_loop(Mapa *mapa, int *morte, int *frames, int *vida_atual
 
     //Depois de passar 1 segundo da morte do jogador
     if((*frames - *morte) == 60){
-        printf("=MORTE POR QUEDA=");
+        printf("\n=MORTE POR QUEDA=\n");
         //Coloca o jogador no local de spawn da fase.
         mapa_localiza_jogador(mapa);
         aux = mapa->mapa[mapa->spawn.linha][mapa->spawn.coluna];
