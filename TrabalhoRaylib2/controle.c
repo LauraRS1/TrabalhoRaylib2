@@ -104,7 +104,7 @@ void controle_abre_bau(Mapa *mapa){
             }
 
         }
-        printf("\nPONTUACAO: %d", mapa->jogador.pontuacao);
+        printf("\nPONTUACAO: %d\n", mapa->jogador.pontuacao);
 
 
 }
