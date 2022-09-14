@@ -6,7 +6,7 @@
 #include "controle.h"
 #include <limits.h>
 #include <time.h>
-#define IMAGENS 9
+#define IMAGENS 10
 #define TAM 50
 
 int main() {
@@ -15,7 +15,7 @@ int main() {
     int morte = 0;
     int framecount = 0;
     int vida_atual;
-    char nomes[IMAGENS][TAM] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png", "imagens/jogador_bau.png", "imagens/bau.png","imagens/escada.png", "imagens/porta_normal.png", "imagens/porta_fase.png" };
+    char nomes[IMAGENS][TAM] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png", "imagens/jogador_bau.png", "imagens/bau.png","imagens/escada.png", "imagens/porta_normal.png", "imagens/porta_fase.png", "imagens/parede_fundo.png" };
 
     srand(time(NULL));
     Mapa mapa;

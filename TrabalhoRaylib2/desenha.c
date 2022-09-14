@@ -61,14 +61,16 @@ void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
                 //Parede
                 if(mapa->mapa[i][j] == 'X')
                     DrawTexture(imagens[0], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
+                if((mapa->mapa[i][j] == 'P') && (mapa->chave == 0))
+                    DrawTexture(imagens[9], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Jogador
-                 if(mapa->mapa[i][j] == 'D'&& (mapa->bau != 1))
+                 if(mapa->mapa[i][j] == 'D'&& (mapa->bau != 1)&& (mapa->escada != 1))
                     DrawTexture(imagens[1], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Jogador na escada
                 if((mapa->mapa[i][j] == 'D') && (mapa->escada == 1))
                     DrawTexture(imagens[2], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Jogador na porta
-                if((mapa->mapa[i][j] == 'D') && (mapa->porta != ' '))
+                if((mapa->mapa[i][j] == 'D') && (mapa->porta != ' ') )
                     DrawTexture(imagens[3], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Jogador no baú
                 if((mapa->mapa[i][j] == 'D') && (mapa->bau == 1))
@@ -79,12 +81,15 @@ void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
                 //Escada
                 if(mapa->mapa[i][j] == 'H')
                     DrawTexture(imagens[6], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
-                //Portas
+                //Porta normal
                 if((mapa->mapa[i][j] == '1') || (mapa->mapa[i][j] == '2'))
                     DrawTexture(imagens[7], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
-
+                //Porta fase
                 if((mapa->mapa[i][j] == 'P') && (mapa->chave == 1))
                     DrawTexture(imagens[8], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
+                //parede do fundo
+                if((mapa->mapa[i][j] == ' '))
+                    DrawTexture(imagens[9], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 }
 
 
