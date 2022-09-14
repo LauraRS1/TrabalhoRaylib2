@@ -1,4 +1,5 @@
 #include "desenha.h"
+
 void desenha_load(){
     DrawText("Carregando...", (LARGURA-MeasureText("Carregando...",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
 
@@ -52,38 +53,38 @@ void desenha_menu(int selecionada) {
 
       }
 }
-void desenha_nivel(Mapa *mapa){
+void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
 
     int i, j;
     for(i = 0; i < mapa->dimencao.linha; i++){
         for(j = 0; j < mapa->dimencao.coluna; j++){
                 //Parede
                 if(mapa->mapa[i][j] == 'X')
-                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, GRAY);
+                    DrawTexture(imagens[0], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Jogador
                  if(mapa->mapa[i][j] == 'D')
-                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, RED);
+                    DrawTexture(imagens[1], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Jogador na escada
                 if((mapa->mapa[i][j] == 'D') && (mapa->escada == 1))
-                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, GREEN);
+                    DrawTexture(imagens[2], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Jogador na porta
                 if((mapa->mapa[i][j] == 'D') && (mapa->porta != ' '))
-                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, ORANGE);
+                    DrawTexture(imagens[3], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Jogador no baú
                 if((mapa->mapa[i][j] == 'D') && (mapa->bau == 1))
-                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, PURPLE);
+                    DrawTexture(imagens[4], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Baú
                 if(mapa->mapa[i][j] == 'C')
-                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, PINK);
+                    DrawTexture(imagens[5], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Escada
                 if(mapa->mapa[i][j] == 'H')
-                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, BROWN);
+                    DrawTexture(imagens[6], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), GRAY);
                 //Portas
                 if((mapa->mapa[i][j] == '1') || (mapa->mapa[i][j] == '2'))
-                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, YELLOW);
+                    DrawTexture(imagens[7], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
 
                 if((mapa->mapa[i][j] == 'P') && (mapa->chave == 1))
-                    DrawRectangle((0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), QUADRADO_LARGURA, QUADRADO_ALTURA, GREEN);
+                    DrawTexture(imagens[8], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 }
 
 

@@ -6,12 +6,16 @@
 #include "controle.h"
 #include <limits.h>
 #include <time.h>
+#define IMAGENS 9
+#define TAM 50
 
 int main() {
     int n =0;
+    int i=0;
     int morte = 0;
     int framecount = 0;
     int vida_atual;
+    char nomes[IMAGENS][TAM] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png", "imagens/jogador_bau.png", "imagens/bau.png","imagens/escada.png", "imagens/porta_normal.png", "imagens/porta_fase.png" };
 
     srand(time(NULL));
     Mapa mapa;
@@ -21,11 +25,14 @@ int main() {
     GameScreen currentScreen = LOAD;
     SetTargetFPS(60);
 
-    //capa do jogo, deve abrir depois de iniciar a janela
+    //Arquivos das imagens do jogo, devem abrir depois de iniciar a janela
+    //Capa
     Texture2D capa= LoadTexture("capa.png");
-    //vetor de imagens
-    Texture2D imagens = LoadTexture("imagens/parede.png");
-
+    //Nivel
+    Texture2D imagens[10];
+    for (i=0; i<IMAGENS; i++){
+        imagens[i]=LoadTexture(nomes[i]);
+    }
 
     vida_atual = mapa.jogador.vidas;
 
@@ -47,15 +54,15 @@ int main() {
                 break;
 
             case MENU:
-                //Desenhando a capa
-                DrawTexture(imagens, 0, 0, BLUE);
+                //Desenhando a capa e o menu
                 DrawTexture(capa, 0, 20, BLUE);
                 desenha_menu(n);
+                //controles do menu
                 controle_menu(&n, &currentScreen);
                 break;
 
             case GAMEPLAY:
-                desenha_nivel(&mapa);
+                desenha_nivel(&mapa, imagens);
                 controle_gameplay_loop(&mapa, &morte, &framecount, &vida_atual, &currentScreen);
                 if(framecount%10 == 0)
                     gravidade(&mapa);

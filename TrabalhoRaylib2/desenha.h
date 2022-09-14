@@ -14,7 +14,7 @@
 #define QUADRADO_LARGURA 80
 
 void desenha_menu(int selecionada);
-void desenha_nivel(Mapa *mapa);
+void desenha_nivel(Mapa *mapa, Texture2D imagens[]);
 void desenha_proximo();
 void desenha_load();
 
