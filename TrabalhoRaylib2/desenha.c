@@ -62,7 +62,7 @@ void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
                 if(mapa->mapa[i][j] == 'X')
                     DrawTexture(imagens[0], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Jogador
-                 if(mapa->mapa[i][j] == 'D')
+                 if(mapa->mapa[i][j] == 'D'&& (mapa->bau != 1))
                     DrawTexture(imagens[1], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Jogador na escada
                 if((mapa->mapa[i][j] == 'D') && (mapa->escada == 1))
@@ -78,7 +78,7 @@ void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
                     DrawTexture(imagens[5], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Escada
                 if(mapa->mapa[i][j] == 'H')
-                    DrawTexture(imagens[6], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), GRAY);
+                    DrawTexture(imagens[6], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Portas
                 if((mapa->mapa[i][j] == '1') || (mapa->mapa[i][j] == '2'))
                     DrawTexture(imagens[7], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
