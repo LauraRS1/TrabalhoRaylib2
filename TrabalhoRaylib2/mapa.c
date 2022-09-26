@@ -9,19 +9,10 @@
 #include "bau.h"
 
 void mapa_carrega(Mapa *mapa) {
-
-    strcpy(mapa->mapa[0], "XXXXXXXXXX");
-    strcpy(mapa->mapa[1], "X1 C  C2 X");
-    strcpy(mapa->mapa[2], "XXHX  XX X");
-    strcpy(mapa->mapa[3], "XCH    1 X");
-    strcpy(mapa->mapa[4], "XXX HXHX X");
-    strcpy(mapa->mapa[5], "X   H H  X");
-    strcpy(mapa->mapa[6], "X  CH HC2X");
-    strcpy(mapa->mapa[7], "X HXX XXXX");
-    strcpy(mapa->mapa[8], "XDHCX   PX");
-    strcpy(mapa->mapa[9], "XXXXXXXXXX");
     mapa->dimencao = mapa_set_dimencao(mapa->mapa);
+    printf("\nDIEMNCAO: %d %d", mapa->dimencao.linha, mapa->dimencao.coluna);
     mapa_set_spawn(mapa);
+    printf("\nSPAWN: %d %d", mapa->spawn.linha, mapa->spawn.coluna);
     mapa->porta = ' ';
     mapa->deletado = ' ';
     mapa->escada = 0;
@@ -42,7 +33,7 @@ void mapa_carrega(Mapa *mapa) {
 
     mapa->qtdBaus = mapa_bau_quantidade(mapa);
     mapa_bau_cria(mapa);
-    mapa_bau_gera_itens(mapa, 1);
+    mapa_bau_gera_itens(mapa);
 
 
 
@@ -293,10 +284,35 @@ void mapa_gera_outros(Mapa *mapa, int fase){
     }
 
 }
-void mapa_bau_gera_itens(Mapa *mapa, int fase){
+void mapa_bau_gera_itens(Mapa *mapa){
     mapa_gera_chave(mapa);
-    mapa_gera_bomba(mapa, fase);
-    mapa_gera_outros(mapa, fase);
+    mapa_gera_bomba(mapa, mapa->fase);
+    mapa_gera_outros(mapa, mapa->fase);
+}
+
+Mapa mapa_seleciona_fase(int num){
+    Mapa mapa;
+    char nome_fase[50];
+    char linha[MAPA_C];
+    mapa.fase = num;
+    int i = 0;
+    sprintf(nome_fase, "fase%d.txt", num);
+    printf("%s\n", nome_fase);
+    FILE *arquivo;
+    if((arquivo = fopen(nome_fase, "r"))){
+        while(fgets(linha, MAPA_C, arquivo) != NULL){
+            printf("mapa[%d]%s", i, linha);
+            strcpy(mapa.mapa[i], linha);
+
+
+            i++;
+        }
+    fclose(arquivo);
+    }else{
+        printf("ERRO");
+    }
+
+    return mapa;
 }
 /*
 void mapa_imprime(Mapa mapa) {
@@ -309,6 +325,8 @@ void mapa_imprime(Mapa mapa) {
     }
     jog_print_info(mapa.jogador);
 }
+*/
+/*
 void chama_mensagem_bau() {
     char abrir;
     printf("\nVoce encontrou um bau. Deseja abri-lo? [s]im");

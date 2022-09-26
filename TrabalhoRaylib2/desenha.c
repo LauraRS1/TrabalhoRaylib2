@@ -53,14 +53,48 @@ void desenha_menu(int selecionada) {
 
       }
 }
+
+void desenha_hud(Mapa *mapa) {
+    char saida_pontos[TAMANHO_TEXTO], saida_vida[TAMANHO_TEXTO], saida_fase[TAMANHO_TEXTO];
+    int x=0, y=0;
+
+    DrawText("SCORE:", x, y, TAMANHO_FONTE, WHITE);
+    x += MeasureText("SCORE: ", TAMANHO_FONTE);
+
+    sprintf(saida_pontos, "%d pontos", mapa->jogador.pontuacao);
+    DrawText(saida_pontos, x, y, TAMANHO_FONTE, DARKBLUE);
+    x += MeasureText("2500 pontos", TAMANHO_FONTE);
+
+    x += 30;
+    DrawText("VIDAS:", x, y, TAMANHO_FONTE, WHITE);
+    x += MeasureText("VIDAS: ", TAMANHO_FONTE);
+
+    sprintf(saida_vida, "%d", mapa->jogador.vidas);
+    DrawText(saida_vida, x, y, TAMANHO_FONTE, DARKBLUE);
+
+    x += QUADRADO_LARGURA;
+    DrawText("FASE:", x, y, TAMANHO_FONTE, WHITE);
+    x += MeasureText("FASE: ", TAMANHO_FONTE);
+
+    sprintf(saida_fase, "%d", mapa->fase);
+    DrawText(saida_fase, x, y, TAMANHO_FONTE, DARKBLUE);
+
+
+}
+
 void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
+
+    desenha_hud(mapa);
 
     int i, j;
     for(i = 0; i < mapa->dimencao.linha; i++){
         for(j = 0; j < mapa->dimencao.coluna; j++){
                 //Parede
                 if(mapa->mapa[i][j] == 'X')
-                    DrawTexture(imagens[0], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
+                    if(i==0)
+                        DrawTexture(imagens[9], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
+                    else
+                        DrawTexture(imagens[0], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 if((mapa->mapa[i][j] == 'P') && (mapa->chave == 0))
                     DrawTexture(imagens[9], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Jogador
