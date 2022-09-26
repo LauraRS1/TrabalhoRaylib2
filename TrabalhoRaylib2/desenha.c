@@ -73,24 +73,24 @@ void desenha_hud(Mapa *mapa) {
     DrawText(saida_vida, x, y, TAMANHO_FONTE, DARKBLUE);
 
     x += QUADRADO_LARGURA;
-    DrawText("FASE:", x, y, TAMANHO_FONTE, WHITE);
-    x += MeasureText("FASE: ", TAMANHO_FONTE);
-
-    sprintf(saida_fase, "%d", mapa->nivel);
-    DrawText(saida_fase, x, y, TAMANHO_FONTE, DARKBLUE);
-
-    x += QUADRADO_LARGURA;
     DrawText("CHAVE:", x, y, TAMANHO_FONTE, WHITE);
     x += MeasureText("CHAVE: ", TAMANHO_FONTE);
 
     sprintf(saida_chave, "%d", mapa->chave);
     DrawText(saida_chave, x, y, TAMANHO_FONTE, DARKBLUE);
 
+    x += QUADRADO_LARGURA;
+    DrawText("FASE:", x, y, TAMANHO_FONTE, WHITE);
+    x += MeasureText("FASE: ", TAMANHO_FONTE);
+
+    sprintf(saida_fase, "%d", mapa->nivel);
+    DrawText(saida_fase, x, y, TAMANHO_FONTE, DARKBLUE);
+
 
 }
 
 void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
-
+    // coloca na tela o score, vidas, fase e chave
     desenha_hud(mapa);
 
     int i, j;
