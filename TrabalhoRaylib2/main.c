@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <time.h>
 #define IMAGENS 10
-
+#define TAM 50
 
 
 int main() {
@@ -17,7 +17,7 @@ int main() {
     int morte = 0;
     int framecount = 0;
     int vida_atual;
-    char nomes[IMAGENS][50] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png",
+    char nomes[IMAGENS][TAM] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png",
     "imagens/jogador_bau.png", "imagens/bau.png","imagens/escada.png", "imagens/porta_normal.png", "imagens/porta_fase.png",
     "imagens/parede_fundo.png" };
 
@@ -34,9 +34,9 @@ int main() {
 
     //Arquivos das imagens do jogo, devem abrir depois de iniciar a janela
     //Capa
-    Texture2D capa= LoadTexture("capa.png");
+    Texture2D capa= LoadTexture("imagens/capa.png");
     //Nivel
-    Texture2D imagens[10];
+    Texture2D imagens[IMAGENS];
     for (i=0; i<IMAGENS; i++){
         imagens[i]=LoadTexture(nomes[i]);
     }
