@@ -20,7 +20,6 @@ typedef struct{
     Bau baus[50];//Baus do mapa
     Jogador jogador;//Jogador
     char deletado;// Caracter que o jogador deleta ao se mover
-    int fase;
 }Mapa;
 
 
@@ -37,8 +36,7 @@ void mapa_set_spawn(Mapa *mapa);
 void mapa_gera_chave(Mapa *mapa);
 void mapa_gera_bomba(Mapa *mapa, int fase);
 void mapa_gera_outros(Mapa *mapa, int fase);
-void mapa_bau_gera_itens(Mapa *mapa);
-Mapa mapa_seleciona_fase(int num);
+void mapa_bau_gera_itens(Mapa *mapa, int fase);
 
 
 #endif // MAPA_H
