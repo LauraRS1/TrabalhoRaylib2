@@ -23,10 +23,10 @@ int main() {
 
     srand(time(NULL));
     printf("TESTES");
-    Mapa mapa = mapa_seleciona_fase(2);//npumero da fase como parametro
+    Mapa mapa; //mapa = mapa_seleciona_fase(1);; //npumero da fase como parametro
     printf("TESTES");
 
-    mapa_carrega(&mapa);
+    //mapa_carrega(&mapa);
 
     InitWindow(LARGURA, ALTURA, "Jogo");
     GameScreen currentScreen = LOAD;
@@ -41,7 +41,7 @@ int main() {
         imagens[i]=LoadTexture(nomes[i]);
     }
 
-    vida_atual = mapa.jogador.vidas;
+    vida_atual = 3;
 
     //Rodar enquanto nao aperta ESC
     while (!WindowShouldClose()) {
@@ -60,28 +60,44 @@ int main() {
                     currentScreen = MENU;
                 break;
 
+            case NOVO_JOGO:
+                desenha_load();
+
+                if(framecount%180 == 0){
+                    morte = 0;
+                    currentScreen = GAMEPLAY;}
+                break;
+
             case MENU:
                 //Desenhando a capa e o menu
                 DrawTexture(capa, 0, 20, BLUE);
                 desenha_menu(n);
                 //controles do menu
-                controle_menu(&n, &currentScreen);
+                controle_menu(&n, &currentScreen, &mapa);
                 break;
 
             case GAMEPLAY:
+
                 desenha_nivel(&mapa, imagens);
+
                 controle_gameplay_loop(&mapa, &morte, &framecount, &vida_atual, &currentScreen);
                 if(framecount%10 == 0)
                     gravidade(&mapa);
-                if(framecount%240 == 0)
-                    jog_print_info(mapa.jogador);
+                /*if(framecount%240 == 0)
+                    jog_print_info(mapa.jogador);*/
                 break;
 
             case PROXIMO:
                 desenha_proximo();
+                if(framecount%180 == 0)
+                  currentScreen = GAMEPLAY;
                 break;
 
+            case GAMEOVER:
+                desenha_gameover();
+                break;
             case ENDING:
+                desenha_fim();
                 break;
 
         }

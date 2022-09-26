@@ -6,7 +6,7 @@
 #include "raylib.h"
 
 
-void controle_menu(int *n, GameScreen *tela){
+void controle_menu(int *n, GameScreen *tela, Mapa *mapa){
 
     if(IsKeyPressed(KEY_UP))
         (*n)--;
@@ -23,7 +23,9 @@ void controle_menu(int *n, GameScreen *tela){
     //Mensagens ao apertar enter em Novo Jogo, Carregar Jogo, Ranking de Pontos e Sair.
 
     if((*n)==0 && IsKeyDown(KEY_ENTER)) {
-        *tela = GAMEPLAY;
+        *mapa = mapa_seleciona_fase(1, tela);
+         mapa_carrega(mapa);
+        *tela = NOVO_JOGO;
     } else if((*n) == 1 && IsKeyDown(KEY_ENTER)) {
 
     } else if((*n) == 2 && IsKeyDown(KEY_ENTER)) {
@@ -111,14 +113,18 @@ void controle_abre_bau(Mapa *mapa){
 
 void controle_proxima_fase(Mapa *mapa, GameScreen *tela){
     if((mapa->deletado == 'P') && (mapa->chave == 1)){
+        Jogador jogador;
+        jogador = mapa->jogador;
         *tela = PROXIMO;
+        *mapa = mapa_seleciona_fase(mapa->nivel + 1, tela);
+        mapa_carrega_proxima_fase_e_jogador(mapa, jogador);
         printf("+++++++++++++++++++++++\n\n FASE CONCLUIDA\n\n++++++++++++++++++");
     }
 }
 
 void controle_gameplay_loop(Mapa *mapa, int *morte, int *frames, int *vida_atual, GameScreen *tela){
     char aux;
-
+    //printf("\n(*frames - *morte): %d\t MORTES: %d\t FRAMES: %d ", (*frames - *morte), *morte, *frames);
     //Caso o jogador esteja vivo, permitir que controle o personagaem
     if(*morte == 0){
         controle_gameplay(mapa, tela);
@@ -133,10 +139,13 @@ void controle_gameplay_loop(Mapa *mapa, int *morte, int *frames, int *vida_atual
     if(*vida_atual != mapa->jogador.vidas){
          *morte = *frames;
     }
+    //printf("\n %d ", mapa->jogador.vidas);
+    if(mapa->jogador.vidas == MORTE)
+        *tela = GAMEOVER;
 
     //Depois de passar 1 segundo da morte do jogador
     if((*frames - *morte) == 60){
-        printf("\n=MORTE POR QUEDA=\n");
+        //printf("\n=MORTE POR QUEDA=\n");
         //Coloca o jogador no local de spawn da fase.
         mapa_localiza_jogador(mapa);
         aux = mapa->mapa[mapa->spawn.linha][mapa->spawn.coluna];

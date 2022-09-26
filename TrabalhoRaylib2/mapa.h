@@ -5,7 +5,7 @@
 #include "jogador.h"
 #include "coordenadas.h"
 #include "bau.h"
-
+#include "telas.h"
 
 
 typedef struct{
@@ -38,7 +38,8 @@ void mapa_gera_chave(Mapa *mapa);
 void mapa_gera_bomba(Mapa *mapa, int fase);
 void mapa_gera_outros(Mapa *mapa, int fase);
 void mapa_bau_gera_itens(Mapa *mapa);
-Mapa mapa_seleciona_fase(int num);
+Mapa mapa_seleciona_fase(int num, GameScreen *tela);
+void mapa_carrega_proxima_fase_e_jogador(Mapa *mapa, Jogador jogador);
 
 
 #endif // MAPA_H

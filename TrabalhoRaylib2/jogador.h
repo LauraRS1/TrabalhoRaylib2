@@ -2,6 +2,7 @@
 #define JOGADOR_H
 #include "coordenadas.h"
 #define TAM 15
+#define MORTE -632
 typedef struct{
     char nome[TAM];
     Localizacao localizacao;

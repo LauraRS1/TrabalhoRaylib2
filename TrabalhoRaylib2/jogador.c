@@ -13,7 +13,8 @@ int jog_diminui_vida(Jogador *jogador){
         jogador->vidas = jogador->vidas -1;
         return 1;
     }else{
-        return 0;
+        jogador->vidas = MORTE;
+        return MORTE;
     }
 
 }

@@ -19,7 +19,6 @@ void mapa_carrega(Mapa *mapa) {
     mapa->bau = 0;
     mapa->chave = 0;
     mapa->jogador = jog_inicializa(mapa->spawn.linha, mapa->spawn.coluna);
-    mapa->nivel = 1;
 
     //Váriavél deletado, guarda o char da matriz em que o char 'D' começou a ocupar
     if(mapa->escada == 1){
@@ -291,7 +290,7 @@ void mapa_bau_gera_itens(Mapa *mapa){
     mapa_gera_outros(mapa, mapa->nivel);
 }
 
-Mapa mapa_seleciona_fase(int num){
+Mapa mapa_seleciona_fase(int num, GameScreen *tela){
     Mapa mapa;
     char nome_fase[50];
     char linha[MAPA_C];
@@ -310,10 +309,44 @@ Mapa mapa_seleciona_fase(int num){
         }
     fclose(arquivo);
     }else{
-        printf("ERRO");
+        *tela = ENDING;
     }
 
     return mapa;
+}
+
+void mapa_carrega_proxima_fase_e_jogador(Mapa *mapa, Jogador jogador) {
+    mapa->dimencao = mapa_set_dimencao(mapa->mapa);
+    printf("\nDIEMNCAO: %d %d", mapa->dimencao.linha, mapa->dimencao.coluna);
+    mapa_set_spawn(mapa);
+    printf("\nSPAWN: %d %d", mapa->spawn.linha, mapa->spawn.coluna);
+    mapa->porta = ' ';
+    mapa->deletado = ' ';
+    mapa->escada = 0;
+    mapa->bau = 0;
+    mapa->chave = 0;
+    mapa->jogador = jogador;
+    mapa->jogador.localizacao.linha = mapa->spawn.linha;
+    mapa->jogador.localizacao.coluna = mapa->spawn.coluna;
+
+    //Váriavél deletado, guarda o char da matriz em que o char 'D' começou a ocupar
+    if(mapa->escada == 1){
+        mapa->deletado = 'H';
+    }
+    if(mapa->porta != ' '){
+        mapa->deletado = mapa->porta;
+    }
+    if(mapa->bau == 1){
+        mapa->deletado = 'C';
+    }
+
+    mapa->qtdBaus = mapa_bau_quantidade(mapa);
+    mapa_bau_cria(mapa);
+    mapa_bau_gera_itens(mapa);
+
+
+
+
 }
 /*
 void mapa_imprime(Mapa mapa) {

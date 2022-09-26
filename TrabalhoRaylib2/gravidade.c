@@ -26,6 +26,8 @@ void gravidade(Mapa *mapa){
 
     if((chao == 'X') || (chao == 'H')) { // se jogador alcancar o chao
         if(mapa->jogador.altura_relativa > 3) { // caso altura da queda maior que 3
+            printf("+++++++++++++++++++DANO=====================");
+
             jog_diminui_vida(&(mapa->jogador)); // diminui vida do jogador
         }
 
