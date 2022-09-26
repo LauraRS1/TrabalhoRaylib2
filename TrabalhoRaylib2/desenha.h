@@ -17,5 +17,7 @@ void desenha_menu(int selecionada);
 void desenha_nivel(Mapa *mapa, Texture2D imagens[]);
 void desenha_proximo();
 void desenha_load();
+void desenha_hud(Mapa *mapa);
+
 
 #endif // DESENHA_MENU_H_INCLUDED
