@@ -12,7 +12,7 @@
 #define LARGURA 800
 #define QUADRADO_ALTURA 66
 #define QUADRADO_LARGURA 80
-#define TAMANHO_HUD 30
+#define TAMANHO_HUD 25
 
 void desenha_menu(int selecionada);
 void desenha_nivel(Mapa *mapa, Texture2D imagens[]);

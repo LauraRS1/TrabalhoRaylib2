@@ -58,33 +58,33 @@ void desenha_hud(Mapa *mapa) {
     char saida_pontos[TAMANHO_TEXTO], saida_vida[TAMANHO_TEXTO], saida_fase[TAMANHO_TEXTO], saida_chave[TAMANHO_TEXTO];
     int x=0, y=0;
 
-    DrawText("SCORE:", x, y, TAMANHO_FONTE, WHITE);
-    x += MeasureText("SCORE: ", TAMANHO_FONTE);
+    DrawText("SCORE:", x, y, TAMANHO_HUD, WHITE);
+    x += MeasureText("SCORE: ", TAMANHO_HUD);
 
     sprintf(saida_pontos, "%d pontos", mapa->jogador.pontuacao);
-    DrawText(saida_pontos, x, y, TAMANHO_FONTE, DARKBLUE);
-    x += MeasureText("2500 pontos", TAMANHO_FONTE);
+    DrawText(saida_pontos, x, y, TAMANHO_HUD, DARKBLUE);
+    x += MeasureText("2500 pontos", TAMANHO_HUD);
 
     x += 30;
-    DrawText("VIDAS:", x, y, TAMANHO_FONTE, WHITE);
-    x += MeasureText("VIDAS: ", TAMANHO_FONTE);
+    DrawText("VIDAS:", x, y, TAMANHO_HUD, WHITE);
+    x += MeasureText("VIDAS: ", TAMANHO_HUD);
 
     sprintf(saida_vida, "%d", mapa->jogador.vidas);
-    DrawText(saida_vida, x, y, TAMANHO_FONTE, DARKBLUE);
+    DrawText(saida_vida, x, y, TAMANHO_HUD, DARKBLUE);
 
     x += QUADRADO_LARGURA;
-    DrawText("CHAVE:", x, y, TAMANHO_FONTE, WHITE);
-    x += MeasureText("CHAVE: ", TAMANHO_FONTE);
+    DrawText("CHAVE:", x, y, TAMANHO_HUD, WHITE);
+    x += MeasureText("CHAVE: ", TAMANHO_HUD);
 
     sprintf(saida_chave, "%d", mapa->chave);
-    DrawText(saida_chave, x, y, TAMANHO_FONTE, DARKBLUE);
+    DrawText(saida_chave, x, y, TAMANHO_HUD, DARKBLUE);
 
     x += QUADRADO_LARGURA;
-    DrawText("FASE:", x, y, TAMANHO_FONTE, WHITE);
-    x += MeasureText("FASE: ", TAMANHO_FONTE);
+    DrawText("FASE:", x, y, TAMANHO_HUD, WHITE);
+    x += MeasureText("FASE: ", TAMANHO_HUD);
 
     sprintf(saida_fase, "%d", mapa->nivel);
-    DrawText(saida_fase, x, y, TAMANHO_FONTE, DARKBLUE);
+    DrawText(saida_fase, x, y, TAMANHO_HUD, DARKBLUE);
 
 
 }
