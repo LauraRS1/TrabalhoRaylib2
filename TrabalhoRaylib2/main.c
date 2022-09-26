@@ -17,11 +17,13 @@ int main() {
     int morte = 0;
     int framecount = 0;
     int vida_atual;
-    char nomes[IMAGENS][50] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png", "imagens/jogador_bau.png", "imagens/bau.png","imagens/escada.png", "imagens/porta_normal.png", "imagens/porta_fase.png", "imagens/parede_fundo.png" };
+    char nomes[IMAGENS][50] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png",
+    "imagens/jogador_bau.png", "imagens/bau.png","imagens/escada.png", "imagens/porta_normal.png", "imagens/porta_fase.png",
+    "imagens/parede_fundo.png" };
 
     srand(time(NULL));
     printf("TESTES");
-    Mapa mapa = mapa_seleciona_fase(1);//npumero da fase como parametro
+    Mapa mapa = mapa_seleciona_fase(1);//numero da fase como parametro
     printf("TESTES");
 
     mapa_carrega(&mapa);
