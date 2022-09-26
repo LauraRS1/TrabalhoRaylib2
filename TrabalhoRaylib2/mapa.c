@@ -28,7 +28,6 @@ void mapa_carrega(Mapa *mapa) {
     mapa->bau = 0;
     mapa->chave = 0;
     mapa->jogador = jog_inicializa(mapa->spawn.linha, mapa->spawn.coluna);
-    mapa->nivel = 1;
 
     //Váriavél deletado, guarda o char da matriz em que o char 'D' começou a ocupar
     if(mapa->escada == 1){

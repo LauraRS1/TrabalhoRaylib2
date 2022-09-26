@@ -9,7 +9,6 @@ void desenha_proximo(){
     DrawText("Passou de Nivel", (LARGURA-MeasureText("Passou de Nivel",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
 
 }
-
 void desenha_menu(int selecionada) {
     char menu[OPCOES][TAMANHO_TEXTO] = {"Novo Jogo", "Carregar Jogo","Ranking de Pontos", "Sair"};
     char mudado[TAMANHO_TEXTO];  // string para guardar o texto modificado
@@ -54,49 +53,13 @@ void desenha_menu(int selecionada) {
 
       }
 }
-
-void desenha_hud(Mapa *mapa) {
-    char saida_pont[TAMANHO_TEXTO], saida_vidas[TAMANHO_TEXTO], saida_chave[TAMANHO_TEXTO];
-    int x=0, y=0;
-
-    DrawText("SCORE:", x, y, TAMANHO_FONTE_MAIOR/2, WHITE);
-    x += MeasureText("SCORE: ", TAMANHO_FONTE_MAIOR/2);
-
-    sprintf(saida_pont, "%d pontos", mapa->jogador.pontuacao);
-    DrawText(saida_pont, x, y, TAMANHO_FONTE_MAIOR/2, BLUE);
-    x += MeasureText("2500 pontos", TAMANHO_FONTE_MAIOR/2);
-
-    x += 30;
-    DrawText("VIDAS:", x, y, TAMANHO_FONTE_MAIOR/2, WHITE);
-    x += MeasureText("VIDAS: ", TAMANHO_FONTE_MAIOR/2);
-
-    sprintf(saida_vidas, "%d", mapa->jogador.vidas);
-    DrawText(saida_vidas, x, y, TAMANHO_FONTE_MAIOR/2, BLUE);
-
-    x += QUADRADO_LARGURA;
-    DrawText("CHAVE:", x, y, TAMANHO_FONTE_MAIOR/2, WHITE);
-    x += MeasureText("CHAVE: ", TAMANHO_FONTE_MAIOR/2);
-
-    sprintf(saida_chave, "%d", mapa->chave);
-    DrawText(saida_chave, x, y, TAMANHO_FONTE_MAIOR/2, BLUE);
-
-
-}
-
-
 void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
-    // desenha o score, as vidas e chave encontrada
-    desenha_hud(mapa);
 
     int i, j;
-
     for(i = 0; i < mapa->dimencao.linha; i++){
         for(j = 0; j < mapa->dimencao.coluna; j++){
                 //Parede
                 if(mapa->mapa[i][j] == 'X')
-                    if(i==0)
-                    DrawTexture(imagens[9], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
-                    else
                     DrawTexture(imagens[0], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 if((mapa->mapa[i][j] == 'P') && (mapa->chave == 0))
                     DrawTexture(imagens[9], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
