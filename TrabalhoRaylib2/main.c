@@ -5,20 +5,27 @@
 #include "gravidade.h"
 #include "controle.h"
 #include <limits.h>
+#include <stdlib.h>
 #include <time.h>
 #define IMAGENS 10
-#define TAM 50
+
+
 
 int main() {
-    int n =0;
-    int i=0;
+    int n = 0;
+    int i= 0;
     int morte = 0;
     int framecount = 0;
     int vida_atual;
-    char nomes[IMAGENS][TAM] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png", "imagens/jogador_bau.png", "imagens/bau.png","imagens/escada.png", "imagens/porta_normal.png", "imagens/porta_fase.png", "imagens/parede_fundo.png" };
+    char nomes[IMAGENS][50] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png",
+    "imagens/jogador_bau.png", "imagens/bau.png","imagens/escada.png", "imagens/porta_normal.png", "imagens/porta_fase.png",
+    "imagens/parede_fundo.png" };
 
     srand(time(NULL));
-    Mapa mapa;
+    printf("TESTES");
+    Mapa mapa = mapa_seleciona_fase(1);//numero da fase como parametro
+    printf("TESTES");
+
     mapa_carrega(&mapa);
 
     InitWindow(LARGURA, ALTURA, "Jogo");
