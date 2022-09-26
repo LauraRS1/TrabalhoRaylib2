@@ -20,7 +20,6 @@ typedef struct{
     Bau baus[50];//Baus do mapa
     Jogador jogador;//Jogador
     char deletado;// Caracter que o jogador deleta ao se mover
-    int nivel; //nivel do mapa
 }Mapa;
 
 
