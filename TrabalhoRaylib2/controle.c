@@ -75,27 +75,33 @@ void controle_abre_bau(Mapa *mapa){
                     case '!':
                         printf("\n=+50A=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 50);
+                        jog_guarda_item(&(mapa->jogador), '!');
                         break;
 
                     case '@':
                         printf("\n=+100=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 100);
+                        jog_guarda_item(&(mapa->jogador), '@');
                         break;
 
                     case '#':
                         printf("\n=+150=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 150);
+                        jog_guarda_item(&(mapa->jogador), '#');
                         break;
 
                     case '$':
                         printf("\n=+200=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 200);
+                        jog_guarda_item(&(mapa->jogador), '$');
                         break;
 
                     case '%':
                         printf("\n=+300=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 300);
+                        jog_guarda_item(&(mapa->jogador), '%');
                         break;
+
                     case 'P':
                         printf("\n=CHAVE=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 1000);

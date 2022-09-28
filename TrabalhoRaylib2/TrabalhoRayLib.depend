@@ -341,7 +341,7 @@
 	"bau.h"
 	"telas.h"
 
-1664379648 c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\jogador.h
+1664381679 c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\jogador.h
 	"coordenadas.h"
 
 1664379648 c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\bau.h
@@ -360,7 +360,7 @@
 	"stdio.h"
 	"jogador.h"
 
-1664379648 source:c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\jogador.c
+1664381699 source:c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\jogador.c
 	"jogador.h"
 	"coordenadas.h"
 	<string.h>
@@ -395,7 +395,7 @@
 	"desenha.h"
 	"bau.h"
 
-1664380037 source:c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\controle.c
+1664381797 source:c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\controle.c
 	<stdio.h>
 	"jogador.h"
 	"coordenadas.h"

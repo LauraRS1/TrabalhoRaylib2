@@ -14,9 +14,33 @@ int jog_diminui_vida(Jogador *jogador){
         return 1;
     }else{
         jogador->vidas = MORTE;
+
         return MORTE;
     }
+}
 
+void jog_guarda_item(Jogador *j, char item) {
+    switch(item) {
+        case '!':
+            (j->itens[0])++;
+            break;
+
+        case '@':
+            (j->itens[1])++;
+            break;
+
+        case '#':
+            (j->itens[2])++;
+            break;
+
+        case '$':
+            (j->itens[3])++;
+            break;
+
+        case '%':
+            (j->itens[4])++;
+            break;
+    }
 }
 
 void jog_aumenta_pontuacao(Jogador *jogador, int pontos){
