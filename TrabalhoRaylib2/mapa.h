@@ -29,7 +29,7 @@ void mapa_movimenta(Mapa *mapa, char direcao);
 void mapa_localiza_jogador(Mapa *mapa);
 void mapa_busca_porta(Mapa mapa, char porta, Localizacao *local_porta);
 void mapa_imprime(Mapa mapa);
-void chama_mensagem_bau();
+//void chama_mensagem_bau();
 int mapa_bau_quantidade(Mapa *mapa);
 void mapa_bau_cria(Mapa *mapa);
 Localizacao mapa_set_dimencao(char mapa[MAPA_L][MAPA_C]);

@@ -70,6 +70,12 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="mapa.h" />
+		<Unit filename="salva_estado_jogo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="salva_estado_jogo.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="telas.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

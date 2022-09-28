@@ -324,3 +324,93 @@
 
 1664323874 c:\users\nicol\onedrive\Área de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\camera.h
 
+1664379648 source:c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\camera.c
+	"coordenadas.h"
+	"raylib.h"
+	"desenha.h"
+
+1664379648 c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\coordenadas.h
+
+1664380472 c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\desenha.h
+	"raylib.h"
+	"mapa.h"
+
+1664380356 c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\mapa.h
+	"jogador.h"
+	"coordenadas.h"
+	"bau.h"
+	"telas.h"
+
+1664379648 c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\jogador.h
+	"coordenadas.h"
+
+1664379648 c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\bau.h
+	"coordenadas.h"
+
+1664379648 c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\telas.h
+
+1664379648 source:c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\coordenadas.c
+	"coordenadas.h"
+
+1664380287 source:c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\desenha.c
+	"desenha.h"
+
+1664379648 source:c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\gravidade.c
+	"mapa.h"
+	"stdio.h"
+	"jogador.h"
+
+1664379648 source:c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\jogador.c
+	"jogador.h"
+	"coordenadas.h"
+	<string.h>
+	<stdio.h>
+
+1664379648 source:c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\main.c
+	<stdio.h>
+	"raylib.h"
+	"mapa.h"
+	"desenha.h"
+	"gravidade.h"
+	"controle.h"
+	"camera.h"
+	<limits.h>
+	<stdlib.h>
+	<time.h>
+
+1664379648 c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\gravidade.h
+
+1664379648 c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\controle.h
+	"telas.h"
+
+1664379648 c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\camera.h
+
+1664379648 source:c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\mapa.c
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	"jogador.h"
+	"raylib.h"
+	"mapa.h"
+	"desenha.h"
+	"bau.h"
+
+1664380037 source:c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\controle.c
+	<stdio.h>
+	"jogador.h"
+	"coordenadas.h"
+	"mapa.h"
+	"telas.h"
+	"raylib.h"
+
+1664379905 source:c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\salva_estado_jogo.c
+	"salva_estado_jogo.h"
+	"mapa.h"
+	"coordenadas.h"
+	"jogador.h"
+	"bau.h"
+	<stdio.h>
+
+1664379880 c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\salva_estado_jogo.h
+	"mapa.h"
+

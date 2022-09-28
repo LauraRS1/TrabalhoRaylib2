@@ -27,6 +27,8 @@ void controle_menu(int *n, GameScreen *tela, Mapa *mapa){
          mapa_carrega(mapa);
         *tela = NOVO_JOGO;
     } else if((*n) == 1 && IsKeyDown(KEY_ENTER)) {
+        arq_recupera_jogo(mapa);
+        *tela = GAMEPLAY;
 
     } else if((*n) == 2 && IsKeyDown(KEY_ENTER)) {
 
@@ -52,6 +54,12 @@ void controle_gameplay(Mapa *mapa, GameScreen *tela){
     }
     if(IsKeyPressed(KEY_RIGHT)){
         mapa_movimenta(mapa, 'd');
+    }
+
+    //controle estado jogo
+    if(IsKeyPressed(KEY_S)) { // s para salvar estado
+        desenha_msg_checkpoint();
+        arq_salva_jogo(*mapa);
     }
 
 }
