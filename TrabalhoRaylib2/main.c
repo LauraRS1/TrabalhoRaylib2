@@ -4,6 +4,7 @@
 #include "desenha.h"
 #include "gravidade.h"
 #include "controle.h"
+#include "camera.h"
 #include <limits.h>
 #include <stdlib.h>
 #include <time.h>
@@ -17,6 +18,9 @@ int main() {
     int morte = 0;
     int framecount = 0;
     int vida_atual;
+    Camera2D camera = {0};
+    camera.zoom = 1.5;
+
     char nomes[IMAGENS][TAM] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png",
     "imagens/jogador_bau.png", "imagens/bau.png","imagens/escada.png", "imagens/porta_normal.png", "imagens/porta_fase.png",
     "imagens/parede_fundo.png" };
@@ -45,7 +49,10 @@ int main() {
 
     //Rodar enquanto nao aperta ESC
     while (!WindowShouldClose()) {
+        if(currentScreen == GAMEPLAY){
 
+
+        }
         //Comeca a desenhar a tela
         BeginDrawing();
         // Tela preta
@@ -77,14 +84,19 @@ int main() {
                 break;
 
             case GAMEPLAY:
+                camera_atualiza(&camera, mapa.jogador.localizacao);
+                BeginMode2D(camera);
 
-                desenha_nivel(&mapa, imagens);
 
-                controle_gameplay_loop(&mapa, &morte, &framecount, &vida_atual, &currentScreen);
-                if(framecount%10 == 0)
-                    gravidade(&mapa);
-                /*if(framecount%240 == 0)
-                    jog_print_info(mapa.jogador);*/
+                    controle_gameplay_loop(&mapa, &morte, &framecount, &vida_atual, &currentScreen);
+                    if(framecount%10 == 0)
+                        gravidade(&mapa);
+                    desenha_nivel(&mapa, imagens);
+                    //desenha_nivel(&mapa, imagens);
+                    /*if(framecount%240 == 0)
+                        jog_print_info(mapa.jogador);*/
+                EndMode2D();
+                //desenha_nivel(&mapa, imagens);
                 break;
 
             case PROXIMO:

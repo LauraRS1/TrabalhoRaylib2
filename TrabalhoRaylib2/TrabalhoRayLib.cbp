@@ -35,6 +35,10 @@
 		<Unit filename="TrabalhoRayLib.depend" />
 		<Unit filename="TrabalhoRayLib.layout" />
 		<Unit filename="bau.h" />
+		<Unit filename="camera.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="camera.h" />
 		<Unit filename="capa.png" />
 		<Unit filename="controle.c">
 			<Option compilerVar="CC" />
@@ -48,6 +52,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="desenha.h" />
+		<Unit filename="fase1.txt" />
+		<Unit filename="fase2.txt" />
+		<Unit filename="fase3.txt" />
 		<Unit filename="gravidade.c">
 			<Option compilerVar="CC" />
 		</Unit>
