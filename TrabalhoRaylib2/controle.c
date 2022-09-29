@@ -56,6 +56,10 @@ void controle_gameplay(Mapa *mapa, GameScreen *tela){
         mapa_movimenta(mapa, 'd');
     }
 
+    if(IsKeyPressed(KEY_ESCAPE)){
+        *tela = MENU;
+    }
+
     //controle estado jogo
     if(IsKeyPressed(KEY_S)) { // s para salvar estado
         desenha_msg_checkpoint();

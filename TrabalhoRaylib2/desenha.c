@@ -138,7 +138,7 @@ void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
                 if(mapa->mapa[i][j] == 'H')
                     DrawTexture(imagens[6], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Porta normal
-                if((mapa->mapa[i][j] == '1') || (mapa->mapa[i][j] == '2'))
+                if((mapa->mapa[i][j] > '0') && (mapa->mapa[i][j] <= '9'))
                     DrawTexture(imagens[7], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Porta fase
                 if((mapa->mapa[i][j] == 'P') && (mapa->chave == 1))

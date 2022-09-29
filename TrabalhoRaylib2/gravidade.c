@@ -10,11 +10,11 @@ void gravidade(Mapa *mapa){
     char chao = mapa->mapa[mapa->jogador.localizacao.linha + 1][mapa->jogador.localizacao.coluna]; // char do conteudo abaixo do jogador
 
 
-    if((aux == ' ') || (aux == 'C') || (aux == '1') || (aux == '2')){
+    if((aux == ' ') || (aux == 'C') || ((aux > '0') && (aux  <= '9'))){
         if(aux == 'C'){
             mapa->bau = 1;
         }
-        if((aux == '1') || (aux == '2')){
+        if((aux > '0') && (aux  <='9')){
             mapa->porta = aux;
         }
         mapa->mapa[mapa->jogador.localizacao.linha + 1][mapa->jogador.localizacao.coluna] = 'D';

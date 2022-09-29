@@ -49,10 +49,7 @@ int main() {
 
     //Rodar enquanto nao aperta ESC
     while (!WindowShouldClose()) {
-        if(currentScreen == GAMEPLAY){
 
-
-        }
         //Comeca a desenhar a tela
         BeginDrawing();
         // Tela preta

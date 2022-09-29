@@ -128,9 +128,9 @@ void mapa_movimenta(Mapa *mapa, char direcao) {
                     mapa->porta = ' ';
 
                     //chama_mensagem_bau();
-                //Caso próximo lugar seja uma porta(colocar intervalo de digitos no teste posteriormente)
-                }else if((aux == '1') || (aux  == '2')){
-                    mapa->porta = mapa->mapa[x_jog][y_jog + dir_int];
+                //Caso próximo lugar seja uma porta(colocar intervalo de digitos posteriormente)
+                }else if((aux > '0') && (aux  <='9')){
+                     mapa->porta = mapa->mapa[x_jog][y_jog + dir_int];
                     mapa->bau = 0;
                     mapa->escada = 0;
                 }
@@ -151,6 +151,7 @@ void mapa_movimenta(Mapa *mapa, char direcao) {
     }
 
 }
+
 void mapa_localiza_jogador(Mapa *mapa) {
     int i, j;
     for(i = 0; i < mapa->dimencao.linha; i++){
@@ -162,6 +163,15 @@ void mapa_localiza_jogador(Mapa *mapa) {
         }
     }
 }
+
+/*
+    mapa_busca_porta
+    Retorna a quantidades de baús que um mapa possui.
+    @param mapa: um Mapa
+    @param porta: um char referentea porta que o jogador está ocupando
+    @param *local_porta: ponteiro para a Localizacao da porta
+
+*/
 void mapa_busca_porta(Mapa mapa, char porta, Localizacao *local_porta) {
     int i, j;
     for(i = 0; i < mapa.dimencao.linha; i++){
@@ -172,6 +182,13 @@ void mapa_busca_porta(Mapa mapa, char porta, Localizacao *local_porta) {
         }
     }
 }
+
+/*
+    mapa_bau_quantidade
+    Retorna a quantidades de baús que um mapa possui.
+    @param *mapa: ponteiro para um Mapa;
+
+*/
 int mapa_bau_quantidade(Mapa *mapa){
     int i, j, b;
     b = 0;
@@ -183,12 +200,15 @@ int mapa_bau_quantidade(Mapa *mapa){
     }
     return b;
 }
-void mapa_bau_cria(Mapa *mapa){
 /*
-    Função que determina a dimenção de um mapa
+    mapa_bau_cria
+    Inicializa o vetor de báus com os dados padrões
     @param *mapa: ponteiro para um Mapa;
 
 */
+
+void mapa_bau_cria(Mapa *mapa){
+
     int i, j, b;
     b = 0;
         for(i = 0; i < mapa->dimencao.linha; i++){
@@ -206,6 +226,12 @@ void mapa_bau_cria(Mapa *mapa){
 
         }
 }
+/*
+    mapa_set_dimencao
+    Retorna a Localização da última posição ocupada da matriz do mapa
+    @param mapa: Um mapa;
+*/
+
 Localizacao mapa_set_dimencao(char mapa[MAPA_L][MAPA_C]){
     int i, j;
     Localizacao dimencao;
@@ -263,20 +289,21 @@ void mapa_gera_bomba(Mapa *mapa, int fase){
         }
     }
 }
-/*
-    Função que gera o restante dos itens
+/*  mapa_gera_outros:
+    Função que gera o restante dos itens, que apenas somam pontos
     @param *mapa: Ponteiro para um Mapa
     @param fase: Número da fase
 */
 void mapa_gera_outros(Mapa *mapa, int fase){
     //Variável limite: Número de Báus do mapa - Quantidade de bombas(fase) - número de chaves(1)
     int limite = mapa->qtdBaus - fase - 1;
-    int rand, rand2;
-    char itens[5] = {'!','@','#','$','%'};
+    int rand, rand2;//Váriaveis para guardar números aleatórios
+    char itens[5] = {'!','@','#','$','%'}; //Vetor com os tipos de bens
+
      while(limite > 0){
-        rand = GetRandomValue(0, mapa->qtdBaus - 1);
-        rand2 = GetRandomValue(0, 4);
-        //Atribui o item ao baú caso ele sem itens;
+        rand = GetRandomValue(0, mapa->qtdBaus - 1);//Gera um número aleatório entre 0, número referente da primeira posição e o número referente a última posição do vetor de Baús
+        rand2 = GetRandomValue(0, 4);//
+        //Atribui o item ao baú caso ele esteja sem itens;
         if(mapa->baus[rand].item == ' '){
             mapa->baus[rand].item = itens[rand2];
             limite--;
@@ -284,11 +311,23 @@ void mapa_gera_outros(Mapa *mapa, int fase){
     }
 
 }
+/*  mapa_bau_gera_itens(Mapa *mapa):
+    Função que chama as funções que geram os itens dos baús dado o endereço de um mapa
+    @param *mapa: Ponteiro para um Mapa
+
+*/
 void mapa_bau_gera_itens(Mapa *mapa){
     mapa_gera_chave(mapa);
     mapa_gera_bomba(mapa, mapa->nivel);
     mapa_gera_outros(mapa, mapa->nivel);
 }
+
+/*  mapa_seleciona_fase:
+    Retorna um Mapa com um mapa atribuido através de um arquivo texto referente a fase da partida
+    @param num: interio referente a fase da partida
+    @param *tela: ponteiro para a variavél do tipo GameScreen
+
+*/
 
 Mapa mapa_seleciona_fase(int num, GameScreen *tela){
     Mapa mapa;
@@ -297,7 +336,7 @@ Mapa mapa_seleciona_fase(int num, GameScreen *tela){
     mapa.nivel = num;
     int i = 0;
     sprintf(nome_fase, "fase%d.txt", num);
-    printf("%s\n", nome_fase);
+    //printf("%s\n", nome_fase);
     FILE *arquivo;
     if((arquivo = fopen(nome_fase, "r"))){
         while(fgets(linha, MAPA_C, arquivo) != NULL){
@@ -308,13 +347,20 @@ Mapa mapa_seleciona_fase(int num, GameScreen *tela){
             i++;
         }
     fclose(arquivo);
+    //Se não tiver arquivos para ler, pula para tela de encerramento
     }else{
         *tela = ENDING;
     }
 
     return mapa;
 }
+/*
+    mapa_carrega_proxima_fase_e_jogador:
+    Dado um ponteiro para um mapa e um jogador, inicia as variáveis restantes do mapa e atribui asinformações do jogador dado.
+    @param *mapa: ponteiro para um mapa
+    @param jogador: ponteiro para a variavél do tipo GameScreen
 
+*/
 void mapa_carrega_proxima_fase_e_jogador(Mapa *mapa, Jogador jogador) {
     mapa->dimencao = mapa_set_dimencao(mapa->mapa);
     printf("\nDIEMNCAO: %d %d", mapa->dimencao.linha, mapa->dimencao.coluna);
