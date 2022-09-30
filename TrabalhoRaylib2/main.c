@@ -27,7 +27,7 @@ int main() {
 
     srand(time(NULL));
     printf("TESTES");
-    Mapa mapa; //mapa = mapa_seleciona_fase(1);; //npumero da fase como parametro
+    Mapa mapa; //mapa = mapa_seleciona_fase(1);; //numero da fase como parametro
     printf("TESTES");
 
     //mapa_carrega(&mapa);
@@ -74,17 +74,17 @@ int main() {
 
             case MENU:
                 //Desenhando a capa e o menu
-                DrawTexture(capa, 0, 20, BLUE);
+                DrawTexture(capa, MEIO-400, 20, BLUE);
                 desenha_menu(n);
                 //controles do menu
                 controle_menu(&n, &currentScreen, &mapa);
                 break;
 
             case GAMEPLAY:
+                // coloca na tela o score, vidas, fase e chave
+                desenha_hud(&mapa);
                 camera_atualiza(&camera, mapa.jogador.localizacao);
                 BeginMode2D(camera);
-
-
                     controle_gameplay_loop(&mapa, &morte, &framecount, &vida_atual, &currentScreen);
                     if(framecount%10 == 0)
                         gravidade(&mapa);

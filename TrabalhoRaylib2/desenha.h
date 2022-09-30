@@ -6,13 +6,13 @@
 #define TAMANHO_FONTE 20
 #define TAMANHO_FONTE_MAIOR 60
 #define TAMANHO_TEXTO 20
-#define MEIO 400
+#define MEIO 620
 #define ESPACO 160
 #define ALTURA 720
 #define LARGURA 1280
 #define QUADRADO_ALTURA 66
 #define QUADRADO_LARGURA 80
-#define TAMANHO_HUD 25
+#define TAMANHO_HUD 50
 #define TAMANHO_CHECKPOINT 15
 #define BASE_X 0
 #define BASE_Y 0

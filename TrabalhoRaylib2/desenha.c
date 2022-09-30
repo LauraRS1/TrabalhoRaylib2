@@ -106,7 +106,7 @@ void desenha_hud(Mapa *mapa) {
 
 void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
     // coloca na tela o score, vidas, fase e chave
-    desenha_hud(mapa);
+    //desenha_hud(mapa); teste de chamar na funcao principal
 
     int i, j;
     for(i = 0; i < mapa->dimencao.linha; i++){
@@ -138,7 +138,7 @@ void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
                 if(mapa->mapa[i][j] == 'H')
                     DrawTexture(imagens[6], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Porta normal
-                if((mapa->mapa[i][j] > '0') && (mapa->mapa[i][j] <= '9'))
+                if((mapa->mapa[i][j] == '1') || (mapa->mapa[i][j] == '2') || (mapa->mapa[i][j] == '3') || (mapa->mapa[i][j] == '4'))
                     DrawTexture(imagens[7], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Porta fase
                 if((mapa->mapa[i][j] == 'P') && (mapa->chave == 1))
