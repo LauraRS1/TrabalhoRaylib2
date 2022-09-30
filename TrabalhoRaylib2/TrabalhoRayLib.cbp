@@ -39,7 +39,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="camera.h" />
-		<Unit filename="capa.png" />
 		<Unit filename="controle.c">
 			<Option compilerVar="CC" />
 		</Unit>

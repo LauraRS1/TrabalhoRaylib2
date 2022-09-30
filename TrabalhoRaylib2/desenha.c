@@ -6,11 +6,11 @@ void desenha_load(){
 }
 
 void desenha_gameover(){
-    DrawText("GAME OVER", (LARGURA-MeasureText("Carregando...",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
+    DrawText("GAME OVER", (LARGURA-MeasureText("GAME OVER",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
 
 }
 void desenha_fim(){
-    DrawText("FIM", (LARGURA-MeasureText("Carregando...",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
+    DrawText("FIM", (LARGURA-MeasureText("FIM",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
 
 }
 
