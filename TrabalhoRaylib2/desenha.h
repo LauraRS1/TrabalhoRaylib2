@@ -8,7 +8,7 @@
 #define TAMANHO_TEXTO 20
 #define MEIO 620
 #define ESPACO 160
-#define ALTURA 720
+#define ALTURA 660
 #define LARGURA 1280
 #define QUADRADO_ALTURA 66
 #define QUADRADO_LARGURA 80
