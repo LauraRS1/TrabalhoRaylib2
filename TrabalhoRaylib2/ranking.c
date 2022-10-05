@@ -44,7 +44,7 @@ void salva_ranking(Ranking vetor[TAM_NOME], int ocupadas){
 }
 
 //recupera o arquivo txt e coloca no vetor
-void recupera_ranking(Ranking vetor[], int *ocupadas){
+void recupera_ranking(Ranking vetor[], int *ocupadas, int *ultima_pos){
     int i;
     int pontuacao;
     char nome[TAM_NOME];
@@ -58,6 +58,7 @@ void recupera_ranking(Ranking vetor[], int *ocupadas){
             fscanf(arquivo, "%s %d",&nome, &pontuacao);
             vetor[i]= inicia_ranking(nome, pontuacao);
     }
+    *ultima_pos= pontuacao;
 
     }else {
         printf("ERRO AO ABRIR O ARQUIVO;");

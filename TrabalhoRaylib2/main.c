@@ -24,13 +24,13 @@ int main() {
     Camera2D camera = {0};
     camera.zoom = 1.5;
 
-    int ultimo_lugar=-1;
+    int ultimo_lugar=0;
     int pontuacao_nova=0;
-    Ranking vetor[TAM_VETOR]={0}, vetor_novo[TAM_VETOR]={0};
+    Ranking vetor[TAM_VETOR]={0}, vetor_novo[1]={0};
     int posicoes_ocupadas=0, ocupadas_novo=0;
     char nome_ranking[TAM];
 
-    recupera_ranking(vetor, &posicoes_ocupadas);
+    recupera_ranking(vetor, &posicoes_ocupadas, &ultimo_lugar);
     imprime_ranking(vetor, posicoes_ocupadas);
 
     char nomes[IMAGENS][TAM] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png",
@@ -118,29 +118,35 @@ int main() {
 
             case GAMEOVER:
                 desenha_gameover(imagens, pontuacao_nova, ultimo_lugar, nome_ranking);
-                if(framecount%30 == 0)
+                if(framecount%60 == 0)
                     if(pontuacao_nova>ultimo_lugar){
-                    printf("Digite o seu nome para o Ranking:");
-                    fflush(stdin);
-                    scanf(" %s", nome_ranking);
-
-                    currentScreen=MENU;
-                    }
-                break;
-            case ENDING:
-                desenha_fim(imagens, pontuacao_nova, ultimo_lugar, nome_ranking);
-                if(framecount%30 == 0)
-                    if(pontuacao_nova>ultimo_lugar){
-                    printf("Digite o seu nome para o Ranking:");
+                    printf("\nDigite o seu nome para o Ranking:\n");
                     fflush(stdin);
                     scanf(" %s", nome_ranking);
 
                     vetor_novo[0]=inicia_ranking(nome_ranking, pontuacao_nova);
                     nova_entrada(vetor, &posicoes_ocupadas, vetor_novo, ocupadas_novo);
                     salva_ranking(vetor, posicoes_ocupadas);
+                    currentScreen=MENU;
                     }
 
+
+
+                   break;
+            case ENDING:
+                desenha_fim(imagens, pontuacao_nova, ultimo_lugar, nome_ranking);
+                if(framecount%60 == 0)
+                    if(pontuacao_nova>ultimo_lugar){
+                    printf("\nDigite o seu nome para o Ranking:\n");
+                    fflush(stdin);
+                    scanf(" %s", nome_ranking);
+
+                    vetor_novo[0]=inicia_ranking(nome_ranking, pontuacao_nova);
+                    nova_entrada(vetor, &posicoes_ocupadas, vetor_novo, ocupadas_novo);
+                    salva_ranking(vetor, posicoes_ocupadas);
                     currentScreen=MENU;
+                    }
+
 
                 //desenha o ranking
                 //desenha_ranking(imagens);

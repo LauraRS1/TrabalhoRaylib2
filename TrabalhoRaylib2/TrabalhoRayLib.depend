@@ -61,7 +61,7 @@
 	<string.h>
 	<stdio.h>
 
-1665007168 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\main.c
+1665010343 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\main.c
 	<stdio.h>
 	"raylib.h"
 	<string.h>
@@ -90,7 +90,7 @@
 
 1661798924 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\desenha_menu.h
 
-1664529897 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\gravidade.c
+1665009397 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\gravidade.c
 	"mapa.h"
 	"stdio.h"
 	"jogador.h"
@@ -541,10 +541,10 @@
 	"ranking.h"
 	"salva_estado_jogo.h"
 
-1665006989 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\ranking.h
+1665009672 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\ranking.h
 	"jogador.h"
 
-1665007323 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\ranking.c
+1665009721 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\ranking.c
 	"ranking.h"
 	"jogador.h"
 	<stdio.h>

@@ -14,7 +14,7 @@ Ranking inicia_ranking(char nome[], int pontuacao);
 
 void salva_ranking(Ranking vetor[TAM_NOME], int ocupadas);
 
-void recupera_ranking(Ranking vetor[], int *ocupadas);
+void recupera_ranking(Ranking vetor[], int *ocupadas, int *ultima_pos);
 
 void imprime_ranking(Ranking vetor[], int ocupadas);
 

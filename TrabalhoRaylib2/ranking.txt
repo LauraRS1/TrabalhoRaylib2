@@ -1,1 +1,5 @@
-Laura 3600
+5Roma 1650
+Laura 1600
+Jorge 1250
+Galadriel 750
+Carlos 46
