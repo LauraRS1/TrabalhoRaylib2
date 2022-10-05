@@ -108,6 +108,7 @@ int main() {
 
             case GAMEOVER:
                 desenha_gameover(imagens, pontuacao_nova, ultimo_lugar, nome_ranking);
+                if(framecount%180 == 0)
                 if(pontuacao_nova>ultimo_lugar){
                     printf("Digite o seu nome para o Ranking:");
                     fflush(stdin);

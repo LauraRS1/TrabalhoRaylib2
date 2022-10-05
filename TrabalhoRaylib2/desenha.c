@@ -9,9 +9,6 @@ void desenha_load(){
 void desenha_gameover(Texture2D imagens[], int pontuacao, int ultimo_lugar, char nome_ranking[]){
     DrawText("GAME OVER", (LARGURA-MeasureText("GAME OVER",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
 
-    printf("PONTUACAO NOVA: %d\n", pontuacao);
-    printf("PONTUACAO ULTIMO LUGAR: %d\n", ultimo_lugar);
-
     int i, j;
     int i_vezes=10, j_vezes=20;
     for(i = 0; i < i_vezes; i++)
@@ -29,9 +26,6 @@ void desenha_gameover(Texture2D imagens[], int pontuacao, int ultimo_lugar, char
 }
 void desenha_fim(Texture2D imagens[], int pontuacao, int ultimo_lugar, char nome_ranking[]){
     DrawText("FIM", (LARGURA-MeasureText("FIM!",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
-
-    printf("PONTUACAO NOVA: %d\n", pontuacao);
-    printf("PONTUACAO ULTIMO LUGAR: %d\n", ultimo_lugar);
 
     int i, j;
     int i_vezes=10, j_vezes=20;
