@@ -95,6 +95,10 @@ int main() {
                 controle_menu(&n, &currentScreen, &mapa);
                 break;
 
+            case RANKING:
+                desenha_ranking(vetor);
+                break;
+
             case GAMEPLAY:
                 camera_atualiza(&camera, mapa.jogador.localizacao);
                 BeginMode2D(camera);
@@ -127,11 +131,8 @@ int main() {
                     vetor_novo[0]=inicia_ranking(nome_ranking, pontuacao_nova);
                     nova_entrada(vetor, &posicoes_ocupadas, vetor_novo, ocupadas_novo);
                     salva_ranking(vetor, posicoes_ocupadas);
-                    currentScreen=MENU;
+                    currentScreen=RANKING;
                     }
-
-
-
                    break;
             case ENDING:
                 desenha_fim(imagens, pontuacao_nova, ultimo_lugar, nome_ranking);
@@ -144,13 +145,8 @@ int main() {
                     vetor_novo[0]=inicia_ranking(nome_ranking, pontuacao_nova);
                     nova_entrada(vetor, &posicoes_ocupadas, vetor_novo, ocupadas_novo);
                     salva_ranking(vetor, posicoes_ocupadas);
-                    currentScreen=MENU;
+                    currentScreen=RANKING;
                     }
-
-
-                //desenha o ranking
-                //desenha_ranking(imagens);
-
                 break;
 
         }

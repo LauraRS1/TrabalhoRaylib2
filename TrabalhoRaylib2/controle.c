@@ -33,7 +33,7 @@ void controle_menu(int *n, GameScreen *tela, Mapa *mapa){
         *tela = GAMEPLAY;
 
     } else if((*n) == 2 && IsKeyDown(KEY_ENTER)) {
-
+        *tela = RANKING;
     } else if((*n) == 3 && IsKeyDown(KEY_ENTER)) {
         exit(0); //encerra o programa
     }
@@ -131,7 +131,7 @@ void controle_abre_bau(Mapa *mapa){
 }
 
 void controle_ranking(Mapa *mapa) {
-    printf("\ncontrole_ranking\n");
+printf("\ncontrole_ranking\n");
 
 }
 

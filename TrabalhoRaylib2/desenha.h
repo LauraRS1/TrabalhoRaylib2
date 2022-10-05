@@ -2,6 +2,7 @@
 #define DESENHA_MENU_H_INCLUDED
 #include "raylib.h"
 #include "mapa.h"
+#include "ranking.h"
 #define OPCOES 4
 #define TAMANHO_FONTE 20
 #define TAMANHO_FONTE_MAIOR 60
@@ -26,4 +27,5 @@ void desenha_gameover(Texture2D imagens[], int pontuacao, int ultimo_lugar, char
 void desenha_fim(Texture2D imagens[], int pontuacao, int ultimo_lugar, char nome_ranking[]);
 void desenha_msg_checkpoint();
 void desenha_msg_sair();
+void desenha_ranking(Ranking vetor[]);
 #endif // DESENHA_MENU_H_INCLUDED

@@ -1,6 +1,16 @@
 #include "desenha.h"
 #include <string.h>
 
+
+
+
+void desenha_ranking(Ranking vetor[]){
+
+    DrawText("Ranking", MEIO - MeasureText("Ranking", TAMANHO_FONTE_MAIOR)/2, ESPACO, TAMANHO_FONTE_MAIOR, BLUE);
+
+
+}
+
 void desenha_load(){
     DrawText("Carregando...", (LARGURA-MeasureText("Carregando...",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
 
