@@ -31,6 +31,7 @@ int main() {
     char nome_ranking[TAM];
 
     recupera_ranking(vetor, &posicoes_ocupadas);
+    imprime_ranking(vetor, posicoes_ocupadas);
 
     char nomes[IMAGENS][TAM] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png",
     "imagens/jogador_bau.png", "imagens/bau.png","imagens/escada.png", "imagens/porta_normal.png", "imagens/porta_fase.png",
@@ -58,7 +59,6 @@ int main() {
     }
 
     vida_atual = 3;
-
 
 
     //Rodar enquanto nao aperta ESC
@@ -123,6 +123,7 @@ int main() {
                     printf("Digite o seu nome para o Ranking:");
                     fflush(stdin);
                     scanf(" %s", nome_ranking);
+
                     currentScreen=MENU;
                     }
                 break;
@@ -133,8 +134,13 @@ int main() {
                     printf("Digite o seu nome para o Ranking:");
                     fflush(stdin);
                     scanf(" %s", nome_ranking);
-                    currentScreen=MENU;
+
+                    vetor_novo[0]=inicia_ranking(nome_ranking, pontuacao_nova);
+                    nova_entrada(vetor, &posicoes_ocupadas, vetor_novo, ocupadas_novo);
+                    salva_ranking(vetor, posicoes_ocupadas);
                     }
+
+                    currentScreen=MENU;
 
                 //desenha o ranking
                 //desenha_ranking(imagens);

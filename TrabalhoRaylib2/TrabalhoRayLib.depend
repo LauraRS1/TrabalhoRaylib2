@@ -544,9 +544,11 @@
 1665006989 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\ranking.h
 	"jogador.h"
 
-1665003256 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\ranking.c
+1665007323 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\ranking.c
 	"ranking.h"
 	"jogador.h"
+	<stdio.h>
+	<stdlib.h>
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
