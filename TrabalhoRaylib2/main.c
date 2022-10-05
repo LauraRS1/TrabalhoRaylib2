@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "raylib.h"
+#include <string.h>
 #include "mapa.h"
 #include "desenha.h"
 #include "gravidade.h"
@@ -8,7 +9,7 @@
 #include <limits.h>
 #include <stdlib.h>
 #include <time.h>
-#define IMAGENS 10
+#define IMAGENS 12
 #define TAM 50
 
 
@@ -20,10 +21,14 @@ int main() {
     int vida_atual;
     Camera2D camera = {0};
     camera.zoom = 1.5;
+    int ultimo_lugar=-65;
+    int pontuacao_nova=0;
+
+    char nome_ranking[TAM];
 
     char nomes[IMAGENS][TAM] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png",
     "imagens/jogador_bau.png", "imagens/bau.png","imagens/escada.png", "imagens/porta_normal.png", "imagens/porta_fase.png",
-    "imagens/parede_fundo.png" };
+    "imagens/parede_fundo.png","imagens/jogador_saida.png","imagens/jogador_transparente.png"};
 
     srand(time(NULL));
     printf("TESTES");
@@ -81,8 +86,6 @@ int main() {
                 break;
 
             case GAMEPLAY:
-                // coloca na tela o score, vidas, fase e chave
-                desenha_hud(&mapa);
                 camera_atualiza(&camera, mapa.jogador.localizacao);
                 BeginMode2D(camera);
                     controle_gameplay_loop(&mapa, &morte, &framecount, &vida_atual, &currentScreen);
@@ -94,6 +97,7 @@ int main() {
                         jog_print_info(mapa.jogador);*/
                 EndMode2D();
                 //desenha_nivel(&mapa, imagens);
+                pontuacao_nova=mapa.jogador.pontuacao;
                 break;
 
             case PROXIMO:
@@ -103,10 +107,20 @@ int main() {
                 break;
 
             case GAMEOVER:
-                desenha_gameover();
+                desenha_gameover(imagens, pontuacao_nova, ultimo_lugar, nome_ranking);
+                if(pontuacao_nova>ultimo_lugar){
+                    printf("Digite o seu nome para o Ranking:");
+                    fflush(stdin);
+                    scanf(" %s", nome_ranking);
+                    currentScreen=MENU;
+                    }
                 break;
             case ENDING:
-                desenha_fim();
+                desenha_fim(imagens, pontuacao_nova, ultimo_lugar, nome_ranking);
+
+                //desenha o ranking
+                //desenha_ranking(imagens);
+
                 break;
 
         }

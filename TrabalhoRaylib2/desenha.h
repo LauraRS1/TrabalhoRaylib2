@@ -12,7 +12,7 @@
 #define LARGURA 1280
 #define QUADRADO_ALTURA 66
 #define QUADRADO_LARGURA 80
-#define TAMANHO_HUD 50
+#define TAMANHO_HUD 20
 #define TAMANHO_CHECKPOINT 15
 #define BASE_X 0
 #define BASE_Y 0
@@ -22,8 +22,8 @@ void desenha_nivel(Mapa *mapa, Texture2D imagens[]);
 void desenha_proximo();
 void desenha_load();
 void desenha_hud(Mapa *mapa);
-void desenha_gameover();
-void desenha_fim();
+void desenha_gameover(Texture2D imagens[], int pontuacao, int ultimo_lugar, char nome_ranking[]);
+void desenha_fim(Texture2D imagens[], int pontuacao, int ultimo_lugar, char nome_ranking[]);
 void desenha_msg_checkpoint();
 void desenha_msg_sair();
 #endif // DESENHA_MENU_H_INCLUDED
