@@ -122,31 +122,37 @@ int main() {
 
             case GAMEOVER:
                 desenha_gameover(imagens, pontuacao_nova, ultimo_lugar, nome_ranking);
-                if(framecount%60 == 0)
+                if(framecount%180 == 0){
                     if(pontuacao_nova>ultimo_lugar){
-                    printf("\nDigite o seu nome para o Ranking:\n");
-                    fflush(stdin);
-                    scanf(" %s", nome_ranking);
+                        printf("\nDigite o seu nome para o Ranking:\n");
+                        fflush(stdin);
+                        scanf(" %s", nome_ranking);
 
-                    vetor_novo[0]=inicia_ranking(nome_ranking, pontuacao_nova);
-                    nova_entrada(vetor, &posicoes_ocupadas, vetor_novo, ocupadas_novo);
-                    salva_ranking(vetor, posicoes_ocupadas);
-                    currentScreen=RANKING;
+                        vetor_novo[0]=inicia_ranking(nome_ranking, pontuacao_nova);
+                        nova_entrada(vetor, &posicoes_ocupadas, vetor_novo, ocupadas_novo);
+                        salva_ranking(vetor, posicoes_ocupadas);
+                        currentScreen=RANKING;
                     }
+                    currentScreen=MENU;
+                }
                    break;
             case ENDING:
                 desenha_fim(imagens, pontuacao_nova, ultimo_lugar, nome_ranking);
-                if(framecount%60 == 0)
+                if(framecount%60 == 0){
                     if(pontuacao_nova>ultimo_lugar){
-                    printf("\nDigite o seu nome para o Ranking:\n");
-                    fflush(stdin);
-                    scanf(" %s", nome_ranking);
+                        printf("\nDigite o seu nome para o Ranking:\n");
+                        fflush(stdin);
+                        scanf(" %s", nome_ranking);
 
-                    vetor_novo[0]=inicia_ranking(nome_ranking, pontuacao_nova);
-                    nova_entrada(vetor, &posicoes_ocupadas, vetor_novo, ocupadas_novo);
-                    salva_ranking(vetor, posicoes_ocupadas);
-                    currentScreen=RANKING;
+                        vetor_novo[0]=inicia_ranking(nome_ranking, pontuacao_nova);
+                        nova_entrada(vetor, &posicoes_ocupadas, vetor_novo, ocupadas_novo);
+                        salva_ranking(vetor, posicoes_ocupadas);
+                        currentScreen=RANKING;
                     }
+                    currentScreen=MENU;
+                }
+
+
                 break;
 
         }
