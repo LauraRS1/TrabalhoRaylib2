@@ -1,12 +1,26 @@
 #include "desenha.h"
 #include <string.h>
+#define ESP 50
+#define TAM_VETOR 5
 
 
 
 
 void desenha_ranking(Ranking vetor[]){
+    char numeros[TAM_VETOR][TAM_NOME]={0};
+    char posicoes[TAM_VETOR][TAM_NOME]={0};
 
-    DrawText("Ranking", MEIO - MeasureText("Ranking", TAMANHO_FONTE_MAIOR)/2, ESPACO, TAMANHO_FONTE_MAIOR, BLUE);
+    for(int i=0; i<TAM_VETOR; i++)
+        itoa(vetor[i].pontuacao, numeros[i], 10);
+
+    for(int i=0; i<TAM_VETOR; i++)
+        sprintf(posicoes[i], "%d Lugar: %s %s", i+1, vetor[i].nome, numeros[i]);
+
+    DrawText("Ranking", MEIO - MeasureText("Ranking", TAMANHO_FONTE_MAIOR)/2, ESPACO-100, TAMANHO_FONTE_MAIOR, DARKBLUE);
+    DrawText("________________________", MEIO - MeasureText("________________________", TAMANHO_FONTE)/2, ESPACO-40, TAMANHO_FONTE, DARKBLUE);
+
+    for(int i=0; i<TAM_VETOR; i++)
+        DrawText(posicoes[i], MEIO - MeasureText(posicoes[i], TAMANHO_FONTE)/2, ESPACO+ESP*i, TAMANHO_FONTE, WHITE);
 
 
 }
