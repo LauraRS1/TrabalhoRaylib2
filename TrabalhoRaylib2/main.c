@@ -28,6 +28,7 @@ int main() {
     srand(time(NULL));
     printf("TESTES");
     Mapa mapa; //mapa = mapa_seleciona_fase(1);; //numero da fase como parametro
+    jog_seta_entrou_ranking(&(mapa.jogador)); // coloca entrou_ranking para 0
     printf("TESTES");
 
     //mapa_carrega(&mapa);
@@ -47,8 +48,11 @@ int main() {
 
     vida_atual = 3;
 
+
+
     //Rodar enquanto nao aperta ESC
     while (!WindowShouldClose()) {
+        int fim_ou_gameover = 0; // flag p fim ou gameover
 
         //Comeca a desenhar a tela
         BeginDrawing();
@@ -103,12 +107,19 @@ int main() {
                 break;
 
             case GAMEOVER:
+                fim_ou_gameover = 1;
                 desenha_gameover();
                 break;
             case ENDING:
+                fim_ou_gameover = 1;
                 desenha_fim();
                 break;
 
+        }
+
+        if(fim_ou_gameover) {
+            controle_ranking(&mapa);
+            break;
         }
 
         EndDrawing();

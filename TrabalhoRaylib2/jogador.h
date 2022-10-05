@@ -19,6 +19,7 @@ typedef struct{
     int pontuacao;
     int altura_relativa;
     int itens[TAM_ITENS];
+    int entrou_ranking; // flag para saber se ja entrou no ranking
 }Jogador;
 
 Jogador jog_inicializa(int x, int y);
@@ -27,4 +28,6 @@ void jog_aumenta_pontuacao(Jogador *jogador, int pontos);
 void jog_le_nome(Jogador *jogador);
 void jog_print_info(Jogador jogador);
 void jog_guarda_item(Jogador *j, char item);
+void jog_seta_entrou_ranking(Jogador *j);
+
 #endif // COORDENADAS_H

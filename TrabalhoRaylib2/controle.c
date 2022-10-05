@@ -4,6 +4,8 @@
 #include "mapa.h"
 #include "telas.h"
 #include "raylib.h"
+#include "ranking.h"
+#include "salva_estado_jogo.h"
 
 
 void controle_menu(int *n, GameScreen *tela, Mapa *mapa){
@@ -66,6 +68,7 @@ void controle_gameplay(Mapa *mapa, GameScreen *tela){
         arq_salva_jogo(*mapa);
     }
 
+
 }
 
 void controle_abre_bau(Mapa *mapa){
@@ -125,8 +128,23 @@ void controle_abre_bau(Mapa *mapa){
 
         }
         printf("\nPONTUACAO: %d\n", mapa->jogador.pontuacao);
+}
 
+void controle_ranking(Mapa *mapa) {
+    Ranking saida_ranking[5];
+    int tamanho = 0;
+    Ranking r;
+    Jogador j = mapa->jogador;
 
+    arq_recupera_vet_entradas(saida_ranking, &tamanho);
+
+    printf("\ntamanho = %d", tamanho);
+
+    if(jog_pode_entrar(j, saida_ranking, tamanho)) {
+        jog_le_nome(&j);
+        r = insere_ranking(j.nome, j.pontuacao);
+        adiciona_entrada_ranking(saida_ranking, &tamanho, r, &j);
+    }
 }
 
 void controle_proxima_fase(Mapa *mapa, GameScreen *tela){
@@ -150,7 +168,6 @@ void controle_gameplay_loop(Mapa *mapa, int *morte, int *frames, int *vida_atual
     }else{
         //Senão, jogador perde vida e atualiza vida_atual com a vida do jogador
         *vida_atual = mapa->jogador.vidas;
-
     }
 
     //Caso o jogador tenha perdido uma vida, morre
@@ -188,58 +205,4 @@ void controle_gameplay_loop(Mapa *mapa, int *morte, int *frames, int *vida_atual
         *morte = 0;
     }
 
-
-
 }
-
-
-
- /*
-void controla_jogo() {
-    char mov;
-    int pontos;
-    Mapa mapa;
-    mapa_carrega(&mapa);
-
-
-    do {
-        mapa_imprime(mapa);
-        printf("\nInforme\n(c) para ir para cima\n(b) para ir para baixo\n(p) para adicionar pontos\n(-) para diminuir a vida ou \n(n) para ler o nome: \n(s) para voltar para o menu)");
-        scanf(" %c", &mov);
-
-        if (mov == 'c') {
-            mapa_movimenta(&mapa, mov);
-        }
-
-        if (mov == 'b') {
-            mapa_movimenta(&mapa, mov);
-        }
-
-        if (mov == 'e') {
-            mapa_movimenta(&mapa, mov);
-        }
-
-        if (mov == 'd') {
-            mapa_movimenta(&mapa, mov);
-        }
-
-
-        if (mov == 'p') {
-            printf("\tQuantos pontos? ");
-            scanf("%d", &pontos);
-            jog_aumenta_pontuacao(&(mapa.jogador), pontos);
-        }
-
-        if (mov == '-')
-            if(jog_diminui_vida(&(mapa.jogador)))
-
-        if (mov == 'n'){
-            jog_le_nome(&(mapa.jogador));
-            jog_print_info(mapa.jogador);
-        }
-
-        printf("\n\n\n");
-    } while (mov != 's');
-
-}
-*/

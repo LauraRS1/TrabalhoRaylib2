@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 Jogador jog_inicializa(int x, int y){
-    Jogador jogador = {"Sem Nome", {x, y}, 3, 0, 1};
+    Jogador jogador = {"---", {x, y}, 3, 0, 1};
     return jogador;
 }
 
@@ -49,11 +49,15 @@ void jog_aumenta_pontuacao(Jogador *jogador, int pontos){
         jogador->pontuacao = 0;
 }
 
+void jog_seta_entrou_ranking(Jogador *j) {
+    j->entrou_ranking = 0;
+}
+
 void jog_le_nome(Jogador *jogador){
-    fflush(stdin);
-    char aux[TAM];
-    printf("Nome do Jogador: ");
-    fgets(aux, TAM, stdin);
+    fflush(stdin); // limpa o buffer de entrada
+    printf("\nDigite o nome do jogador: ");
+    fgets(jogador->nome, TAM, stdin);
+    jogador->nome[strlen(jogador->nome) - 1] = '\0';
 
 }
 
