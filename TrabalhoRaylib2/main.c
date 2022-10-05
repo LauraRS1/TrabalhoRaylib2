@@ -6,11 +6,13 @@
 #include "gravidade.h"
 #include "controle.h"
 #include "camera.h"
+#include "ranking.h"
 #include <limits.h>
 #include <stdlib.h>
 #include <time.h>
 #define IMAGENS 12
 #define TAM 50
+#define TAM_VETOR 5
 
 
 int main() {
@@ -21,10 +23,14 @@ int main() {
     int vida_atual;
     Camera2D camera = {0};
     camera.zoom = 1.5;
-    int ultimo_lugar=-65;
-    int pontuacao_nova=0;
 
+    int ultimo_lugar=-1;
+    int pontuacao_nova=0;
+    Ranking vetor[TAM_VETOR]={0}, vetor_novo[TAM_VETOR]={0};
+    int posicoes_ocupadas=0, ocupadas_novo=0;
     char nome_ranking[TAM];
+
+    recupera_ranking(vetor, &posicoes_ocupadas);
 
     char nomes[IMAGENS][TAM] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png",
     "imagens/jogador_bau.png", "imagens/bau.png","imagens/escada.png", "imagens/porta_normal.png", "imagens/porta_fase.png",
@@ -122,6 +128,13 @@ int main() {
                 break;
             case ENDING:
                 desenha_fim(imagens, pontuacao_nova, ultimo_lugar, nome_ranking);
+                if(framecount%30 == 0)
+                    if(pontuacao_nova>ultimo_lugar){
+                    printf("Digite o seu nome para o Ranking:");
+                    fflush(stdin);
+                    scanf(" %s", nome_ranking);
+                    currentScreen=MENU;
+                    }
 
                 //desenha o ranking
                 //desenha_ranking(imagens);

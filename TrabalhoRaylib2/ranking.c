@@ -1,5 +1,9 @@
 #include "ranking.h"
 #include "jogador.h"
+#include <stdio.h>
+#include <stdlib.h>
+#define TAM_NOME 30
+#define TAM_VETOR 5
 
 #include <stdio.h>
 #include <string.h>
@@ -7,125 +11,134 @@
 
 #define RANKING_TXT "ranking.txt"
 
-Ranking insere_ranking(char nome[], int pontuacao) {
-    Ranking r;
-    strcpy(r.jog_nome, nome);
-    r.jog_pontuacao = pontuacao;
 
-    return r;
+
+// inicia o jogador
+Ranking inicia_ranking(char nome[], int pontuacao){
+    int i=0;
+    Ranking jogador = {{0}, pontuacao};
+    for(i=0; nome[i]!='\0';i++)
+        jogador.nome[i]=nome[i];
+    return jogador;
 }
 
-void arq_salva_vet_entradas(Ranking vet_entradas[], int pos_ocupadas) {
+//salva o ranking no arquivo .txt
+void salva_ranking(Ranking vetor[TAM_NOME], int ocupadas){
+    int i=0;
     FILE *arquivo;
-    int i;
-    arquivo = fopen(RANKING_TXT, "w");
+    arquivo=fopen("ranking.txt", "w");
 
-    if(arquivo) {
-        for(i = 0; i < pos_ocupadas; i++) {
-            fprintf(arquivo, "%s %d\n", vet_entradas[i].jog_nome, vet_entradas[i].jog_pontuacao);
-            //fflush(arquivo);
+
+    if(arquivo){
+        fprintf(arquivo, "%d" ,ocupadas);
+        for(i=0; i<ocupadas; i++){
+            fprintf(arquivo,"%s %d\n",vetor[i].nome,vetor[i].pontuacao);
         }
-        fclose(arquivo);
-    } else {
-        printf("Erro ao abrir o arquivo!\n");
+
+
+    }else {
+        printf("ERRO AO ABRIR O ARQUIVO;");
     }
+    fclose(arquivo);
+    printf("\nRanking salvo\n\n");
 }
 
-void arq_recupera_vet_entradas(Ranking vet_entradas[], int *pos_ocupadas) {
-    FILE *arquivo;
+//recupera o arquivo txt e coloca no vetor
+void recupera_ranking(Ranking vetor[], int *ocupadas){
+    int i;
     int pontuacao;
     char nome[TAM_NOME];
-    int i;
+    FILE *arquivo;
+    arquivo=fopen("ranking.txt", "r");
 
-    arquivo = fopen(RANKING_TXT, "r");
-    *pos_ocupadas = 0;
 
-    if(arquivo) {
-        fflush(arquivo);
-        for(i = 0; i < 5; i++) {
-            // lê dados e remove "/n"
-            if(fscanf(arquivo, "%s %d", nome, &pontuacao)) {
-                fgetc(arquivo);
-                // gera uma entrada e salva no vetor
-                vet_entradas[*pos_ocupadas] = insere_ranking(nome, pontuacao);
+    if(arquivo){
+    fscanf(arquivo, "%d", ocupadas);
+    for(i=0; i<*ocupadas; i++){
+            fscanf(arquivo, "%s %d",&nome, &pontuacao);
+            vetor[i]= inicia_ranking(nome, pontuacao);
+    }
 
-                // incrementa tamanho
-                (*pos_ocupadas)++;
+    }else {
+        printf("ERRO AO ABRIR O ARQUIVO;");
+    }
+    fclose(arquivo);
+
+}
+//imprime o ranking
+void imprime_ranking(Ranking vetor[], int ocupadas){
+    int i=0;
+
+    printf("Ranking\n");
+    for(i=0; i<ocupadas;i++){
+        printf("-----------------\n"
+               "%d Lugar\n"
+               "\nNome:%s"
+               "\nPontuacao:%d \n", i+1,vetor[i].nome, vetor[i].pontuacao);
+    }
+    printf("-----------------\n");
+
+}
+
+//ordena o vetor de jogadores de maior para menor
+void ordenamento_bolha(Ranking v[], int tamanho) {
+    int i, trocou;
+    Ranking aux;
+    do {
+    trocou = 0;
+    for (i = 0; i < tamanho - 1; i++) {
+        if (v[i].pontuacao < v[i + 1].pontuacao) {
+            aux = v[i];
+            v[i] = v[i + 1];
+            v[i + 1] = aux;
+            trocou = 1;
             }
+    }
+    } while (trocou == 1);
+}
+//salva o vetor
+void salvar_vetor(Ranking vetor[], int *posicoes_ocupadas){
+    char nome[TAM_NOME]={0};
+    int pontuacao=0;
+    int i=0;
+
+    for(i=0; i<TAM_VETOR; i++){
+        fflush(stdin);
+        printf("%d Nome:", i+1);
+        fgets(nome, TAM_NOME, stdin);
+        if(nome[0]=='@'){
+            ordenamento_bolha(vetor, TAM_VETOR);
+            break;
         }
-        fclose(arquivo);
-    } else {
-        printf("Erro ao abrir o arquivo!\n");
-    }
-}
-
-void imprime_ranking(Ranking vet_entradas[], int tamanho) {
-    int i;
-
-    for(i = 0; i < tamanho; i++) {
-        printf("%s %d\n", vet_entradas[i].jog_nome, vet_entradas[i].jog_pontuacao);
-    }
-}
-
-int jog_pode_entrar(Jogador j, Ranking vet_antigo[], int pos_ocupadas) {
-
-   if(j.entrou_ranking) {
-        return 0;   // se o jogador ja entrou, impedir que o ranking seja salvo novamente
-   }
-
-    if(pos_ocupadas < 5) {
-        return 1;
-    // se não tem espaço no vetor...
-    } else {
-        if(j.pontuacao > vet_antigo[pos_ocupadas - 1].jog_pontuacao) {
-            return 1;
+        printf("Pontuacao:");
+        scanf("%d", &pontuacao);
+        vetor[i]=inicia_ranking(nome, pontuacao);
         }
+    *posicoes_ocupadas=i;
+    ordenamento_bolha(vetor, TAM_VETOR);
+}
+//acrescenta a nova entrada na ordem de maior pontuacao para menor
+void nova_entrada(Ranking vetor[], int *ocupadas, Ranking vetor_novo[], int ocupadas_novo){
+    int i, j;
+    Ranking vetor_aux[TAM_VETOR*2+1]={0};
 
-        return 0;
+    for(i=0; i<=*ocupadas; i++){
+        vetor_aux[i]=vetor[i];
     }
+    for(j=0; j<=ocupadas_novo; j++, i++){
+        vetor_aux[i-1]=vetor_novo[j];
+    }
+
+    ordenamento_bolha(vetor_aux, TAM_VETOR*2);
+
+    for(j=0; j<TAM_VETOR; j++)
+        vetor[j]=vetor_aux[j];
+
+    *ocupadas=j;
+
 }
 
-void adiciona_entrada_ranking(Ranking vet_antigo[], int *pos_ocupadas, Ranking entrada, Jogador *j) {
-    int entrou = 0;
 
-    // se tem espaço no vetor
-    if(*pos_ocupadas < 5) {
-        vet_antigo[*pos_ocupadas] = entrada;
-        (*pos_ocupadas)++;
-        entrou = 1;
-        j->entrou_ranking = 1;
-
-    // se não tem espaço no vetor...
-    } else {
-        if(entrada.jog_pontuacao > vet_antigo[*pos_ocupadas - 1].jog_pontuacao) {
-            vet_antigo[*pos_ocupadas - 1] = entrada;
-            entrou = 1;
-            j->entrou_ranking = 1;
-        }
-    }
-
-    if(entrou && (*pos_ocupadas > 1)) {
-        ordena(vet_antigo, *pos_ocupadas);
-    }
-
-    arq_salva_vet_entradas(vet_antigo, *pos_ocupadas);
-}
-
-void ordena(Ranking vetor[], int pos_ocupadas) {
-    Ranking aux; // variavel auxiliar p/ troca
-    int i; //controle laço extermo
-    int j; // controle laço interno
-
-    for(i = 0; i < pos_ocupadas; i++) {
-        for(j = i; j < pos_ocupadas; j++) {
-            if(vetor[j].jog_pontuacao > vetor[i].jog_pontuacao) {
-                aux = vetor[i];
-                vetor[i] = vetor[j];
-                vetor[j] = aux;
-            }
-        }
-    }
-}
 
 
 

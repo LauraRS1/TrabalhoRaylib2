@@ -131,20 +131,8 @@ void controle_abre_bau(Mapa *mapa){
 }
 
 void controle_ranking(Mapa *mapa) {
-    Ranking saida_ranking[5];
-    int tamanho = 0;
-    Ranking r;
-    Jogador j = mapa->jogador;
+    printf("\ncontrole_ranking\n");
 
-    arq_recupera_vet_entradas(saida_ranking, &tamanho);
-
-    printf("\ntamanho = %d", tamanho);
-
-    if(jog_pode_entrar(j, saida_ranking, tamanho)) {
-        jog_le_nome(&j);
-        r = insere_ranking(j.nome, j.pontuacao);
-        adiciona_entrada_ranking(saida_ranking, &tamanho, r, &j);
-    }
 }
 
 void controle_proxima_fase(Mapa *mapa, GameScreen *tela){
@@ -154,7 +142,7 @@ void controle_proxima_fase(Mapa *mapa, GameScreen *tela){
         *tela = PROXIMO;
         *mapa = mapa_seleciona_fase(mapa->nivel + 1, tela);
         mapa_carrega_proxima_fase_e_jogador(mapa, jogador);
-        printf("+++++++++++++++++++++++\n\n FASE CONCLUIDA\n\n++++++++++++++++++");
+        printf("\n+++++++++++++++++++++++\n\n FASE CONCLUIDA\n\n++++++++++++++++++\n");
     }
 }
 
