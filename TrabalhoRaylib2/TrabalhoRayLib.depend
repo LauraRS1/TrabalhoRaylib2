@@ -61,9 +61,10 @@
 	<string.h>
 	<stdio.h>
 
-1664533455 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\main.c
+1665001443 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\main.c
 	<stdio.h>
 	"raylib.h"
+	<string.h>
 	"mapa.h"
 	"desenha.h"
 	"gravidade.h"
@@ -73,7 +74,7 @@
 	<stdlib.h>
 	<time.h>
 
-1664529897 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\mapa.c
+1664993094 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\mapa.c
 	<stdio.h>
 	<string.h>
 	<ctype.h>
@@ -160,7 +161,7 @@
 
 1661806922 c:\users\nicol\onedrive\Área de trabalho\projetofinal2\trabalhoraylib_nicolas\trabalhoraylib2\telas.h
 
-1664547686 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\desenha.h
+1664999640 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\desenha.h
 	"raylib.h"
 	"mapa.h"
 
@@ -244,8 +245,9 @@
 	"telas.h"
 	"raylib.h"
 
-1664533991 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\desenha.c
+1665001204 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\desenha.c
 	"desenha.h"
+	<string.h>
 
 1661979613 source:c:\users\nicol\onedrive\Área de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\coordenadas.c
 	"coordenadas.h"

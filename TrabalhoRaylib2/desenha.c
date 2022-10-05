@@ -1,16 +1,43 @@
 #include "desenha.h"
+#include <string.h>
 
 void desenha_load(){
     DrawText("Carregando...", (LARGURA-MeasureText("Carregando...",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
 
 }
 
-void desenha_gameover(){
+void desenha_gameover(Texture2D imagens[], int pontuacao, int ultimo_lugar, char nome_ranking[]){
     DrawText("GAME OVER", (LARGURA-MeasureText("GAME OVER",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
 
+    int i, j;
+    int i_vezes=10, j_vezes=20;
+    for(i = 0; i < i_vezes; i++)
+        for(j = 0; j < j_vezes; j++)
+            DrawTexture(imagens[9], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
+
+
+    DrawTexture(imagens[11], MEIO-33, 330, WHITE);
+
+    if(pontuacao > ultimo_lugar){
+        DrawText("Otima pontuacao! digite seu nome:", (LARGURA-MeasureText("Ótima pontuação! digite seu nome:",TAMANHO_FONTE))/2, ALTURA/2 + 100, TAMANHO_FONTE, WHITE);
+    }
+
+
 }
-void desenha_fim(){
-    DrawText("FIM", (LARGURA-MeasureText("FIM",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
+void desenha_fim(Texture2D imagens[], int pontuacao, int ultimo_lugar, char nome_ranking[]){
+    DrawText("FIM", (LARGURA-MeasureText("FIM!",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
+
+    int i, j;
+    int i_vezes=10, j_vezes=20;
+    for(i = 0; i < i_vezes; i++)
+        for(j = 0; j < j_vezes; j++)
+            DrawTexture(imagens[9], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
+
+    DrawTexture(imagens[11], MEIO-33, 330, WHITE);
+
+    if(pontuacao > ultimo_lugar){
+        DrawText("Otima pontuacao! digite seu nome:", (LARGURA-MeasureText("Ótima pontuação! digite seu nome:",TAMANHO_FONTE))/2, ALTURA/2 + 100, TAMANHO_FONTE, WHITE);
+    }
 
 }
 
@@ -106,7 +133,7 @@ void desenha_hud(Mapa *mapa) {
 
 void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
     // coloca na tela o score, vidas, fase e chave
-    //desenha_hud(mapa); teste de chamar na funcao principal
+    desenha_hud(mapa);
 
     int i, j;
     for(i = 0; i < mapa->dimencao.linha; i++){
@@ -120,7 +147,9 @@ void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
                 if((mapa->mapa[i][j] == 'P') && (mapa->chave == 0))
                     DrawTexture(imagens[9], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Jogador
-                 if(mapa->mapa[i][j] == 'D'&& (mapa->bau != 1)&& (mapa->escada != 1))
+                 if(mapa->mapa[i][j] == 'D'&& (mapa->bau != 1)&& (mapa->escada != 1) && (mapa->deletado == ' '))
+                    DrawTexture(imagens[1], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
+                if((mapa->mapa[i][j] == 'D') && (mapa->chave != 1) && (mapa->deletado == 'P'))
                     DrawTexture(imagens[1], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Jogador na escada
                 if((mapa->mapa[i][j] == 'D') && (mapa->escada == 1))
@@ -129,7 +158,7 @@ void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
                 if((mapa->mapa[i][j] == 'D') && (mapa->porta != ' ') )
                     DrawTexture(imagens[3], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Jogador no baú
-                if((mapa->mapa[i][j] == 'D') && (mapa->bau == 1))
+                if((mapa->mapa[i][j] == 'D') && (mapa->bau == 1)&& (mapa->deletado != 'P'))
                     DrawTexture(imagens[4], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Baú
                 if(mapa->mapa[i][j] == 'C')
@@ -143,9 +172,13 @@ void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
                 //Porta fase
                 if((mapa->mapa[i][j] == 'P') && (mapa->chave == 1))
                     DrawTexture(imagens[8], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
+                // jogador na porta de saída
+                if((mapa->mapa[i][j] == 'D') && (mapa->deletado == 'P') && (mapa->chave == 1))
+                    DrawTexture(imagens[10], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //parede do fundo
-                if((mapa->mapa[i][j] == ' '))
+                if(mapa->mapa[i][j] == ' ')
                     DrawTexture(imagens[9], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
+
                 }
 
 

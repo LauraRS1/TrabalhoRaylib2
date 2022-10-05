@@ -10,7 +10,7 @@
 
 void mapa_carrega(Mapa *mapa) {
     mapa->dimencao = mapa_set_dimencao(mapa->mapa);
-    printf("\nDIEMNCAO: %d %d", mapa->dimencao.linha, mapa->dimencao.coluna);
+    printf("\nDIMENCAO: %d %d", mapa->dimencao.linha, mapa->dimencao.coluna);
     mapa_set_spawn(mapa);
     printf("\nSPAWN: %d %d", mapa->spawn.linha, mapa->spawn.coluna);
     mapa->porta = ' ';
