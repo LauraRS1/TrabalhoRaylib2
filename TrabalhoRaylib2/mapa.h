@@ -7,19 +7,34 @@
 #include "bau.h"
 #include "telas.h"
 
-
+/*
+    Mapa:
+    Representa o mapa do jogo.
+    @param char mapa[MAPA_L][MAPA_C]: matriz de caracteres do mapa do jogo.
+    @param Localizacao dimencao: valor real da dimensão do mapa, onde o jogo ocorre.
+    @param Localizacao spawn: Coordenadas do spawn do jogador, onde ele começa e onde ele renasce ao morrer.
+    @param int escada: flag, determina se o jogador está numa escada.
+    @param char porta: determina se o jogador está numa porta.
+    @param int bau: flag, determina se o jogador está num baú.
+    @param int qtdBaus: quantidade de baús do mapa.
+    @param int chave: flag, determina se o jogador está com a chave.
+    @param Bau baus[50]: vetor de baus do mapa.
+    @param Jogador jogador: o jogador associado ao mapa.
+    @param char deletado: o caracter que o jogador deleta ao se mover.
+    @param int nivel: bivel do jogador.
+*/
 typedef struct{
     char mapa[MAPA_L][MAPA_C];
-    Localizacao dimencao; //Valor real da dimensão do mapa, onde o jogo ocorre
-    Localizacao spawn;//Coordenadas do spawn do jogador, onde ele começa e onde ele renasce ao morrer
-    int escada;//Flag, determina se o jogador está numa escada
-    char porta;//Determina se o jogador está numa porta
-    int bau;//Flag, determina se o jogador está num baú
-    int qtdBaus;//Quantidade de baús do mapa
-    int chave;//Flag, determina se o jogador está com a chave
-    Bau baus[50];//Baus do mapa
-    Jogador jogador;//Jogador
-    char deletado;// Caracter que o jogador deleta ao se mover
+    Localizacao dimencao;
+    Localizacao spawn;
+    int escada;
+    char porta;
+    int bau;
+    int qtdBaus;
+    int chave;
+    Bau baus[50];
+    Jogador jogador;
+    char deletado;
     int nivel;
 }Mapa;
 
@@ -29,7 +44,6 @@ void mapa_movimenta(Mapa *mapa, char direcao);
 void mapa_localiza_jogador(Mapa *mapa);
 void mapa_busca_porta(Mapa mapa, char porta, Localizacao *local_porta);
 void mapa_imprime(Mapa mapa);
-//void chama_mensagem_bau();
 int mapa_bau_quantidade(Mapa *mapa);
 void mapa_bau_cria(Mapa *mapa);
 Localizacao mapa_set_dimencao(char mapa[MAPA_L][MAPA_C]);
