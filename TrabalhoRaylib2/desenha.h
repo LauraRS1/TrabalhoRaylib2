@@ -13,7 +13,7 @@
 #define LARGURA 880
 #define QUADRADO_ALTURA 66
 #define QUADRADO_LARGURA 80
-#define TAMANHO_HUD 20
+#define TAMANHO_HUD 30
 #define TAMANHO_CHECKPOINT 15
 #define BASE_X 0
 #define BASE_Y 0

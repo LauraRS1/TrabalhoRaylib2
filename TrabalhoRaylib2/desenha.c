@@ -35,14 +35,14 @@ void desenha_ranking(Ranking vetor[], Texture2D imagens[]){
 
 }
 void desenha_nvingame(){
-    DrawText("Deseja iniciar um novo Jogo?", (LARGURA-MeasureText("Deseja iniciar um novo jogo?",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
-    DrawText("[S]", (LARGURA-MeasureText("[S]",TAMANHO_FONTE*3))/2 - 50, ALTURA/2 + 50, TAMANHO_FONTE*3, GREEN);
-    DrawText("[N]", (LARGURA-MeasureText("[N]",TAMANHO_FONTE*3))/2 + 50, ALTURA/2 + 50, TAMANHO_FONTE*3, RED);
+    DrawText("Deseja iniciar um novo Jogo?", (LARGURA-MeasureText("Deseja iniciar um novo jogo?",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*2, WHITE);
+    DrawText("[S]", (LARGURA-MeasureText("[S]",TAMANHO_FONTE*2))/2 - 50, ALTURA/2 + 50, TAMANHO_FONTE*2, BLUE);
+    DrawText("[N]", (LARGURA-MeasureText("[N]",TAMANHO_FONTE*2))/2 + 50, ALTURA/2 + 50, TAMANHO_FONTE*2, WHITE);
 }
 void desenha_retorna_menu(){
-    DrawText("Deseja retornar ao Menu?", (LARGURA-MeasureText("Deseja retornar ao Menu?",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
-    DrawText("[S]", (LARGURA-MeasureText("[S]",TAMANHO_FONTE*3))/2 - 50, ALTURA/2 + 50, TAMANHO_FONTE*3, GREEN);
-    DrawText("[N]", (LARGURA-MeasureText("[N]",TAMANHO_FONTE*3))/2 + 50, ALTURA/2 + 50, TAMANHO_FONTE*3, RED);
+    DrawText("Deseja retornar ao Menu?", (LARGURA-MeasureText("Deseja retornar ao Menu?",TAMANHO_FONTE*2))/2, ALTURA/2 - 50, TAMANHO_FONTE*2, WHITE);
+    DrawText("[S]", (LARGURA-MeasureText("[S]",TAMANHO_FONTE*2))/2 - 50, ALTURA/2 + 50, TAMANHO_FONTE*2, BLUE);
+    DrawText("[N]", (LARGURA-MeasureText("[N]",TAMANHO_FONTE*2))/2 + 50, ALTURA/2 + 50, TAMANHO_FONTE*2, WHITE);
 }
 
 void desenha_load(){
@@ -176,8 +176,6 @@ void desenha_hud(Mapa *mapa) {
 }
 
 void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
-    // coloca na tela o score, vidas, fase e chave
-    //desenha_hud(mapa);
 
     int i, j;
     for(i = 0; i < mapa->dimencao.linha; i++){
