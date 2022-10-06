@@ -19,7 +19,7 @@ typedef struct{
     int pontuacao;
     int altura_relativa;
     int itens[TAM_ITENS];
-    char colecao[TAM_ITENS];
+    char ultimo_item[TAM];
     int entrou_ranking; // flag para saber se ja entrou no ranking
 }Jogador;
 

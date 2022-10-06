@@ -39,35 +39,41 @@ int jog_diminui_vida(Jogador *jogador){
 
 */
 void jog_guarda_item(Jogador *j, char item) {
+    char ametista[TAM] = "Ametista";
+    char safira[TAM] = "Safira";
+    char rubi[TAM] = "Rubi";
+    char anel[TAM] = "Anel";
+    char coroa[TAM] = "Coroa";
+
     switch(item) {
         case '!':
             //Ametista 50 pontos
             (j->itens[0])++;
-             j->colecao[0]='!';
+             strcpy(j->ultimo_item, ametista);
             break;
 
         case '@':
             //Safira 100 pontos
             (j->itens[1])++;
-            j->colecao[1]='@';
+            strcpy(j->ultimo_item, safira);
             break;
 
         case '#':
             //Rubi 150 pontos
             (j->itens[2])++;
-            j->colecao[2]='#';
+            strcpy(j->ultimo_item, rubi);
             break;
 
         case '$':
             //Anel 200 pontos
             (j->itens[3])++;
-            j->colecao[3]='$';
+            strcpy(j->ultimo_item, anel);
             break;
 
         case '%':
             //Coroa 300 pontos
             (j->itens[4])++;
-            j->colecao[4]='%';
+            strcpy(j->ultimo_item, coroa);
             break;
     }
 }
