@@ -35,7 +35,7 @@ void desenha_ranking(Ranking vetor[], Texture2D imagens[]){
 
 }
 void desenha_nvingame(){
-    DrawText("Deseja iniciar um novo Jogo?", (LARGURA-MeasureText("Deseja iniciar um novo jogo?",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*2, WHITE);
+    DrawText("Deseja iniciar um novo Jogo?", (LARGURA-MeasureText("Deseja iniciar um novo jogo?",TAMANHO_FONTE*2))/2, ALTURA/2 - 50, TAMANHO_FONTE*2, WHITE);
     DrawText("[S]", (LARGURA-MeasureText("[S]",TAMANHO_FONTE*2))/2 - 50, ALTURA/2 + 50, TAMANHO_FONTE*2, BLUE);
     DrawText("[N]", (LARGURA-MeasureText("[N]",TAMANHO_FONTE*2))/2 + 50, ALTURA/2 + 50, TAMANHO_FONTE*2, WHITE);
 }
