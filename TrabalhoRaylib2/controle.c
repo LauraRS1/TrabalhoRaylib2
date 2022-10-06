@@ -49,6 +49,7 @@ void controle_menu(int *n, GameScreen *tela, Mapa *mapa, int *vida_atual){
     }
 }
 
+
 /*  controle_gameplay:
     Controla o jogador no jogo
     @param *mapa: Ponteiro para o Mapa do jogo
@@ -90,9 +91,6 @@ void controle_gameplay(Mapa *mapa, GameScreen *tela){
     if(IsKeyPressed(KEY_N)) { // s para salvar estado
         *tela = NJINGAME;
     }
-
-
-
 }
 
 
@@ -154,20 +152,11 @@ void controle_abre_bau(Mapa *mapa){
                         jog_aumenta_pontuacao(&(mapa->jogador), -500);
                         jog_guarda_item(&(mapa->jogador), 'B');
                         break;
-
                 }
-
             }
-
         }
-        //printf("\nPONTUACAO: %d\n", mapa->jogador.pontuacao);
-
-
 }
-void controle_ranking(Mapa *mapa) {
-printf("\ncontrole_ranking\n");
 
-}
 
 /*  controle_proxima_fase:
     Se o jogador estiver na saída da fase e com a chave, conclui a fase e carrega a proxima fase
@@ -184,6 +173,7 @@ void controle_proxima_fase(Mapa *mapa, GameScreen *tela){
         //printf("+++++++++++++++++++++++\n\n FASE CONCLUIDA\n\n++++++++++++++++++");
     }
 }
+
 
 /*  controle_gameplay_loop:
     Ações gerais do jogador e do ambiente no jogo
@@ -241,8 +231,8 @@ void controle_gameplay_loop(Mapa *mapa, int *morte, int *frames, int *vida_atual
 
         *morte = 0;
     }
-
 }
+
 
 /*  controle_njingame:
     Controle da decisão de iniciar um novo jogo no meio de uma partida
@@ -265,6 +255,7 @@ void controle_njingame(GameScreen *tela, Mapa *mapa, int *vida_atual){
 
 }
 
+
 /*  controle_retorna_menu:
     Controle da decisão de retornar ao menu
     @param *mapa: Ponteiro para o Mapa do jogo
@@ -283,5 +274,4 @@ void controle_retorna_menu(GameScreen *tela, Mapa *mapa){
         //mapa_carrega(mapa);
         *tela = MENU;
     }
-
 }

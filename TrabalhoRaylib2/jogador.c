@@ -7,7 +7,6 @@
     Retorna um jogador com os dados iniciais de uma partida
     @param x: Linha que o jogador se encontra
     @param y: Coluna que o jogador se encontra
-
 */
 Jogador jog_inicializa(int x, int y){
     Jogador jogador = {"---", {x, y}, 3, 0, 1};
@@ -19,7 +18,6 @@ Jogador jog_inicializa(int x, int y){
 
     Diminui a vida do jogador
     @param *jogador: Ponteiro para um jogador
-
 */
 int jog_diminui_vida(Jogador *jogador){
     if(jogador->vidas > 0){
@@ -32,11 +30,11 @@ int jog_diminui_vida(Jogador *jogador){
     }
 }
 
+
 /*  jog_guarda_item:
     Aumenta a quantidade de um determinado item que o jogador possui
     @param j: Ponteiro para um jogador
     @param item: Item que o jogador coletou
-
 */
 void jog_guarda_item(Jogador *j, char item) {
     char ametista[TAM] = "Ametista";
@@ -85,10 +83,9 @@ void jog_guarda_item(Jogador *j, char item) {
             //Chave
             strcpy(j->ultimo_item, chave);
             break;
-
-
     }
 }
+
 
 /*  jog_guarda_item:
     Aumenta a quantidade de pontos que um jogador possui
@@ -102,18 +99,11 @@ void jog_aumenta_pontuacao(Jogador *jogador, int pontos){
         jogador->pontuacao = 0;
 }
 
-void jog_seta_entrou_ranking(Jogador *j) {
-    j->entrou_ranking = 0;
-}
-
-void jog_le_nome(Jogador *jogador){
-    fflush(stdin); // limpa o buffer de entrada
-    printf("\nDigite o nome do jogador: ");
-    fgets(jogador->nome, TAM, stdin);
-    jogador->nome[strlen(jogador->nome) - 1] = '\0';
-
-}
-
+/*
+    jog_print_info:
+    Imprime as informações do jogador na tela.
+    @param Jogador jogador: um jogador
+*/
 void jog_print_info(Jogador jogador){
     printf("\n=======================\n"
            "JOGADOR: %s\n"
@@ -122,5 +112,4 @@ void jog_print_info(Jogador jogador){
            "=======================\n",
            jogador.nome, jogador.vidas, jogador.pontuacao);
 }
-
 
