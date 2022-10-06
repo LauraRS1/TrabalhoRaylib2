@@ -27,5 +27,5 @@ void desenha_gameover(Texture2D imagens[], int pontuacao, int ultimo_lugar, char
 void desenha_fim(Texture2D imagens[], int pontuacao, int ultimo_lugar, char nome_ranking[]);
 void desenha_msg_checkpoint();
 void desenha_msg_sair();
-void desenha_ranking(Ranking vetor[]);
+void desenha_ranking(Ranking vetor[], Texture2D imagens[]);
 #endif // DESENHA_MENU_H_INCLUDED

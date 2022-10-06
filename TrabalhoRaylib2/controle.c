@@ -40,7 +40,7 @@ void controle_menu(int *n, GameScreen *tela, Mapa *mapa, int *vida_atual){
     }
 }
 
-void controle_gameplay(Mapa *mapa, GameScreen *tela, int *vidas_atual){
+void controle_gameplay(Mapa *mapa, GameScreen *tela, int *vida_atual){
     if(IsKeyPressed(KEY_UP)){
         mapa_movimenta(mapa, 'c');
         controle_proxima_fase(mapa, tela);
@@ -65,7 +65,7 @@ void controle_gameplay(Mapa *mapa, GameScreen *tela, int *vidas_atual){
         printf("\nDeseja retornar ao menu? [s]im ou [n]ao ");
         scanf(" %c", &escolha);
         if(escolha=='S'||escolha=='s'){
-            *vidas_atual=3;
+            *vida_atual=3;
             *tela = MENU;
         }else *tela=GAMEPLAY;
     }
@@ -84,7 +84,7 @@ void controle_gameplay(Mapa *mapa, GameScreen *tela, int *vidas_atual){
         printf("\nDeseja iniciar novo jogo? [s]im ou [n]ao ");
         scanf(" %c", &escolha);
         if(escolha=='S'||escolha=='s'){
-            *vidas_atual=3;
+            *vida_atual=3;
             *mapa = mapa_seleciona_fase(1, tela);
              mapa_carrega(mapa);
             *tela = NOVO_JOGO;

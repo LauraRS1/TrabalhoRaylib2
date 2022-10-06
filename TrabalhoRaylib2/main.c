@@ -94,7 +94,7 @@ int main() {
                 break;
 
             case RANKING:
-                desenha_ranking(vetor);
+                desenha_ranking(vetor, imagens);
 
                 //voltar para o MENU
                 if(IsKeyPressed(KEY_ESCAPE)) {

@@ -1,24 +1,36 @@
 #include "desenha.h"
 #include <string.h>
-#define ESP 50
+#define ESP 90
 #define TAM_VETOR 5
 
 
-void desenha_ranking(Ranking vetor[]){
+void desenha_ranking(Ranking vetor[], Texture2D imagens[]){
+    int i, j;
+    int i_vezes=10, j_vezes=20;
     char numeros[TAM_VETOR][TAM_NOME]={0};
     char posicoes[TAM_VETOR][TAM_NOME]={0};
 
-    for(int i=0; i<TAM_VETOR; i++)
+    for(i=0; i<TAM_VETOR; i++)
         itoa(vetor[i].pontuacao, numeros[i], 10);
 
-    for(int i=0; i<TAM_VETOR; i++)
+    for(i=0; i<TAM_VETOR; i++)
         sprintf(posicoes[i], "%d Lugar: %s %s", i+1, vetor[i].nome, numeros[i]);
 
-    DrawText("Ranking", MEIO - MeasureText("Ranking", TAMANHO_FONTE_MAIOR)/2, ESPACO-100, TAMANHO_FONTE_MAIOR, DARKBLUE);
-    DrawText("________________________", MEIO - MeasureText("________________________", TAMANHO_FONTE)/2, ESPACO-40, TAMANHO_FONTE, DARKBLUE);
+    DrawText("*RANKING MUNDIAL*", MEIO - MeasureText("*RANKING MUNDIAL*", TAMANHO_FONTE_MAIOR)/2, ESPACO-100, TAMANHO_FONTE_MAIOR, DARKBLUE);
+    DrawText("_________________________________________________________", MEIO - MeasureText("_________________________________________________________", TAMANHO_FONTE)/2, ESPACO-40, TAMANHO_FONTE, DARKBLUE);
 
-    for(int i=0; i<TAM_VETOR; i++)
+    for(i=0; i<TAM_VETOR; i++)
         DrawText(posicoes[i], MEIO - MeasureText(posicoes[i], TAMANHO_FONTE)/2, ESPACO+ESP*i, TAMANHO_FONTE, WHITE);
+        DrawText("Pressione esc para retornar ao menu", MEIO + 200, ESPACO+ESP*i, TAMANHO_FONTE/2, WHITE);
+
+
+
+    for(i = 0; i < i_vezes; i++)
+        for(j = 0; j < j_vezes; j++)
+            DrawTexture(imagens[9], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
+
+    DrawTexture(imagens[11], MEIO-250, ESPACO-30, WHITE);
+
 
 
 }
