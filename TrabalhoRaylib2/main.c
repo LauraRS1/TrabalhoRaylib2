@@ -27,7 +27,7 @@ int main() {
     //incialização das variáveis do ranking do jogo
     int ultimo_lugar=0, pontuacao_nova=0;
     Ranking vetor[TAM_VETOR]={0}, vetor_novo[1]={0};
-    int posicoes_ocupadas=1, ocupadas_novo=1;
+    int posicoes_ocupadas=1, ocupadas_novo=0;
     char nome_ranking[TAM];
     recupera_ranking(vetor, &posicoes_ocupadas, &ultimo_lugar);
 

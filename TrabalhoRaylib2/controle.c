@@ -92,7 +92,7 @@ void controle_gameplay(Mapa *mapa, GameScreen *tela, int *vidas_atual){
     if(IsKeyPressed(KEY_N)) {
         printf("\nTECLA N APERTADA\n");
         char escolha=' ';
-        printf("\nDeseja inciar novo jogo? [s]im ou [n]ao ");
+        printf("\nDeseja iniciar novo jogo? [s]im ou [n]ao ");
         scanf(" %c", &escolha);
         if(escolha=='S'||escolha=='s'){
             *vidas_atual=3;
