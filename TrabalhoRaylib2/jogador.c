@@ -93,17 +93,4 @@ void jog_aumenta_pontuacao(Jogador *jogador, int pontos){
         jogador->pontuacao = 0;
 }
 
-/*
-    jog_print_info:
-    Imprime as informações do jogador na tela.
-    @param Jogador jogador: um jogador
-*/
-void jog_print_info(Jogador jogador){
-    printf("\n=======================\n"
-           "JOGADOR: %s\n"
-           "VIDAS:%d\n"
-           "PONTUACAO:%d\n"
-           "=======================\n",
-           jogador.nome, jogador.vidas, jogador.pontuacao);
-}
 

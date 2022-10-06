@@ -10,7 +10,7 @@
 #include <limits.h>
 #include <stdlib.h>
 #include <time.h>
-#define IMAGENS 13
+#define IMAGENS 14
 #define TAM 50
 #define TAM_VETOR 5
 #define TAM_CAPA 400
@@ -35,7 +35,7 @@ int main() {
     // nomes das imagens
     char nomes[IMAGENS][TAM] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png",
     "imagens/jogador_bau.png", "imagens/bau.png","imagens/escada.png", "imagens/porta_normal.png", "imagens/porta_fase.png",
-    "imagens/parede_fundo.png","imagens/jogador_saida.png","imagens/jogador_transparente.png", "imagens/capa.png"};
+    "imagens/parede_fundo.png","imagens/jogador_saida.png","imagens/jogador_transparente.png", "imagens/capa.png", "imagens/fundo_hud.png"};
 
     //seed do tempo
     srand(time(NULL));
@@ -113,7 +113,7 @@ int main() {
                     gravidade(&mapa);
                 desenha_nivel(&mapa, imagens);
                 EndMode2D();
-                desenha_hud(&mapa);
+                desenha_hud(&mapa, imagens);
                 //salva a última pontuação do jogador
                 pontuacao_nova=mapa.jogador.pontuacao;
                 break;

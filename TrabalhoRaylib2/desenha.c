@@ -140,10 +140,11 @@ void desenha_menu(int selecionada) {
       }
 }
 
-void desenha_hud(Mapa *mapa) {
+void desenha_hud(Mapa *mapa, Texture2D imagens[]) {
     char saida_pontos[TAMANHO_TEXTO], saida_vida[TAMANHO_TEXTO], saida_fase[TAMANHO_TEXTO], saida_chave[TAMANHO_TEXTO];
     int x=0, y=0;
 
+    DrawTexture(imagens[13], 0, 0, WHITE);
     DrawText("SCORE:", x, y, TAMANHO_HUD, WHITE);
     x += MeasureText("SCORE: ", TAMANHO_HUD);
 

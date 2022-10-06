@@ -47,7 +47,7 @@ void salva_ranking(Ranking vetor[TAM_NOME], int ocupadas){
         }
 
     }else {
-        printf("ERRO AO ABRIR O ARQUIVO;");
+        printf("\nERRO AO ABRIR O ARQUIVO;\n");
     }
     fclose(arquivo);
     printf("\nRanking salvo\n\n");
@@ -78,7 +78,7 @@ void recupera_ranking(Ranking vetor[], int *ocupadas, int *ultima_pos){
     *ultima_pos= pontuacao;
 
     }else {
-        printf("ERRO AO ABRIR O ARQUIVO;");
+        printf("\nERRO AO ABRIR O ARQUIVO;\n");
     }
     fclose(arquivo);
 
