@@ -3,7 +3,12 @@
 #define ESP 90
 #define TAM_VETOR 5
 
-
+/*
+    desenha_ranking:
+    Desenha o ranking na tela.
+    @param Ranking vetor[]: um vetor de rankings.
+    @param Texture2D imagens[]: um vetor de imagens para o ranking.
+*/
 void desenha_ranking(Ranking vetor[], Texture2D imagens[]){
 
     int i, j;
@@ -34,6 +39,9 @@ void desenha_ranking(Ranking vetor[], Texture2D imagens[]){
 }
 
 
+/*  desenha_nvingame:
+    Desenha a tela de escolha de iniciar um novo jogo no meio da partida.
+*/
 void desenha_nvingame(){
 
     DrawText("Deseja iniciar um novo Jogo?", (LARGURA-MeasureText("Deseja iniciar um novo jogo?",TAMANHO_FONTE*2))/2, ALTURA/2 - 50, TAMANHO_FONTE*2, WHITE);
@@ -42,6 +50,10 @@ void desenha_nvingame(){
 }
 
 
+/*
+    desenha_retorna_menu:
+    Desenha a tela de escolha de retornar ao menu.
+*/
 void desenha_retorna_menu(){
 
     DrawText("Deseja retornar ao Menu?", (LARGURA-MeasureText("Deseja retornar ao Menu?",TAMANHO_FONTE*2))/2, ALTURA/2 - 50, TAMANHO_FONTE*2, WHITE);
@@ -49,14 +61,20 @@ void desenha_retorna_menu(){
     DrawText("[N]", (LARGURA-MeasureText("[N]",TAMANHO_FONTE*2))/2 + 50, ALTURA/2 + 50, TAMANHO_FONTE*2, WHITE);
 }
 
-
+/*
+    desenha_load:
+    Desenha mensagem de load na tela.
+*/
 void desenha_load(){
 
     DrawText("Carregando...", (LARGURA-MeasureText("Carregando...",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
 
 }
 
-
+/*
+    desenha_gameover:
+    Desenha mensagem de gameover na tela.
+*/
 void desenha_gameover(Texture2D imagens[], int pontuacao, int ultimo_lugar, char nome_ranking[]){
 
     DrawText("GAME OVER", (LARGURA-MeasureText("GAME OVER",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
