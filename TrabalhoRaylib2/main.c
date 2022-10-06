@@ -31,7 +31,7 @@ int main() {
     char nome_ranking[TAM];
 
     recupera_ranking(vetor, &posicoes_ocupadas, &ultimo_lugar);
-    imprime_ranking(vetor, posicoes_ocupadas);
+
 
     char nomes[IMAGENS][TAM] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png",
     "imagens/jogador_bau.png", "imagens/bau.png","imagens/escada.png", "imagens/porta_normal.png", "imagens/porta_fase.png",
