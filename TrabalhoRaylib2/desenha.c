@@ -141,7 +141,7 @@ void desenha_menu(int selecionada) {
 }
 
 void desenha_hud(Mapa *mapa) {
-    char saida_pontos[TAMANHO_TEXTO], saida_vida[TAMANHO_TEXTO], saida_fase[TAMANHO_TEXTO], saida_chave[TAMANHO_TEXTO];
+    char saida_pontos[TAMANHO_TEXTO], saida_vida[TAMANHO_TEXTO], saida_fase[TAMANHO_TEXTO], saida_chave[TAMANHO_TEXTO], saida_item[TAMANHO_TEXTO];
     int x=0, y=0;
 
     DrawText("SCORE:", x, y, TAMANHO_HUD, WHITE);
@@ -172,6 +172,12 @@ void desenha_hud(Mapa *mapa) {
     sprintf(saida_fase, "%d", mapa->nivel);
     DrawText(saida_fase, x, y, TAMANHO_HUD, DARKBLUE);
 
+     x += QUADRADO_LARGURA;
+    DrawText("ITEM:", x, y, TAMANHO_HUD, WHITE);
+    x += MeasureText("ITEM: ", TAMANHO_HUD);
+
+    //sprintf(saida_fase, "%d", );
+    //DrawText(saida_fase, x, y, TAMANHO_HUD, DARKBLUE);
 
 }
 
