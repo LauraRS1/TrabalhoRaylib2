@@ -10,7 +10,7 @@
 #include <limits.h>
 #include <stdlib.h>
 #include <time.h>
-#define IMAGENS 12
+#define IMAGENS 13
 #define TAM 50
 #define TAM_VETOR 5
 #define TAM_CAPA 400
@@ -35,22 +35,18 @@ int main() {
     // nomes das imagens
     char nomes[IMAGENS][TAM] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png",
     "imagens/jogador_bau.png", "imagens/bau.png","imagens/escada.png", "imagens/porta_normal.png", "imagens/porta_fase.png",
-    "imagens/parede_fundo.png","imagens/jogador_saida.png","imagens/jogador_transparente.png"};
+    "imagens/parede_fundo.png","imagens/jogador_saida.png","imagens/jogador_transparente.png", "imagens/capa.png"};
 
+    //seed do tempo
     srand(time(NULL));
-    printf("\nTESTES\n");
-    Mapa mapa; //mapa = mapa_seleciona_fase(1);; //numero da fase como parametro
-    jog_seta_entrou_ranking(&(mapa.jogador)); // coloca entrou_ranking para 0
-    printf("\nTESTES\n");
 
+    Mapa mapa;
 
     InitWindow(LARGURA, ALTURA, "Jogo");
     GameScreen currentScreen = LOAD;
     SetTargetFPS(60);
 
     //Arquivos das imagens do jogo, devem abrir depois de iniciar a janela
-    //Capa
-    Texture2D capa= LoadTexture("imagens/capa.png");
     //Nivel
     Texture2D imagens[IMAGENS];
     for (i=0; i<IMAGENS; i++){
@@ -88,7 +84,7 @@ int main() {
 
             case MENU:
                 //Desenhando a capa e o menu
-                DrawTexture(capa, MEIO-TAM_CAPA, 20, BLUE);
+                DrawTexture(imagens[12], MEIO-TAM_CAPA, 20, BLUE);
                 desenha_menu(n);
                 //controles do menu
                 controle_menu(&n, &currentScreen, &mapa, &vida_atual);
