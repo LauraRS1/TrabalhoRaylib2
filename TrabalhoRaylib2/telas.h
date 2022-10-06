@@ -11,6 +11,8 @@
     ENDING: Tela de encerramento
     NJINGAME: Tela de escolha de iniciar um novo jogo no meio da partida
     RETORNAR_MENU: Tela de escolha para retornar ao menu
+    CARREGAR: Tela que sinaliza o carregamento.
+    ADDRANK: Tela para a inclusão do jogador no ranking.
 */
 typedef enum GameScreen{
     LOAD = 0,
