@@ -96,6 +96,14 @@ int main() {
             case RANKING:
                 desenha_ranking(vetor);
 
+                //voltar para o MENU
+                if(IsKeyPressed(KEY_M)) {
+                    printf("\nTECLA M APERTADA\n");
+                        vida_atual=3;
+                        currentScreen = MENU;
+                }
+
+
                 break;
 
             case GAMEPLAY:
