@@ -104,13 +104,16 @@ int main() {
                 break;
 
             case GAMEPLAY:
+                //chamada do controle da gameplay
+                controle_gameplay_loop(&mapa, &morte, &framecount, &vida_atual, &currentScreen);
+                // controle da câmera e gravidade
                 camera_atualiza(&camera, mapa.jogador.localizacao);
                 BeginMode2D(camera);
-                controle_gameplay_loop(&mapa, &morte, &framecount, &vida_atual, &currentScreen);
                 if(framecount%10 == 0)
                     gravidade(&mapa);
                 desenha_nivel(&mapa, imagens);
                 EndMode2D();
+                //salva a última pontuação do jogador
                 pontuacao_nova=mapa.jogador.pontuacao;
                 break;
 
@@ -131,6 +134,7 @@ int main() {
                 break;
 
             case GAMEOVER:
+                //
                 desenha_gameover(imagens, pontuacao_nova, ultimo_lugar, nome_ranking);
                 if(framecount%60 == 0){
                     if(pontuacao_nova>ultimo_lugar){
