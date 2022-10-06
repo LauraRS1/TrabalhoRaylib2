@@ -8,7 +8,7 @@
 #include "salva_estado_jogo.h"
 
 
-void controle_menu(int *n, GameScreen *tela, Mapa *mapa, int *vidas_atual){
+void controle_menu(int *n, GameScreen *tela, Mapa *mapa, int *vida_atual){
 
     if(IsKeyPressed(KEY_UP))
         (*n)--;
@@ -29,8 +29,8 @@ void controle_menu(int *n, GameScreen *tela, Mapa *mapa, int *vidas_atual){
          mapa_carrega(mapa);
         *tela = NOVO_JOGO;
     } else if((*n) == 1 && IsKeyDown(KEY_ENTER)) {
-        *vidas_atual=3;
         arq_recupera_jogo(mapa);
+        *vida_atual = mapa->jogador.vidas;
         *tela = GAMEPLAY;
 
     } else if((*n) == 2 && IsKeyDown(KEY_ENTER)) {
