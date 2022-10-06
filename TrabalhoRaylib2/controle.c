@@ -9,6 +9,12 @@
 #include "salva_estado_jogo.h"
 
 
+/*  controle_menu:
+    Manipulação das opções do menu do jogo
+    @param *n: Ponteiro para um inteiro, responsável por dizer qual opção está sendo selecionada
+    @param  *tela: Ponteiro para a tela atual do jogo
+    @param *mapa: Ponteiro para o mapa do jogo
+*/
 void controle_menu(int *n, GameScreen *tela, Mapa *mapa, int *vida_atual){
 
     if(IsKeyPressed(KEY_UP))
@@ -20,35 +26,44 @@ void controle_menu(int *n, GameScreen *tela, Mapa *mapa, int *vida_atual){
     if(IsKeyPressed(KEY_DOWN))
         (*n)++;
     if((*n)>3)
-
         (*n)=0;
 
-    //Mensagens ao apertar enter em Novo Jogo, Carregar Jogo, Ranking de Pontos e Sair.
+    //Ações ao apertar enter em Novo Jogo, Carregar Jogo, Ranking de Pontos e Sair.
 
     if((*n)==0 && IsKeyDown(KEY_ENTER)) {
+        //Inicia o nível 1 com o jogador zerado
         *mapa = mapa_seleciona_fase(1, tela);
          mapa_carrega(mapa);
         *tela = NOVO_JOGO;
-
-    } else if((*n) == 1 && IsKeyPressed(KEY_ENTER)) {
+    } else if((*n) == 1 && IsKeyDown(KEY_ENTER)) {
+        //Inicia no ponto de salvamento
         arq_recupera_jogo(mapa);
         *vida_atual = mapa->jogador.vidas;
-        *tela = CARREGAR;
+        *tela = NOVO_JOGO;
 
     } else if((*n) == 2 && IsKeyDown(KEY_ENTER)) {
         *tela = RANKING;
+
     } else if((*n) == 3 && IsKeyDown(KEY_ENTER)) {
         exit(0); //encerra o programa
     }
 }
 
-void controle_gameplay(Mapa *mapa, GameScreen *tela, int *vida_atual){
+/*  controle_gameplay:
+    Controla o jogador no jogo
+    @param *mapa: Ponteiro para o Mapa do jogo
+    @param  *tela: Ponteiro para a tela atual do jogo
+*/
+void controle_gameplay(Mapa *mapa, GameScreen *tela){
+
+
     if(IsKeyPressed(KEY_UP)){
         mapa_movimenta(mapa, 'c');
         controle_proxima_fase(mapa, tela);
         if(mapa->bau == 1)
-            controle_abre_bau(mapa);
+            controle_abre_bau(mapa);//Se o jogador estiver em cima do baú, abre o baú
     }
+
     if(IsKeyPressed(KEY_DOWN)){
         mapa_movimenta(mapa, 'b');
     }
@@ -62,39 +77,30 @@ void controle_gameplay(Mapa *mapa, GameScreen *tela, int *vida_atual){
     }
 
     if(IsKeyPressed(KEY_ESCAPE)){
-        printf("\nTECLA ESC APERTADA\n");
-        char escolha=' ';
-        printf("\nDeseja retornar ao menu? [s]im ou [n]ao ");
-        scanf(" %c", &escolha);
-        if(escolha=='S'||escolha=='s'){
-            *vida_atual=3;
-            *tela = MENU;
-        }else *tela=GAMEPLAY;
+        *tela = RETORNAR_MENU;
     }
 
-    //controle estado jogo
+    //Salva o jogo
     if(IsKeyPressed(KEY_S)) { // s para salvar estado
-        printf("\nJOGO SALVO\n");
         desenha_msg_checkpoint();
         arq_salva_jogo(*mapa);
     }
+    //Iniciar novo jogo
 
-    //novo jogo
-    if(IsKeyPressed(KEY_N)) {
-        printf("\nTECLA N APERTADA\n");
-        char escolha=' ';
-        printf("\nDeseja iniciar novo jogo? [s]im ou [n]ao ");
-        scanf(" %c", &escolha);
-        if(escolha=='S'||escolha=='s'){
-            *vida_atual=3;
-            *mapa = mapa_seleciona_fase(1, tela);
-             mapa_carrega(mapa);
-            *tela = NOVO_JOGO;
-        }else *tela = GAMEPLAY;
+    if(IsKeyPressed(KEY_N)) { // s para salvar estado
+        *tela = NJINGAME;
     }
 
 
+
 }
+
+
+/*  controle_abre_bau:
+    Se o jogador estiver na saída da fase e com a chave, conclui a fase e carrega a proxima fase
+    @param *mapa: Ponteiro para o Mapa do jogo
+    @param *tela: Tela atual do jogo
+*/
 
 void controle_abre_bau(Mapa *mapa){
         int i;
@@ -105,44 +111,44 @@ void controle_abre_bau(Mapa *mapa){
                 mapa->baus[i].aberto = 1;
                 switch(mapa->baus[i].item){
                     case '!':
-                        printf("\n=+50A=\n");
+                        //printf("\n=+50A=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 50);
                         jog_guarda_item(&(mapa->jogador), '!');
                         break;
 
                     case '@':
-                        printf("\n=+100=\n");
+                        //printf("\n=+100=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 100);
                         jog_guarda_item(&(mapa->jogador), '@');
                         break;
 
                     case '#':
-                        printf("\n=+150=\n");
+                        //printf("\n=+150=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 150);
                         jog_guarda_item(&(mapa->jogador), '#');
                         break;
 
                     case '$':
-                        printf("\n=+200=\n");
+                        //printf("\n=+200=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 200);
                         jog_guarda_item(&(mapa->jogador), '$');
                         break;
 
                     case '%':
-                        printf("\n=+300=\n");
+                        //printf("\n=+300=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 300);
                         jog_guarda_item(&(mapa->jogador), '%');
                         break;
 
                     case 'P':
-                        printf("\n=CHAVE=\n");
+                        //printf("\n=CHAVE=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 1000);
                         mapa->chave = 1;
                         break;
 
                         //Bomba
                     case 'B':
-                        printf("\n=BOMBA=\n");
+                        //printf("\n=BOMBA=\n");
                         jog_diminui_vida(&(mapa->jogador));
                         jog_aumenta_pontuacao(&(mapa->jogador), -500);
                         break;
@@ -152,14 +158,20 @@ void controle_abre_bau(Mapa *mapa){
             }
 
         }
-        printf("\nPONTUACAO: %d\n", mapa->jogador.pontuacao);
-}
+        //printf("\nPONTUACAO: %d\n", mapa->jogador.pontuacao);
 
+
+}
 void controle_ranking(Mapa *mapa) {
 printf("\ncontrole_ranking\n");
 
 }
 
+/*  controle_proxima_fase:
+    Se o jogador estiver na saída da fase e com a chave, conclui a fase e carrega a proxima fase
+    @param *mapa: Ponteiro para o Mapa do jogo
+    @param *tela: Tela atual do jogo
+*/
 void controle_proxima_fase(Mapa *mapa, GameScreen *tela){
     if((mapa->deletado == 'P') && (mapa->chave == 1)){
         Jogador jogador;
@@ -167,19 +179,28 @@ void controle_proxima_fase(Mapa *mapa, GameScreen *tela){
         *tela = PROXIMO;
         *mapa = mapa_seleciona_fase(mapa->nivel + 1, tela);
         mapa_carrega_proxima_fase_e_jogador(mapa, jogador);
-        printf("\n+++++++++++++++++++++++\n\n FASE CONCLUIDA\n\n++++++++++++++++++\n");
+        //printf("+++++++++++++++++++++++\n\n FASE CONCLUIDA\n\n++++++++++++++++++");
     }
 }
 
+/*  controle_gameplay_loop:
+    Ações gerais do jogador e do ambiente no jogo
+    @param *mapa: Ponteiro para o Mapa do jogo
+    @param *morte: Varíavel que determina se o jogador morreu(tomou dano)
+    @param *vida_atual: Vida atual do jogador na partida, atualiza após algum tempo depois de tomar dano
+    @param *tela: Tela atual do jogo
+*/
 void controle_gameplay_loop(Mapa *mapa, int *morte, int *frames, int *vida_atual, GameScreen *tela){
     char aux;
+    //printf("\n(*frames - *morte): %d\t MORTES: %d\t FRAMES: %d ", (*frames - *morte), *morte, *frames);
     //Caso o jogador esteja vivo, permitir que controle o personagaem
     if(*morte == 0){
-        controle_gameplay(mapa, tela, vida_atual);
+        controle_gameplay(mapa, tela);
 
     }else{
         //Senão, jogador perde vida e atualiza vida_atual com a vida do jogador
         *vida_atual = mapa->jogador.vidas;
+
     }
 
     //Caso o jogador tenha perdido uma vida, morre
@@ -187,15 +208,18 @@ void controle_gameplay_loop(Mapa *mapa, int *morte, int *frames, int *vida_atual
          *morte = *frames;
     }
     //printf("\n %d ", mapa->jogador.vidas);
+    //Se o jogador morreu de fato(tomou dano com 0 de vida), gameover
     if(mapa->jogador.vidas == MORTE)
         *tela = GAMEOVER;
 
     //Depois de passar 1 segundo da morte do jogador
     if((*frames - *morte) == 60){
+        //printf("\n=MORTE POR QUEDA=\n");
         //Coloca o jogador no local de spawn da fase.
         mapa_localiza_jogador(mapa);
         aux = mapa->mapa[mapa->spawn.linha][mapa->spawn.coluna];
 
+        //Zera as flags
         mapa->bau = 0;
         mapa->escada = 0;
         mapa->porta = ' ';
@@ -214,6 +238,49 @@ void controle_gameplay_loop(Mapa *mapa, int *morte, int *frames, int *vida_atual
         mapa->mapa[mapa->spawn.linha][mapa->spawn.coluna] = 'D';
 
         *morte = 0;
+    }
+
+
+
+}
+/*  controle_njingame:
+    Controle da decisão de iniciar um novo jogo no meio de uma partida
+    @param *mapa: Ponteiro para o Mapa do jogo
+    @param  *tela: Ponteiro para a tela atual do jogo
+    @param *vida_atual: Vida atual do jogador na partida
+*/
+void controle_njingame(GameScreen *tela, Mapa *mapa, int *vida_atual){
+    //Se Não, volta pro gameplay
+    if(IsKeyPressed(KEY_N)){
+        *tela = GAMEPLAY;
+    }
+    //Se sim, inicia novo jogo
+    if(IsKeyPressed(KEY_S)){
+        *vida_atual = 3;
+        *mapa = mapa_seleciona_fase(1, tela);
+         mapa_carrega(mapa);
+        *tela = NOVO_JOGO;
+    }
+
+}
+
+/*  controle_retorna_menu:
+    Controle da decisão de retornar ao menu
+    @param *mapa: Ponteiro para o Mapa do jogo
+    @param  *tela: Ponteiro para a tela atual do jogo
+    @param *vida_atual: Vida atual do jogador na partida
+*/
+void controle_retorna_menu(GameScreen *tela, Mapa *mapa){
+    //Se Não, volta pro gameplay
+    if(IsKeyPressed(KEY_N)){
+        *tela = GAMEPLAY;
+    }
+    //Se sim, inicia novo jogo
+    if(IsKeyPressed(KEY_S)){
+        //*vida_atual = 3;
+        //*mapa = mapa_seleciona_fase(1, tela);
+        //mapa_carrega(mapa);
+        *tela = MENU;
     }
 
 }

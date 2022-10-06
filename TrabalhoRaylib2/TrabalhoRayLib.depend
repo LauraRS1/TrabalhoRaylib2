@@ -254,69 +254,76 @@
 	"desenha.h"
 	<string.h>
 
-1661979613 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\coordenadas.c
+1664924497 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\coordenadas.c
 	"coordenadas.h"
 
 1661979604 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\coordenadas.h
 
-1664235554 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\desenha.c
+1665064703 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\desenha.c
 	"desenha.h"
+	<string.h>
 
-1664327085 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\desenha.h
+1665064789 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\desenha.h
 	"raylib.h"
 	"mapa.h"
+	"ranking.h"
 
-1664235373 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\mapa.h
+1665064528 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\mapa.h
 	"jogador.h"
 	"coordenadas.h"
 	"bau.h"
 	"telas.h"
 
-1664234100 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\jogador.h
+1665064532 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\jogador.h
 	"coordenadas.h"
 
-1661974474 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\bau.h
+1665064528 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\bau.h
 	"coordenadas.h"
 
-1664236120 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\controle.c
+1665065848 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\controle.c
 	<stdio.h>
 	"jogador.h"
 	"coordenadas.h"
 	"mapa.h"
 	"telas.h"
 	"raylib.h"
+	"ranking.h"
+	"desenha.h"
+	"salva_estado_jogo.h"
 
-1664226567 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\telas.h
+1665065460 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\telas.h
 
-1664233802 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\gravidade.c
+1665065229 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\gravidade.c
 	"mapa.h"
 	"stdio.h"
 	"jogador.h"
 
-1664236077 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\jogador.c
+1665065176 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\jogador.c
 	"jogador.h"
 	"coordenadas.h"
 	<string.h>
 	<stdio.h>
 
-1664327048 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\main.c
+1665065659 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\main.c
 	<stdio.h>
 	"raylib.h"
+	<string.h>
 	"mapa.h"
 	"desenha.h"
 	"gravidade.h"
 	"controle.h"
 	"camera.h"
+	"ranking.h"
 	<limits.h>
 	<stdlib.h>
 	<time.h>
 
 1661974474 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\gravidade.h
 
-1664228866 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\controle.h
+1665065497 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\controle.h
 	"telas.h"
 
-1664235317 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\mapa.c
+1665065046 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\mapa.c
 	<stdio.h>
 	<string.h>
 	<ctype.h>
@@ -326,7 +333,7 @@
 	"desenha.h"
 	"bau.h"
 
-1664326964 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\camera.c
+1665064528 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\camera.c
 	"coordenadas.h"
 	"raylib.h"
 	"desenha.h"
@@ -554,4 +561,27 @@
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
+
+1665064532 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\ranking.h
+	"jogador.h"
+
+1665064532 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\ranking.c
+	"ranking.h"
+	"jogador.h"
+	<stdio.h>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
+1664412993 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\salva_estado_jogo.c
+	"salva_estado_jogo.h"
+	"mapa.h"
+	"coordenadas.h"
+	"jogador.h"
+	"bau.h"
+	<stdio.h>
+
+1664412993 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\salva_estado_jogo.h
+	"mapa.h"
 

@@ -120,6 +120,16 @@ int main() {
                   currentScreen = GAMEPLAY;
                 break;
 
+            case NJINGAME:
+                desenha_nvingame();
+                controle_njingame(&currentScreen, &mapa, &vida_atual);
+                break;
+
+            case RETORNAR_MENU:
+                desenha_retorna_menu();
+                controle_retorna_menu(&currentScreen, &mapa);
+                break;
+
             case GAMEOVER:
                 desenha_gameover(imagens, pontuacao_nova, ultimo_lugar, nome_ranking);
                 if(framecount%60 == 0){

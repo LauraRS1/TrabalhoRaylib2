@@ -8,11 +8,18 @@
 #include "desenha.h"
 #include "bau.h"
 
+/*
+    mapa_carrega
+    Inicializa o mapa de um novo jogo(jogador zerado)
+    @param *mapa: um ponteiro de um Mapa
+
+*/
+
 void mapa_carrega(Mapa *mapa) {
     mapa->dimencao = mapa_set_dimencao(mapa->mapa);
-    printf("\nDIMENCAO: %d %d\n", mapa->dimencao.linha, mapa->dimencao.coluna);
+    //printf("\nDIEMNCAO: %d %d", mapa->dimencao.linha, mapa->dimencao.coluna);
     mapa_set_spawn(mapa);
-    printf("\nSPAWN: %d %d\n", mapa->spawn.linha, mapa->spawn.coluna);
+    //printf("\nSPAWN: %d %d", mapa->spawn.linha, mapa->spawn.coluna);
     mapa->porta = ' ';
     mapa->deletado = ' ';
     mapa->escada = 0;
@@ -35,10 +42,18 @@ void mapa_carrega(Mapa *mapa) {
     mapa_bau_cria(mapa);
     mapa_bau_gera_itens(mapa);
 
-
-
-
 }
+/*
+    mapa_movimenta
+    Move o jogador na matriz
+    @param *mapa: um ponteiro de um Mapa, modificado com a movimentação do jogador
+    @param direcao: direção para qual o jogador vai se mover
+                    e: esquerda
+                    d: direita
+                    c: cima
+                    b: baixo
+
+*/
 void mapa_movimenta(Mapa *mapa, char direcao) {
     Localizacao local_porta;//Váriavel da localização da porta
     mapa_localiza_jogador(mapa);//Atualiza a localização do jogador
@@ -49,6 +64,8 @@ void mapa_movimenta(Mapa *mapa, char direcao) {
     char aux;//váriavel de auxilio para trocar os char da matriz de lugar
     int dir_int;//váriavel para somar no indice da matriz
 
+    //Atribui o valor da soma da movimentação
+    //Ex: Se mover para esquerda e subtrair um no valor da coluna da matriz
     if((direcao == 'e') || (direcao == 'c')){
         dir_int = -1;
         } else{
@@ -106,7 +123,7 @@ void mapa_movimenta(Mapa *mapa, char direcao) {
             //Caso não for uma parede
             if(aux != 'X'){
                 //Se o próximo lugar não for um objeto especial
-                if(aux == ' '){
+                if((aux == ' ') || (aux == 'P')){
                         //o lugar do jogador que o jogador estará não será um báu
                         mapa->bau = 0;
                         //nem uma escada
@@ -144,6 +161,13 @@ void mapa_movimenta(Mapa *mapa, char direcao) {
 
 }
 
+/*
+    mapa_localiza_jogador
+    Localiza o jogador no mapa
+    @param *mapa: Ponteiro de um mapa para atualizar a localização do jogador no mapa
+
+*/
+
 void mapa_localiza_jogador(Mapa *mapa) {
     int i, j;
     for(i = 0; i < mapa->dimencao.linha; i++){
@@ -156,6 +180,14 @@ void mapa_localiza_jogador(Mapa *mapa) {
     }
 }
 
+/*
+    mapa_busca_porta
+    Retorna a quantidades de baús que um mapa possui.
+    @param mapa: um Mapa
+    @param porta: um char referentea porta que o jogador está ocupando
+    @param *local_porta: ponteiro para a Localizacao da porta
+
+*/
 void mapa_busca_porta(Mapa mapa, char porta, Localizacao *local_porta) {
     int i, j;
     for(i = 0; i < mapa.dimencao.linha; i++){
@@ -167,6 +199,12 @@ void mapa_busca_porta(Mapa mapa, char porta, Localizacao *local_porta) {
     }
 }
 
+/*
+    mapa_bau_quantidade
+    Retorna a quantidades de baús que um mapa possui.
+    @param *mapa: ponteiro para um Mapa;
+
+*/
 int mapa_bau_quantidade(Mapa *mapa){
     int i, j, b;
     b = 0;
@@ -178,7 +216,12 @@ int mapa_bau_quantidade(Mapa *mapa){
     }
     return b;
 }
+/*
+    mapa_bau_cria
+    Inicializa o vetor de báus com os dados padrões
+    @param *mapa: ponteiro para um Mapa;
 
+*/
 
 void mapa_bau_cria(Mapa *mapa){
 
@@ -199,7 +242,11 @@ void mapa_bau_cria(Mapa *mapa){
 
         }
 }
-
+/*
+    mapa_set_dimencao
+    Retorna a Localização da última posição ocupada da matriz do mapa
+    @param mapa: Um mapa;
+*/
 
 Localizacao mapa_set_dimencao(char mapa[MAPA_L][MAPA_C]){
     int i, j;
@@ -214,7 +261,10 @@ Localizacao mapa_set_dimencao(char mapa[MAPA_L][MAPA_C]){
     dimencao = localizacao_cria(j, i);
     return dimencao;
 }
-
+/*
+    Função responsável por atribuir o valor correto para o spawn do mapa, localização em que o jogador começa e retorna ao morrer.
+    @param *mapa: ponteiro para um Mapa;
+*/
 void mapa_set_spawn(Mapa *mapa){
     int i, j;
     for(i = 0; i < mapa->dimencao.linha; i++){
@@ -228,13 +278,21 @@ void mapa_set_spawn(Mapa *mapa){
 
 
 }
-
+/*
+    Função que gera o item da chave em um baú aleatório
+    @param *mapa: ponteiro para um Mapa;
+*/
 void mapa_gera_chave(Mapa *mapa){
     int rand;
     rand = GetRandomValue(0, mapa->qtdBaus - 1);
     mapa->baus[rand].item = 'P';
 }
 
+/*
+    Função que gera as bombas de uma determinada fase, número de bombas na fase é igual o número da fase.
+    @param *mapa: Ponteiro para um Mapa;
+    @param fase: Número da fase
+*/
 void mapa_gera_bomba(Mapa *mapa, int fase){
     int rand;
     while(fase > 0){
@@ -247,7 +305,11 @@ void mapa_gera_bomba(Mapa *mapa, int fase){
         }
     }
 }
-
+/*  mapa_gera_outros:
+    Função que gera o restante dos itens, que apenas somam pontos
+    @param *mapa: Ponteiro para um Mapa
+    @param fase: Número da fase
+*/
 void mapa_gera_outros(Mapa *mapa, int fase){
     //Variável limite: Número de Báus do mapa - Quantidade de bombas(fase) - número de chaves(1)
     int limite = mapa->qtdBaus - fase - 1;
@@ -265,12 +327,23 @@ void mapa_gera_outros(Mapa *mapa, int fase){
     }
 
 }
+/*  mapa_bau_gera_itens(Mapa *mapa):
+    Função que chama as funções que geram os itens dos baús dado o endereço de um mapa
+    @param *mapa: Ponteiro para um Mapa
+
+*/
 void mapa_bau_gera_itens(Mapa *mapa){
     mapa_gera_chave(mapa);
     mapa_gera_bomba(mapa, mapa->nivel);
     mapa_gera_outros(mapa, mapa->nivel);
 }
 
+/*  mapa_seleciona_fase:
+    Retorna um Mapa com um mapa atribuido através de um arquivo texto referente a fase da partida
+    @param num: interio referente a fase da partida
+    @param *tela: ponteiro para a variavél do tipo GameScreen
+
+*/
 
 Mapa mapa_seleciona_fase(int num, GameScreen *tela){
     Mapa mapa;
@@ -283,7 +356,7 @@ Mapa mapa_seleciona_fase(int num, GameScreen *tela){
     FILE *arquivo;
     if((arquivo = fopen(nome_fase, "r"))){
         while(fgets(linha, MAPA_C, arquivo) != NULL){
-            printf("mapa[%d]%s", i, linha);
+            //printf("mapa[%d]%s", i, linha);
             strcpy(mapa.mapa[i], linha);
 
 
@@ -298,11 +371,18 @@ Mapa mapa_seleciona_fase(int num, GameScreen *tela){
     return mapa;
 }
 
+/*
+    mapa_carrega_proxima_fase_e_jogador:
+    Inicializa o proximo mapa(com os dados do jogador atual)
+    @param *mapa: ponteiro para um mapa
+    @param jogador: ponteiro para a variavél do tipo GameScreen
+
+*/
 void mapa_carrega_proxima_fase_e_jogador(Mapa *mapa, Jogador jogador) {
     mapa->dimencao = mapa_set_dimencao(mapa->mapa);
-    printf("\nDIEMNCAO: %d %d", mapa->dimencao.linha, mapa->dimencao.coluna);
+    //printf("\nDIEMNCAO: %d %d", mapa->dimencao.linha, mapa->dimencao.coluna);
     mapa_set_spawn(mapa);
-    printf("\nSPAWN: %d %d", mapa->spawn.linha, mapa->spawn.coluna);
+    //printf("\nSPAWN: %d %d", mapa->spawn.linha, mapa->spawn.coluna);
     mapa->porta = ' ';
     mapa->deletado = ' ';
     mapa->escada = 0;
@@ -326,9 +406,55 @@ void mapa_carrega_proxima_fase_e_jogador(Mapa *mapa, Jogador jogador) {
     mapa->qtdBaus = mapa_bau_quantidade(mapa);
     mapa_bau_cria(mapa);
     mapa_bau_gera_itens(mapa);
+}
+/*
+void mapa_imprime(Mapa mapa) {
+    int i, j;
+    for(i = 0; i < mapa.dimencao.linha; i++){
+        for(j = 0; j < mapa.dimencao.coluna; j++){
+            printf("%c", mapa.mapa[i][j]);
+        }
+        printf("\n");
+    }
+    jog_print_info(mapa.jogador);
+}
+*/
+/*
+void chama_mensagem_bau() {
+    char abrir;
+    printf("\nVoce encontrou um bau. Deseja abri-lo? [s]im");
+    scanf("%c", &abrir);
 
+    if(toupper(abrir) == 'S') {
+        // aqui a função que seleciona um item
+    }
+}
+*/
+// função recursiva da queda
+// chamar apos movimento lateral movimento para os lados
+// ainda não está funcional. A matriz na linha abaixo nao esta representando o char correto
+/*
+void queda(Mapa *mapa) {
+    //variáveis para a localização do jogador
+    mapa_localiza_jogador(mapa);//Atualiza a localização do jogador
+    int x_jog = mapa->jogador.localizacao.linha;
+    int y_jog = mapa->jogador.localizacao.coluna;
+    char aux; // guarda o conteudo da matriz abaixo do jogador
 
+    printf("\nchar abaixo: %c", mapa->mapa[x_jog - 1][y_jog]);
+    if(mapa->mapa[x_jog - 1][y_jog] == ' ') { // se jogador esta flutuando
+        mapa->mapa[x_jog][y_jog - 1] = 'D'; // // diminui linha do jogador na matriz
+        mapa->mapa[x_jog][y_jog] = ' ';
 
+        queda(mapa); // continua verificando proximas linhas
+    } else if(mapa->mapa[x_jog - 1][y_jog] != 'X') { // se jogador sobre um objeto diferente de parede
+        aux = mapa->mapa[x_jog - 1][y_jog]; // apenas atualiza jogador, mas nao chama função
+        mapa->mapa[x_jog][y_jog - 1] = 'D';
+        mapa->mapa[x_jog][y_jog] = aux;
+    }
 
 }
+*/
+
+
 

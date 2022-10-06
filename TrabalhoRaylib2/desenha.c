@@ -34,6 +34,16 @@ void desenha_ranking(Ranking vetor[], Texture2D imagens[]){
 
 
 }
+void desenha_nvingame(){
+    DrawText("Deseja iniciar um novo Jogo?", (LARGURA-MeasureText("Deseja iniciar um novo jogo?",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
+    DrawText("[S]", (LARGURA-MeasureText("[S]",TAMANHO_FONTE*3))/2 - 50, ALTURA/2 + 50, TAMANHO_FONTE*3, GREEN);
+    DrawText("[N]", (LARGURA-MeasureText("[N]",TAMANHO_FONTE*3))/2 + 50, ALTURA/2 + 50, TAMANHO_FONTE*3, RED);
+}
+void desenha_retorna_menu(){
+    DrawText("Deseja retornar ao Menu?", (LARGURA-MeasureText("Deseja retornar ao Menu?",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
+    DrawText("[S]", (LARGURA-MeasureText("[S]",TAMANHO_FONTE*3))/2 - 50, ALTURA/2 + 50, TAMANHO_FONTE*3, GREEN);
+    DrawText("[N]", (LARGURA-MeasureText("[N]",TAMANHO_FONTE*3))/2 + 50, ALTURA/2 + 50, TAMANHO_FONTE*3, RED);
+}
 
 void desenha_load(){
     DrawText("Carregando...", (LARGURA-MeasureText("Carregando...",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
