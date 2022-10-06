@@ -24,26 +24,24 @@ int main() {
     Camera2D camera = {0};
     camera.zoom = 1.5;
 
-    int ultimo_lugar=0;
-    int pontuacao_nova=0;
+    //incialização das variáveis do ranking do jogo
+    int ultimo_lugar=0, pontuacao_nova=0;
     Ranking vetor[TAM_VETOR]={0}, vetor_novo[1]={0};
-    int posicoes_ocupadas=0, ocupadas_novo=0;
+    int posicoes_ocupadas=1, ocupadas_novo=1;
     char nome_ranking[TAM];
-
     recupera_ranking(vetor, &posicoes_ocupadas, &ultimo_lugar);
 
-
+    // nomes das imagens
     char nomes[IMAGENS][TAM] = {"imagens/parede.png", "imagens/jogador.png","imagens/jogador_escada.png","imagens/jogador_porta.png",
     "imagens/jogador_bau.png", "imagens/bau.png","imagens/escada.png", "imagens/porta_normal.png", "imagens/porta_fase.png",
     "imagens/parede_fundo.png","imagens/jogador_saida.png","imagens/jogador_transparente.png"};
 
     srand(time(NULL));
-    printf("TESTES");
+    printf("\nTESTES\n");
     Mapa mapa; //mapa = mapa_seleciona_fase(1);; //numero da fase como parametro
     jog_seta_entrou_ranking(&(mapa.jogador)); // coloca entrou_ranking para 0
-    printf("TESTES");
+    printf("\nTESTES\n");
 
-    //mapa_carrega(&mapa);
 
     InitWindow(LARGURA, ALTURA, "Jogo");
     GameScreen currentScreen = LOAD;
@@ -57,7 +55,7 @@ int main() {
     for (i=0; i<IMAGENS; i++){
         imagens[i]=LoadTexture(nomes[i]);
     }
-
+    //inicialização da vida
     vida_atual = 3;
 
 
@@ -102,15 +100,11 @@ int main() {
             case GAMEPLAY:
                 camera_atualiza(&camera, mapa.jogador.localizacao);
                 BeginMode2D(camera);
-                    controle_gameplay_loop(&mapa, &morte, &framecount, &vida_atual, &currentScreen);
-                    if(framecount%10 == 0)
-                        gravidade(&mapa);
-                    desenha_nivel(&mapa, imagens);
-                    //desenha_nivel(&mapa, imagens);
-                    /*if(framecount%240 == 0)
-                        jog_print_info(mapa.jogador);*/
+                controle_gameplay_loop(&mapa, &morte, &framecount, &vida_atual, &currentScreen);
+                if(framecount%10 == 0)
+                    gravidade(&mapa);
+                desenha_nivel(&mapa, imagens);
                 EndMode2D();
-                //desenha_nivel(&mapa, imagens);
                 pontuacao_nova=mapa.jogador.pontuacao;
                 break;
 
@@ -127,7 +121,6 @@ int main() {
                         printf("\nDigite o seu nome para o Ranking:\n");
                         fflush(stdin);
                         scanf(" %s", nome_ranking);
-
                         vetor_novo[0]=inicia_ranking(nome_ranking, pontuacao_nova);
                         nova_entrada(vetor, &posicoes_ocupadas, vetor_novo, ocupadas_novo);
                         salva_ranking(vetor, posicoes_ocupadas);
@@ -147,7 +140,6 @@ int main() {
                         printf("\nDigite o seu nome para o Ranking:\n");
                         fflush(stdin);
                         scanf(" %s", nome_ranking);
-
                         vetor_novo[0]=inicia_ranking(nome_ranking, pontuacao_nova);
                         nova_entrada(vetor, &posicoes_ocupadas, vetor_novo, ocupadas_novo);
                         salva_ranking(vetor, posicoes_ocupadas);
