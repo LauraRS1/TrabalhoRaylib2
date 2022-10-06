@@ -13,6 +13,7 @@
 #define IMAGENS 12
 #define TAM 50
 #define TAM_VETOR 5
+#define TAM_CAPA 400
 
 
 int main() {
@@ -87,7 +88,7 @@ int main() {
 
             case MENU:
                 //Desenhando a capa e o menu
-                DrawTexture(capa, MEIO-400, 20, BLUE);
+                DrawTexture(capa, MEIO-TAM_CAPA, 20, BLUE);
                 desenha_menu(n);
                 //controles do menu
                 controle_menu(&n, &currentScreen, &mapa, &vida_atual);
