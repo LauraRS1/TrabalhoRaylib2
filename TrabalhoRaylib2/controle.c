@@ -242,9 +242,8 @@ void controle_gameplay_loop(Mapa *mapa, int *morte, int *frames, int *vida_atual
         *morte = 0;
     }
 
-
-
 }
+
 /*  controle_njingame:
     Controle da decisão de iniciar um novo jogo no meio de uma partida
     @param *mapa: Ponteiro para o Mapa do jogo
