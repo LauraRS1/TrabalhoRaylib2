@@ -24,11 +24,11 @@ int main() {
     int vida_atual;
     Camera2D camera = {0};
     camera.zoom = 1.5;
+    Mapa mapa;
 
     //incialização das variáveis do ranking do jogo
-    int ultimo_lugar=0, pontuacao_nova=0;
+    int ultimo_lugar=0, pontuacao_nova=0, posicoes_ocupadas=1, ocupadas_novo=0;
     Ranking vetor[TAM_VETOR]={0}, vetor_novo[1]={0};
-    int posicoes_ocupadas=1, ocupadas_novo=0;
     char nome_ranking[TAM];
     recupera_ranking(vetor, &posicoes_ocupadas, &ultimo_lugar);
 
@@ -40,8 +40,7 @@ int main() {
     //seed do tempo
     srand(time(NULL));
 
-    Mapa mapa;
-
+    //inicialização da janela do jogo
     InitWindow(LARGURA, ALTURA, "Jogo");
     GameScreen currentScreen = LOAD;
     SetTargetFPS(60);
@@ -55,11 +54,8 @@ int main() {
     //inicialização da vida
     vida_atual = 3;
 
-
-    //Rodar enquanto nao aperta ESC
+    //loop do jogo
     while (1) {
-        int fim_ou_gameover = 0; // flag p fim ou gameover
-
         //Comeca a desenhar a tela
         BeginDrawing();
         // Tela preta
@@ -76,7 +72,6 @@ int main() {
 
             case NOVO_JOGO:
                 desenha_load();
-
                 if(framecount%180 == 0){
                     morte = 0;
                     currentScreen = GAMEPLAY;}
@@ -91,9 +86,9 @@ int main() {
                 break;
 
             case RANKING:
+                //Desenhando o Ranking
                 desenha_ranking(vetor, imagens);
-
-                //voltar para o MENU
+                //aperta esc para retornar ao menu
                 if(IsKeyPressed(KEY_ESCAPE)) {
                     printf("\nTECLA ESC APERTADA\n");
                         vida_atual=3;
