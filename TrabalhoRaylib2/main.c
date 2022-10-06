@@ -113,6 +113,7 @@ int main() {
                     gravidade(&mapa);
                 desenha_nivel(&mapa, imagens);
                 EndMode2D();
+                desenha_hud(&mapa);
                 //salva a última pontuação do jogador
                 pontuacao_nova=mapa.jogador.pontuacao;
                 break;

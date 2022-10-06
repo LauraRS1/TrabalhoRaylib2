@@ -177,7 +177,7 @@ void desenha_hud(Mapa *mapa) {
 
 void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
     // coloca na tela o score, vidas, fase e chave
-    desenha_hud(mapa);
+    //desenha_hud(mapa);
 
     int i, j;
     for(i = 0; i < mapa->dimencao.linha; i++){
