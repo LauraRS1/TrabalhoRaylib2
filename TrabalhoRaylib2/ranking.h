@@ -5,6 +5,13 @@
 
 #include "jogador.h"
 
+/*
+    Ranking:
+    Representa o ranking do jogo.
+    @param char nome[TAM_NOME]: nome do jogador associado.
+    @param int pontuacao: quantidade de pontos associada.
+*/
+
 typedef struct{
     char nome[TAM_NOME];
     int pontuacao;
