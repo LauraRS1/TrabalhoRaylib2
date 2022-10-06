@@ -239,7 +239,7 @@
 1661945982 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\bau.h
 	"coordenadas.h"
 
-1665066675 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\controle.c
+1665071910 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\controle.c
 	<stdio.h>
 	"jogador.h"
 	"coordenadas.h"
@@ -250,7 +250,7 @@
 	"desenha.h"
 	"salva_estado_jogo.h"
 
-1665071090 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\desenha.c
+1665071642 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\desenha.c
 	"desenha.h"
 	<string.h>
 

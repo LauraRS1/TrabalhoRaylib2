@@ -44,6 +44,8 @@ void jog_guarda_item(Jogador *j, char item) {
     char rubi[TAM] = "Rubi";
     char anel[TAM] = "Anel";
     char coroa[TAM] = "Coroa";
+    char bomba[TAM] = "Bomba";
+    char chave[TAM] = "Chave";
 
     switch(item) {
         case '!':
@@ -75,6 +77,16 @@ void jog_guarda_item(Jogador *j, char item) {
             (j->itens[4])++;
             strcpy(j->ultimo_item, coroa);
             break;
+         case 'B':
+            //Bomba
+            strcpy(j->ultimo_item, bomba);
+            break;
+        case 'P':
+            //Chave
+            strcpy(j->ultimo_item, chave);
+            break;
+
+
     }
 }
 

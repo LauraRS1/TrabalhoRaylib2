@@ -144,6 +144,7 @@ void controle_abre_bau(Mapa *mapa){
                         //printf("\n=CHAVE=\n");
                         jog_aumenta_pontuacao(&(mapa->jogador), 1000);
                         mapa->chave = 1;
+                        jog_guarda_item(&(mapa->jogador), 'P');
                         break;
 
                         //Bomba
@@ -151,6 +152,7 @@ void controle_abre_bau(Mapa *mapa){
                         //printf("\n=BOMBA=\n");
                         jog_diminui_vida(&(mapa->jogador));
                         jog_aumenta_pontuacao(&(mapa->jogador), -500);
+                        jog_guarda_item(&(mapa->jogador), 'B');
                         break;
 
                 }
