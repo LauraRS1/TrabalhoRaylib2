@@ -448,45 +448,45 @@
 1664529897 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\salva_estado_jogo.h
 	"mapa.h"
 
-1665082138 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\camera.c
+1665096183 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\camera.c
 	"coordenadas.h"
 	"raylib.h"
 	"desenha.h"
 
-1665082138 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\coordenadas.h
+1665096183 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\coordenadas.h
 
-1665082138 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\desenha.h
+1665096183 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\desenha.h
 	"raylib.h"
 	"mapa.h"
 	"ranking.h"
 
-1665082138 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\mapa.h
+1665096183 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\mapa.h
 	"jogador.h"
 	"coordenadas.h"
 	"bau.h"
 	"telas.h"
 
-1665084652 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\jogador.h
+1665096183 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\jogador.h
 	"coordenadas.h"
 
-1665082138 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\bau.h
+1665096183 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\bau.h
 	"coordenadas.h"
 
-1665082138 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\telas.h
+1665096183 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\telas.h
 
-1665084080 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\coordenadas.c
+1665096183 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\coordenadas.c
 	"coordenadas.h"
 
-1665082138 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\desenha.c
+1665096183 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\desenha.c
 	"desenha.h"
 	<string.h>
 
-1665082138 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\gravidade.c
+1665096183 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\gravidade.c
 	"mapa.h"
 	"stdio.h"
 	"jogador.h"
 
-1665082138 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\main.c
+1665096183 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\main.c
 	<stdio.h>
 	"raylib.h"
 	<string.h>
@@ -500,14 +500,14 @@
 	<stdlib.h>
 	<time.h>
 
-1665082138 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\gravidade.h
+1665096183 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\gravidade.h
 
-1665082138 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\controle.h
+1665096183 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\controle.h
 	"telas.h"
 
-1665082138 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\camera.h
+1665096183 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\camera.h
 
-1665083287 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\mapa.c
+1665096183 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\mapa.c
 	<stdio.h>
 	<string.h>
 	<ctype.h>
@@ -517,7 +517,7 @@
 	"desenha.h"
 	"bau.h"
 
-1665083030 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\salva_estado_jogo.c
+1665096183 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\salva_estado_jogo.c
 	"salva_estado_jogo.h"
 	"mapa.h"
 	"coordenadas.h"
@@ -525,16 +525,16 @@
 	"bau.h"
 	<stdio.h>
 
-1665082138 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\salva_estado_jogo.h
+1665096183 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\salva_estado_jogo.h
 	"mapa.h"
 
-1665002353 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\jogador.c
+1665096183 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\jogador.c
 	"jogador.h"
 	"coordenadas.h"
 	<string.h>
 	<stdio.h>
 
-1665082138 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\ranking.c
+1665096183 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\ranking.c
 	"ranking.h"
 	"jogador.h"
 	<stdio.h>
@@ -543,10 +543,10 @@
 	<string.h>
 	<stdlib.h>
 
-1665082138 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\ranking.h
+1665096183 c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\ranking.h
 	"jogador.h"
 
-1665084080 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\controle.c
+1665096183 source:c:\users\thiag_000\desktop\server\projeto\trabalhoraylib2\controle.c
 	<stdio.h>
 	"jogador.h"
 	"coordenadas.h"
