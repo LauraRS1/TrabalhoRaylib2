@@ -39,7 +39,7 @@ void controle_menu(int *n, GameScreen *tela, Mapa *mapa){
     }
 }
 
-void controle_gameplay(Mapa *mapa, GameScreen *tela){
+void controle_gameplay(Mapa *mapa, GameScreen *tela, int *vidas_atual){
     if(IsKeyPressed(KEY_UP)){
         mapa_movimenta(mapa, 'c');
         controle_proxima_fase(mapa, tela);
@@ -59,13 +59,33 @@ void controle_gameplay(Mapa *mapa, GameScreen *tela){
     }
 
     if(IsKeyPressed(KEY_ESCAPE)){
-        *tela = MENU;
+        char escolha=' ';
+        printf("\nDeseja retornar ao menu? [s]im ou [n]ao");
+        scanf(" %c", &escolha);
+        if(escolha=='S'||escolha=='s')
+            *tela = MENU;
     }
 
     //controle estado jogo
     if(IsKeyPressed(KEY_S)) { // s para salvar estado
+        printf("\nJOGO SALVO\n");
         desenha_msg_checkpoint();
         arq_salva_jogo(*mapa);
+    }
+
+    //voltar para o MENU
+    if(IsKeyPressed(KEY_M)) {
+        char escolha=' ';
+        printf("\nDeseja retornar ao menu? [s]im ou [n]ao");
+        scanf(" %c", &escolha);
+        if(escolha=='S'||escolha=='s')
+            *tela = MENU;
+    }
+
+    //novo jogo
+    if(IsKeyPressed(KEY_N)) {
+        printf("\nTECLA N APERTADA\n");
+        *tela=GAMEPLAY;
     }
 
 
@@ -150,7 +170,7 @@ void controle_gameplay_loop(Mapa *mapa, int *morte, int *frames, int *vida_atual
     char aux;
     //Caso o jogador esteja vivo, permitir que controle o personagaem
     if(*morte == 0){
-        controle_gameplay(mapa, tela);
+        controle_gameplay(mapa, tela, vida_atual);
 
     }else{
         //Senão, jogador perde vida e atualiza vida_atual com a vida do jogador
