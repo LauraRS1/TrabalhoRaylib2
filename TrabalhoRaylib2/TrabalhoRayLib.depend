@@ -41,10 +41,10 @@
 	"coordenadas.h"
 	"mapa.h"
 
-1665084758 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\jogador.h
+1665097832 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\jogador.h
 	"coordenadas.h"
 
-1662372568 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\coordenadas.h
+1665097832 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\coordenadas.h
 
 1664529897 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\mapa.h
 	"jogador.h"
@@ -61,7 +61,7 @@
 	<string.h>
 	<stdio.h>
 
-1665090932 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\main.c
+1665098714 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\main.c
 	<stdio.h>
 	"raylib.h"
 	<string.h>
@@ -170,7 +170,7 @@
 1665066675 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\controle.h
 	"telas.h"
 
-1665066675 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\telas.h
+1665097080 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\telas.h
 
 1661896036 source:c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\controle.c
 	<stdio.h>
@@ -236,7 +236,7 @@
 1661894523 c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\bau.h
 	"coordenadas.h"
 
-1661945982 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\bau.h
+1665097832 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\bau.h
 	"coordenadas.h"
 
 1665084758 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\controle.c
@@ -430,7 +430,7 @@
 1664379880 c:\users\thiag_000\desktop\servidor-final\projeto\trabalhoraylib2\salva_estado_jogo.h
 	"mapa.h"
 
-1664529897 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\camera.c
+1665097080 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\camera.c
 	"coordenadas.h"
 	"raylib.h"
 	"desenha.h"

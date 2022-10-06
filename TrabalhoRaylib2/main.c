@@ -26,6 +26,7 @@ int main() {
     Camera2D camera = {0};
     camera.zoom = 1.5;
     Mapa mapa;
+    int i_vezes=10, j_vezes=20;
 
     //incialização das variáveis do ranking do jogo
     int ultimo_lugar=0, pontuacao_nova=0, posicoes_ocupadas=1, ocupadas_novo=0;
@@ -140,21 +141,22 @@ int main() {
             case ADDRANK:
                 int key = GetCharPressed();
 
-                while (key > 0)
-                {
+                for(int i = 0; i < i_vezes; i++)
+                        for(int j = 0; j < j_vezes; j++)
+                            DrawTexture(imagens[9], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
+                DrawTexture(imagens[11], MEIO-200, ESPACO, WHITE);
 
-                    if ((key >= 32) && (key <= 125) && (letra < TAM_NOME))
-                    {
+                while (key > 0){
+
+                    if ((key >= 32) && (key <= 125) && (letra < TAM_NOME)){
                         nome_ranking[letra] = (char)key;
                         nome_ranking[letra+1] = '\0';
                         letra++;
                     }
-
                     key = GetCharPressed();
                 }
 
-                if (IsKeyPressed(KEY_BACKSPACE))
-                {
+                if (IsKeyPressed(KEY_BACKSPACE)){
                     letra--;
                     if (letra < 0)
                         letra = 0;
@@ -169,9 +171,10 @@ int main() {
                     currentScreen = RANKING;
 
                 }
+                DrawText("Otima pontuacao! digite seu nome:", (LARGURA-MeasureText("Ótima pontuação! digite seu nome:",TAMANHO_FONTE))/2, ESPACO-20, TAMANHO_FONTE, WHITE);
 
-                DrawRectangleRec(textBox, LIGHTGRAY);
-                DrawText(nome_ranking, (int)textBox.x + 5, (int)textBox.y + 8, 40, MAROON);
+                DrawRectangleRec(textBox, DARKBLUE);
+                DrawText(nome_ranking, (int)textBox.x + 5, (int)textBox.y + 8, 40, WHITE);
                 break;
 
             case GAMEOVER:
