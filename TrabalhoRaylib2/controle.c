@@ -33,7 +33,7 @@ void controle_menu(int *n, GameScreen *tela, Mapa *mapa, int *vida_atual){
     } else if((*n) == 1 && IsKeyPressed(KEY_ENTER)) {
         arq_recupera_jogo(mapa);
         *vida_atual = mapa->jogador.vidas;
-        *tela = GAMEPLAY;
+        *tela = CARREGAR;
 
     } else if((*n) == 2 && IsKeyDown(KEY_ENTER)) {
         *tela = RANKING;

@@ -5,6 +5,7 @@ typedef enum GameScreen{
     NOVO_JOGO,
     MENU,
     RANKING,
+    CARREGAR,
     GAMEPLAY,
     PROXIMO,
     GAMEOVER,

@@ -94,8 +94,13 @@ int main() {
                         vida_atual=3;
                         currentScreen = MENU;
                 }
+                break;
 
-
+            case CARREGAR:
+                desenha_load();
+                if(framecount%180 == 0){
+                    morte = 0;
+                    currentScreen = GAMEPLAY;}
                 break;
 
             case GAMEPLAY:
