@@ -122,7 +122,7 @@ int main() {
 
             case GAMEOVER:
                 desenha_gameover(imagens, pontuacao_nova, ultimo_lugar, nome_ranking);
-                if(framecount%180 == 0){
+                if(framecount%60 == 0){
                     if(pontuacao_nova>ultimo_lugar){
                         printf("\nDigite o seu nome para o Ranking:\n");
                         fflush(stdin);
@@ -131,9 +131,13 @@ int main() {
                         vetor_novo[0]=inicia_ranking(nome_ranking, pontuacao_nova);
                         nova_entrada(vetor, &posicoes_ocupadas, vetor_novo, ocupadas_novo);
                         salva_ranking(vetor, posicoes_ocupadas);
+                        vida_atual=3;
                         currentScreen=RANKING;
                     }
-                    currentScreen=MENU;
+                    else{
+                        vida_atual=3;
+                        currentScreen=MENU;
+                        }
                 }
                    break;
             case ENDING:
@@ -147,9 +151,13 @@ int main() {
                         vetor_novo[0]=inicia_ranking(nome_ranking, pontuacao_nova);
                         nova_entrada(vetor, &posicoes_ocupadas, vetor_novo, ocupadas_novo);
                         salva_ranking(vetor, posicoes_ocupadas);
+                        vida_atual=3;
                         currentScreen=RANKING;
                     }
-                    currentScreen=MENU;
+                    else{
+                        vida_atual=3;
+                        currentScreen=MENU;
+                        }
                 }
 
 
