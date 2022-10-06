@@ -5,6 +5,7 @@
 #include "telas.h"
 #include "raylib.h"
 #include "ranking.h"
+#include "desenha.h"
 #include "salva_estado_jogo.h"
 
 
@@ -28,7 +29,8 @@ void controle_menu(int *n, GameScreen *tela, Mapa *mapa, int *vida_atual){
         *mapa = mapa_seleciona_fase(1, tela);
          mapa_carrega(mapa);
         *tela = NOVO_JOGO;
-    } else if((*n) == 1 && IsKeyDown(KEY_ENTER)) {
+
+    } else if((*n) == 1 && IsKeyPressed(KEY_ENTER)) {
         arq_recupera_jogo(mapa);
         *vida_atual = mapa->jogador.vidas;
         *tela = GAMEPLAY;
