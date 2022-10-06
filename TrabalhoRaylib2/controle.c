@@ -148,7 +148,6 @@ void controle_proxima_fase(Mapa *mapa, GameScreen *tela){
 
 void controle_gameplay_loop(Mapa *mapa, int *morte, int *frames, int *vida_atual, GameScreen *tela){
     char aux;
-    //printf("\n(*frames - *morte): %d\t MORTES: %d\t FRAMES: %d ", (*frames - *morte), *morte, *frames);
     //Caso o jogador esteja vivo, permitir que controle o personagaem
     if(*morte == 0){
         controle_gameplay(mapa, tela);
@@ -168,7 +167,6 @@ void controle_gameplay_loop(Mapa *mapa, int *morte, int *frames, int *vida_atual
 
     //Depois de passar 1 segundo da morte do jogador
     if((*frames - *morte) == 60){
-        //printf("\n=MORTE POR QUEDA=\n");
         //Coloca o jogador no local de spawn da fase.
         mapa_localiza_jogador(mapa);
         aux = mapa->mapa[mapa->spawn.linha][mapa->spawn.coluna];

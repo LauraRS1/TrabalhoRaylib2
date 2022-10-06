@@ -4,8 +4,6 @@
 #define TAM_VETOR 5
 
 
-
-
 void desenha_ranking(Ranking vetor[]){
     char numeros[TAM_VETOR][TAM_NOME]={0};
     char posicoes[TAM_VETOR][TAM_NOME]={0};
