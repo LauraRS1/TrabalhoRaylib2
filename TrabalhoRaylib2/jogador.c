@@ -37,51 +37,45 @@ int jog_diminui_vida(Jogador *jogador){
     @param item: Item que o jogador coletou
 */
 void jog_guarda_item(Jogador *j, char item) {
-    char ametista[TAM] = "Ametista";
-    char safira[TAM] = "Safira";
-    char rubi[TAM] = "Rubi";
-    char anel[TAM] = "Anel";
-    char coroa[TAM] = "Coroa";
-    char bomba[TAM] = "Bomba";
-    char chave[TAM] = "Chave";
+    char itens[TAM][TAM]={"Ametista","Safira","Rubi","Anel","Coroa","Bomba","Chave"};
 
     switch(item) {
         case '!':
             //Ametista 50 pontos
             (j->itens[0])++;
-             strcpy(j->ultimo_item, ametista);
+             strcpy(j->ultimo_item, itens[0]);
             break;
 
         case '@':
             //Safira 100 pontos
             (j->itens[1])++;
-            strcpy(j->ultimo_item, safira);
+            strcpy(j->ultimo_item, itens[1]);
             break;
 
         case '#':
             //Rubi 150 pontos
             (j->itens[2])++;
-            strcpy(j->ultimo_item, rubi);
+            strcpy(j->ultimo_item, itens[2]);
             break;
 
         case '$':
             //Anel 200 pontos
             (j->itens[3])++;
-            strcpy(j->ultimo_item, anel);
+            strcpy(j->ultimo_item, itens[3]);
             break;
 
         case '%':
             //Coroa 300 pontos
             (j->itens[4])++;
-            strcpy(j->ultimo_item, coroa);
+            strcpy(j->ultimo_item, itens[4]);
             break;
          case 'B':
             //Bomba
-            strcpy(j->ultimo_item, bomba);
+            strcpy(j->ultimo_item, itens[5]);
             break;
         case 'P':
             //Chave
-            strcpy(j->ultimo_item, chave);
+            strcpy(j->ultimo_item, itens[6]);
             break;
     }
 }
