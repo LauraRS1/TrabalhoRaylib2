@@ -6,11 +6,20 @@
 #define TAM_ITENS 5
 
 /*
-bens[0]: conta a qtde de '!'
-bens[1]: conta a qtde de '@'
-bens[2]: conta a qtde de '#'
-bens[3]: conta a qtde de '$'
-bens[4]: conta a qtde de '%'
+    Jogador:
+    Representa um jogador no mapa do jogo.
+    @param char nome[TAM]: string do nome do jogador.
+    @param Localizacao localizacao: localizacao do jogador.
+    @param int vidas: quantidade de vidas.
+    @param int pontuacao: quantidade de pontos.
+    @param int altura_relativa: distância em relação à posição inicial da queda.
+    @param int itens[TAM_ITENS]: vetor que armazena os itens do jogador para o salvamento no binário.
+        bens[0]: conta a qtde de '!'
+        bens[1]: conta a qtde de '@'
+        bens[2]: conta a qtde de '#'
+        bens[3]: conta a qtde de '$'
+        bens[4]: conta a qtde de '%'
+    @param char ultimo_item[TAM]: caracter que representa o último item obtido.
 */
 typedef struct{
     char nome[TAM];
