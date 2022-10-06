@@ -6,6 +6,12 @@
 #include <stdio.h>
 #define NOME_ARQUIVO "jogo.dat"
 
+/*
+    arq_salva_jogo:
+    Salva o estado do mapa (jogo) em um arquivo binário.
+    @param mapa: estrutura Mapa representando o mapa do jogo
+*/
+
 void arq_salva_jogo(Mapa mapa) {
     FILE *arq_jogo;
     int i, qtd_char; // qtd caracteres inseridos por linha da matriz
@@ -41,6 +47,13 @@ void arq_salva_jogo(Mapa mapa) {
         fclose(arq_jogo);
     }
 }
+
+/*
+    arq_recupera_jogo:
+    Recupera o conteúdo do arquivo binário contendo o estado do jogo
+    e o carrega em um ponteiro do tipo Mapa.
+    @param *mapa: ponteiro para o mapa do jogo.
+*/
 
 void arq_recupera_jogo(Mapa *mapa) {
     FILE *arq_jogo;
