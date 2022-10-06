@@ -41,23 +41,33 @@ int jog_diminui_vida(Jogador *jogador){
 void jog_guarda_item(Jogador *j, char item) {
     switch(item) {
         case '!':
+            //Ametista 50 pontos
             (j->itens[0])++;
+             j->colecao[0]='!';
             break;
 
         case '@':
+            //Safira 100 pontos
             (j->itens[1])++;
+            j->colecao[1]='@';
             break;
 
         case '#':
+            //Rubi 150 pontos
             (j->itens[2])++;
+            j->colecao[2]='#';
             break;
 
         case '$':
+            //Anel 200 pontos
             (j->itens[3])++;
+            j->colecao[3]='$';
             break;
 
         case '%':
+            //Coroa 300 pontos
             (j->itens[4])++;
+            j->colecao[4]='%';
             break;
     }
 }
