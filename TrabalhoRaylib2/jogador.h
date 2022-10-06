@@ -20,7 +20,6 @@ typedef struct{
     int altura_relativa;
     int itens[TAM_ITENS];
     char ultimo_item[TAM];
-    int entrou_ranking; // flag para saber se ja entrou no ranking
 }Jogador;
 
 Jogador jog_inicializa(int x, int y);
