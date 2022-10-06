@@ -84,28 +84,6 @@ void recupera_ranking(Ranking vetor[], int *ocupadas, int *ultima_pos){
 
 }
 
-
-/*
-    imprime_ranking:
-    Imprime o ranking na tela.
-    @param Ranking vetor[]: o vetor de rankings.
-    @param int ocupadas: a quantidade de posições ocupadas no vetor.
-*/
-void imprime_ranking(Ranking vetor[], int ocupadas){
-    int i=0;
-
-    printf("Ranking\n");
-    for(i=0; i<ocupadas;i++){
-        printf("-----------------\n"
-               "%d Lugar\n"
-               "\nNome:%s"
-               "\nPontuacao:%d \n", i+1,vetor[i].nome, vetor[i].pontuacao);
-    }
-    printf("-----------------\n");
-
-}
-
-
 /*
     ordenamento_bolha:
     Ordena o vetor de jogadores daquele de maior pontuação para o de menor.
