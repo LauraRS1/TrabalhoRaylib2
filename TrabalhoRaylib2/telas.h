@@ -23,7 +23,8 @@ typedef enum GameScreen{
     GAMEOVER,
     ENDING,
     RETORNAR_MENU,
-    NJINGAME
+    NJINGAME,
+    ADDRANK
 } GameScreen;
 #endif // TELAS
 

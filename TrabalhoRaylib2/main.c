@@ -14,6 +14,7 @@
 #define TAM 50
 #define TAM_VETOR 5
 #define TAM_CAPA 400
+#define TAM_NOME 9
 
 
 int main() {
@@ -29,7 +30,9 @@ int main() {
     //incialização das variáveis do ranking do jogo
     int ultimo_lugar=0, pontuacao_nova=0, posicoes_ocupadas=1, ocupadas_novo=0;
     Ranking vetor[TAM_VETOR]={0}, vetor_novo[1]={0};
-    char nome_ranking[TAM];
+    char nome_ranking[TAM_NOME + 1] = "\0";
+    int letra = 0;
+    Rectangle textBox = { LARGURA/2.0f - 100, 180, 225, 50 };
     recupera_ranking(vetor, &posicoes_ocupadas, &ultimo_lugar);
 
     // nomes das imagens
@@ -134,19 +137,49 @@ int main() {
                 controle_retorna_menu(&currentScreen, &mapa);
                 break;
 
+            case ADDRANK:
+                int key = GetCharPressed();
+
+                while (key > 0)
+                {
+
+                    if ((key >= 32) && (key <= 125) && (letra < TAM_NOME))
+                    {
+                        nome_ranking[letra] = (char)key;
+                        nome_ranking[letra+1] = '\0';
+                        letra++;
+                    }
+
+                    key = GetCharPressed();
+                }
+
+                if (IsKeyPressed(KEY_BACKSPACE))
+                {
+                    letra--;
+                    if (letra < 0)
+                        letra = 0;
+                    nome_ranking[letra] = '\0';
+                }
+
+                if(IsKeyPressed(KEY_ENTER)){
+                    vetor_novo[0]=inicia_ranking(nome_ranking, pontuacao_nova);
+                    nova_entrada(vetor, &posicoes_ocupadas, vetor_novo, ocupadas_novo);
+                    salva_ranking(vetor, posicoes_ocupadas);
+                    vida_atual=3;
+                    currentScreen = RANKING;
+
+                }
+
+                DrawRectangleRec(textBox, LIGHTGRAY);
+                DrawText(nome_ranking, (int)textBox.x + 5, (int)textBox.y + 8, 40, MAROON);
+                break;
+
             case GAMEOVER:
                 //
                 desenha_gameover(imagens, pontuacao_nova, ultimo_lugar, nome_ranking);
                 if(framecount%180 == 0){
                     if(pontuacao_nova>ultimo_lugar){
-                        printf("\nDigite o seu nome para o Ranking:\n");
-                        fflush(stdin);
-                        scanf(" %s", nome_ranking);
-                        vetor_novo[0]=inicia_ranking(nome_ranking, pontuacao_nova);
-                        nova_entrada(vetor, &posicoes_ocupadas, vetor_novo, ocupadas_novo);
-                        salva_ranking(vetor, posicoes_ocupadas);
-                        vida_atual=3;
-                        currentScreen=RANKING;
+                        currentScreen=ADDRANK;
                     }
                     else{
                         vida_atual=3;
@@ -158,14 +191,7 @@ int main() {
                 desenha_fim(imagens, pontuacao_nova, ultimo_lugar, nome_ranking);
                 if(framecount%60 == 0){
                     if(pontuacao_nova>ultimo_lugar){
-                        printf("\nDigite o seu nome para o Ranking:\n");
-                        fflush(stdin);
-                        scanf(" %s", nome_ranking);
-                        vetor_novo[0]=inicia_ranking(nome_ranking, pontuacao_nova);
-                        nova_entrada(vetor, &posicoes_ocupadas, vetor_novo, ocupadas_novo);
-                        salva_ranking(vetor, posicoes_ocupadas);
-                        vida_atual=3;
-                        currentScreen=RANKING;
+                       currentScreen=ADDRANK;
                     }
                     else{
                         vida_atual=3;
