@@ -62,10 +62,11 @@ void controle_gameplay(Mapa *mapa, GameScreen *tela, int *vidas_atual){
     if(IsKeyPressed(KEY_ESCAPE)){
         printf("\nTECLA ESC APERTADA\n");
         char escolha=' ';
-        printf("\nDeseja sair do jogo? [s]im ou [n]ao ");
+        printf("\nDeseja retornar ao menu? [s]im ou [n]ao ");
         scanf(" %c", &escolha);
         if(escolha=='S'||escolha=='s'){
-            WindowShouldClose();
+            *vidas_atual=3;
+            *tela = MENU;
         }else *tela=GAMEPLAY;
     }
 
@@ -74,18 +75,6 @@ void controle_gameplay(Mapa *mapa, GameScreen *tela, int *vidas_atual){
         printf("\nJOGO SALVO\n");
         desenha_msg_checkpoint();
         arq_salva_jogo(*mapa);
-    }
-
-    //voltar para o MENU
-    if(IsKeyPressed(KEY_M)) {
-        printf("\nTECLA M APERTADA\n");
-        char escolha=' ';
-        printf("\nDeseja retornar ao menu? [s]im ou [n]ao ");
-        scanf(" %c", &escolha);
-        if(escolha=='S'||escolha=='s'){
-            *vidas_atual=3;
-            *tela = MENU;
-        }else *tela=GAMEPLAY;
     }
 
     //novo jogo

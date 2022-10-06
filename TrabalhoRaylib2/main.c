@@ -60,7 +60,7 @@ int main() {
 
 
     //Rodar enquanto nao aperta ESC
-    while (!WindowShouldClose()) {
+    while (1) {
         int fim_ou_gameover = 0; // flag p fim ou gameover
 
         //Comeca a desenhar a tela
@@ -97,8 +97,8 @@ int main() {
                 desenha_ranking(vetor);
 
                 //voltar para o MENU
-                if(IsKeyPressed(KEY_M)) {
-                    printf("\nTECLA M APERTADA\n");
+                if(IsKeyPressed(KEY_ESCAPE)) {
+                    printf("\nTECLA ESC APERTADA\n");
                         vida_atual=3;
                         currentScreen = MENU;
                 }
