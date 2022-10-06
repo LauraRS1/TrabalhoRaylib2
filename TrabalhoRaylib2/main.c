@@ -90,11 +90,12 @@ int main() {
                 DrawTexture(capa, MEIO-400, 20, BLUE);
                 desenha_menu(n);
                 //controles do menu
-                controle_menu(&n, &currentScreen, &mapa);
+                controle_menu(&n, &currentScreen, &mapa, &vida_atual);
                 break;
 
             case RANKING:
                 desenha_ranking(vetor);
+
                 break;
 
             case GAMEPLAY:

@@ -69,6 +69,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="mapa.h" />
+		<Unit filename="ranking.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ranking.h" />
 		<Unit filename="salva_estado_jogo.c">
 			<Option compilerVar="CC" />
 		</Unit>

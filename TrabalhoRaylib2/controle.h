@@ -1,7 +1,7 @@
 #ifndef CONTROLE_H
 #define CONTROLE_H
 #include "telas.h"
-void controle_menu(int *n, GameScreen *tela, Mapa *mapa);
+void controle_menu(int *n, GameScreen *tela, Mapa *mapa, int *vidas_atual);
 void controle_gameplay(Mapa *mapa, GameScreen *tela, int vidas_atual);
 void controle_ranking(Mapa *mapa);
 void controle_abre_bau(Mapa *mapa);

@@ -8,7 +8,7 @@
 #include "salva_estado_jogo.h"
 
 
-void controle_menu(int *n, GameScreen *tela, Mapa *mapa){
+void controle_menu(int *n, GameScreen *tela, Mapa *mapa, int *vidas_atual){
 
     if(IsKeyPressed(KEY_UP))
         (*n)--;
@@ -29,6 +29,7 @@ void controle_menu(int *n, GameScreen *tela, Mapa *mapa){
          mapa_carrega(mapa);
         *tela = NOVO_JOGO;
     } else if((*n) == 1 && IsKeyDown(KEY_ENTER)) {
+        *vidas_atual=3;
         arq_recupera_jogo(mapa);
         *tela = GAMEPLAY;
 
@@ -59,11 +60,13 @@ void controle_gameplay(Mapa *mapa, GameScreen *tela, int *vidas_atual){
     }
 
     if(IsKeyPressed(KEY_ESCAPE)){
+        printf("\nTECLA ESC APERTADA\n");
         char escolha=' ';
-        printf("\nDeseja retornar ao menu? [s]im ou [n]ao");
+        printf("\nDeseja sair do jogo? [s]im ou [n]ao ");
         scanf(" %c", &escolha);
-        if(escolha=='S'||escolha=='s')
-            *tela = MENU;
+        if(escolha=='S'||escolha=='s'){
+            WindowShouldClose();
+        }else *tela=GAMEPLAY;
     }
 
     //controle estado jogo
@@ -75,17 +78,28 @@ void controle_gameplay(Mapa *mapa, GameScreen *tela, int *vidas_atual){
 
     //voltar para o MENU
     if(IsKeyPressed(KEY_M)) {
+        printf("\nTECLA M APERTADA\n");
         char escolha=' ';
-        printf("\nDeseja retornar ao menu? [s]im ou [n]ao");
+        printf("\nDeseja retornar ao menu? [s]im ou [n]ao ");
         scanf(" %c", &escolha);
-        if(escolha=='S'||escolha=='s')
+        if(escolha=='S'||escolha=='s'){
+            *vidas_atual=3;
             *tela = MENU;
+        }else *tela=GAMEPLAY;
     }
 
     //novo jogo
     if(IsKeyPressed(KEY_N)) {
         printf("\nTECLA N APERTADA\n");
-        *tela=GAMEPLAY;
+        char escolha=' ';
+        printf("\nDeseja inciar novo jogo? [s]im ou [n]ao ");
+        scanf(" %c", &escolha);
+        if(escolha=='S'||escolha=='s'){
+            *vidas_atual=3;
+            *mapa = mapa_seleciona_fase(1, tela);
+             mapa_carrega(mapa);
+            *tela = NOVO_JOGO;
+        }else *tela = GAMEPLAY;
     }
 
 
