@@ -12,8 +12,13 @@
 #define RANKING_TXT "ranking.txt"
 
 
-
-// inicia o jogador
+/*
+    inicia_ranking:
+    Gera uma entrada para o ranking com o nome e pontuação do jogador.
+    @param char nome[]: o nome do jogador.
+    @param int pontuacao: a quantidade de pontos do jogador.
+    @return Ranking: a estrutura Ranking com o nome e pontuação do jogador.
+*/
 Ranking inicia_ranking(char nome[], int pontuacao){
     int i=0;
     Ranking jogador = {{0}, pontuacao};
@@ -22,7 +27,13 @@ Ranking inicia_ranking(char nome[], int pontuacao){
     return jogador;
 }
 
-//salva o ranking no arquivo .txt
+
+/*
+    salva_ranking:
+    Salva o vetor de rankings no arquivo .txt.
+    @param Ranking vetor[TAM_NOME]: o vetor de entradas no ranking.
+    @param int ocupadas: quantidade de posições que serão salvas.
+*/
 void salva_ranking(Ranking vetor[TAM_NOME], int ocupadas){
     int i=0;
     FILE *arquivo;
@@ -35,7 +46,6 @@ void salva_ranking(Ranking vetor[TAM_NOME], int ocupadas){
             fprintf(arquivo,"%s %d\n",vetor[i].nome,vetor[i].pontuacao);
         }
 
-
     }else {
         printf("ERRO AO ABRIR O ARQUIVO;");
     }
@@ -43,7 +53,14 @@ void salva_ranking(Ranking vetor[TAM_NOME], int ocupadas){
     printf("\nRanking salvo\n\n");
 }
 
-//recupera o arquivo txt e coloca no vetor
+
+/*
+    recupera_ranking:
+    Recupera o arquivo .txt de rankings e preenche o vetor.
+    @param Ranking vetor[]: vetor de entradas no ranking.
+    @param int *ocupadas: ponteiro para a quantidade de posições ocupadas no vetor.
+    @param int *ultima_pos: ponteiro para a ultima posição ocupada no vetor.
+*/
 void recupera_ranking(Ranking vetor[], int *ocupadas, int *ultima_pos){
     int i;
     int pontuacao;
@@ -66,7 +83,14 @@ void recupera_ranking(Ranking vetor[], int *ocupadas, int *ultima_pos){
     fclose(arquivo);
 
 }
-//imprime o ranking
+
+
+/*
+    imprime_ranking:
+    Imprime o ranking na tela.
+    @param Ranking vetor[]: o vetor de rankings.
+    @param int ocupadas: a quantidade de posições ocupadas no vetor.
+*/
 void imprime_ranking(Ranking vetor[], int ocupadas){
     int i=0;
 
@@ -81,7 +105,13 @@ void imprime_ranking(Ranking vetor[], int ocupadas){
 
 }
 
-//ordena o vetor de jogadores de maior para menor
+
+/*
+    ordenamento_bolha:
+    Ordena o vetor de jogadores daquele de maior pontuação para o de menor.
+    @param Ranking v[]: o vetor de rankings.
+    @param int tamanho: o tamanho do vetor.
+*/
 void ordenamento_bolha(Ranking v[], int tamanho) {
     int i, trocou;
     Ranking aux;
@@ -97,7 +127,14 @@ void ordenamento_bolha(Ranking v[], int tamanho) {
     }
     } while (trocou == 1);
 }
-//salva o vetor
+
+
+/*
+    salvar_vetor:
+    Coloca o jogador no ranking e ordena o vetor de rankings.
+    @param Ranking vetor[]: vetor de rankings.
+    @param int *posicoes_ocupadas: Ponteiro para a quantidade de posições ocupadas pelo vetor.
+*/
 void salvar_vetor(Ranking vetor[], int *posicoes_ocupadas){
     char nome[TAM_NOME]={0};
     int pontuacao=0;
@@ -118,7 +155,16 @@ void salvar_vetor(Ranking vetor[], int *posicoes_ocupadas){
     *posicoes_ocupadas=i;
     ordenamento_bolha(vetor, TAM_VETOR);
 }
-//acrescenta a nova entrada na ordem de maior pontuacao para menor
+
+
+/*  nova_entrada:
+    Acrescenta a nova entrada no novo vetor de rankings,
+    na ordem de maior pontuacao para menor.
+    @param Ranking vetor[]: o vetor de rankings antigo.
+    @param int *ocupadas: o ponteiro para a quantidade de posições ocupadas no vetor antigo.
+    @param Ranking vetor_novo[]: o vetor de rankings novo.
+    @param int ocupadas_novo: a quantidade de posições ocupadas no vetor de rankings novo.
+*/
 void nova_entrada(Ranking vetor[], int *ocupadas, Ranking vetor_novo[], int ocupadas_novo){
     int i, j;
     Ranking vetor_aux[TAM_VETOR*2+1]={0};
@@ -136,10 +182,5 @@ void nova_entrada(Ranking vetor[], int *ocupadas, Ranking vetor_novo[], int ocup
         vetor[j]=vetor_aux[j];
 
     *ocupadas=j;
-
 }
-
-
-
-
 
