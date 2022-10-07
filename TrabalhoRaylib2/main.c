@@ -29,6 +29,7 @@ int main() {
     int i_vezes=10, j_vezes=20;
     int save = 0;
 
+
     //incialização das variáveis do ranking do jogo
     int ultimo_lugar=0, pontuacao_nova=0, posicoes_ocupadas=1, ocupadas_novo=0;
     Ranking vetor[TAM_VETOR]={0}, vetor_novo[1]={0};
@@ -112,10 +113,6 @@ int main() {
                 if(IsKeyPressed(KEY_S))
                     save = framecount;
 
-
-
-
-
                 //chamada do controle da gameplay
                 controle_gameplay_loop(&mapa, &morte, &framecount, &vida_atual, &currentScreen);
                 // controle da câmera e gravidade
@@ -132,6 +129,11 @@ int main() {
                     if(framecount - save == 60)
                         save = 0;
                 }
+
+                if(morte != 0)
+                    desenha_morte();
+
+
                 //salva a última pontuação do jogador
                 pontuacao_nova=mapa.jogador.pontuacao;
                 break;
@@ -153,6 +155,7 @@ int main() {
                 break;
 
             case ADDRANK:
+                morte = 0;
                 int key = GetCharPressed();
 
                 for(int i = 0; i < i_vezes; i++)
@@ -194,7 +197,7 @@ int main() {
             case GAMEOVER:
                 //
                 desenha_gameover(imagens, pontuacao_nova, ultimo_lugar, nome_ranking);
-                if(framecount%180 == 0){
+                if(framecount - morte == 120){
                     if(pontuacao_nova>ultimo_lugar){
                         currentScreen=ADDRANK;
                     }
@@ -206,7 +209,7 @@ int main() {
                    break;
             case ENDING:
                 desenha_fim(imagens, pontuacao_nova, ultimo_lugar, nome_ranking);
-                if(framecount%60 == 0){
+                if(framecount%181 == 0){
                     if(pontuacao_nova>ultimo_lugar){
                        currentScreen=ADDRANK;
                     }

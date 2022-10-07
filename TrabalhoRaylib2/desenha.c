@@ -73,6 +73,11 @@ void desenha_load(){
 
 }
 
+void desenha_morte(){
+    DrawText("MORREU!", (LARGURA-MeasureText("MORREU!",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, RED);
+
+}
+
 
 /*
     desenha_gameover:
@@ -94,11 +99,6 @@ void desenha_gameover(Texture2D imagens[], int pontuacao, int ultimo_lugar, char
 
 
     DrawTexture(imagens[11], MEIO-33, 330, WHITE);
-
-    if(pontuacao > ultimo_lugar){
-
-        DrawText("Otima pontuacao! digite seu nome:", (LARGURA-MeasureText("Ótima pontuação! digite seu nome:",TAMANHO_FONTE))/2, ALTURA/2 + 100, TAMANHO_FONTE, WHITE);
-    }
 
 
 }
@@ -148,7 +148,7 @@ void desenha_proximo(){
 */
 void desenha_msg_checkpoint(){
 
-    DrawText("Checkpoint...", BASE_X + (TAMANHO_CHECKPOINT / 2), ALTURA - (TAMANHO_CHECKPOINT * 1.625), TAMANHO_FONTE, WHITE);
+    DrawText("Jogo Salvo...", BASE_X + (TAMANHO_CHECKPOINT / 2), ALTURA - (TAMANHO_CHECKPOINT * 1.625), TAMANHO_FONTE * 1.25, WHITE);
 
 }
 
@@ -265,10 +265,8 @@ void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
         for(j = 0; j < mapa->dimencao.coluna; j++){
                 //Parede
                 if(mapa->mapa[i][j] == 'X')
-                    if(i==0)
-                        DrawTexture(imagens[9], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
-                    else
                         DrawTexture(imagens[0], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
+
                 if((mapa->mapa[i][j] == 'P') && (mapa->chave == 0))
                     DrawTexture(imagens[9], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Jogador

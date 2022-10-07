@@ -259,7 +259,7 @@
 
 1665099480 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\coordenadas.h
 
-1665101003 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\desenha.c
+1665102123 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\desenha.c
 	"desenha.h"
 	<string.h>
 
@@ -280,7 +280,7 @@
 1665099480 c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\bau.h
 	"coordenadas.h"
 
-1665094571 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\controle.c
+1665102484 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\controle.c
 	<stdio.h>
 	"jogador.h"
 	"coordenadas.h"
@@ -304,7 +304,7 @@
 	<string.h>
 	<stdio.h>
 
-1665094955 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\main.c
+1665102397 source:c:\users\nicol\onedrive\햞ea de trabalho\projetofinal2\trabalhoraylibv3\trabalhoraylib2\trabalhoraylib2\main.c
 	<stdio.h>
 	"raylib.h"
 	<string.h>

@@ -195,14 +195,18 @@ void controle_gameplay_loop(Mapa *mapa, int *morte, int *frames, int *vida_atual
 
     }
 
+
     //Caso o jogador tenha perdido uma vida, morre
     if(*vida_atual != mapa->jogador.vidas){
          *morte = *frames;
     }
     //printf("\n %d ", mapa->jogador.vidas);
     //Se o jogador morreu de fato(tomou dano com 0 de vida), gameover
-    if(mapa->jogador.vidas == MORTE)
+    if(mapa->jogador.vidas == MORTE){
         *tela = GAMEOVER;
+        *morte = *frames - 1;
+    }
+
 
     //Depois de passar 1 segundo da morte do jogador
     if((*frames - *morte) == 60){
