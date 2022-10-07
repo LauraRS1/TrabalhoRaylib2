@@ -18,7 +18,6 @@ typedef enum GameScreen{
     LOAD = 0,
     NOVO_JOGO,
     MENU,
-    RANKING,
     CARREGAR,
     GAMEPLAY,
     PROXIMO,

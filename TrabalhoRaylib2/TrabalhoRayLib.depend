@@ -61,7 +61,7 @@
 	<string.h>
 	<stdio.h>
 
-1665101929 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\main.c
+1665103624 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\main.c
 	<stdio.h>
 	"raylib.h"
 	<string.h>
@@ -170,7 +170,7 @@
 1665066675 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\controle.h
 	"telas.h"
 
-1665099195 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\telas.h
+1665103966 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\telas.h
 
 1661896036 source:c:\users\nicol\onedrive\Área de trabalho\testetrabalhoterÇa\trabalhoraylib2\trabalhoraylib2\controle.c
 	<stdio.h>
@@ -239,7 +239,7 @@
 1665097832 c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\bau.h
 	"coordenadas.h"
 
-1665084758 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\controle.c
+1665103624 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\controle.c
 	<stdio.h>
 	"jogador.h"
 	"coordenadas.h"
@@ -250,7 +250,7 @@
 	"desenha.h"
 	"salva_estado_jogo.h"
 
-1665101840 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\desenha.c
+1665103624 source:c:\users\laura\onedrive\Área de trabalho\2022_1_cc\algoritmos e programação\trabalhoraylib2\trabalhoraylib2\desenha.c
 	"desenha.h"
 	<string.h>
 
