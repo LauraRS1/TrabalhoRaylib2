@@ -50,7 +50,7 @@ void salva_ranking(Ranking vetor[TAM_NOME], int ocupadas){
         printf("\nERRO AO ABRIR O ARQUIVO;\n");
     }
     fclose(arquivo);
-    printf("\nRanking salvo\n\n");
+    //printf("\nRanking salvo\n\n");
 }
 
 
