@@ -14,7 +14,7 @@
 #define TAM 50
 #define TAM_VETOR 5
 #define TAM_CAPA 400
-#define TAM_NOME 9
+#define TAM_NOME2 9
 
 
 int main() {
@@ -27,11 +27,12 @@ int main() {
     camera.zoom = 1.5;
     Mapa mapa;
     int i_vezes=10, j_vezes=20;
+    int save = 0;
 
     //incialização das variáveis do ranking do jogo
     int ultimo_lugar=0, pontuacao_nova=0, posicoes_ocupadas=1, ocupadas_novo=0;
     Ranking vetor[TAM_VETOR]={0}, vetor_novo[1]={0};
-    char nome_ranking[TAM_NOME + 1] = "\0";
+    char nome_ranking[TAM_NOME2 + 1] = "\0";
     int letra = 0;
     Rectangle textBox = { LARGURA/2.0f - 100, 180, 225, 50 };
     recupera_ranking(vetor, &posicoes_ocupadas, &ultimo_lugar);
@@ -108,6 +109,13 @@ int main() {
                 break;
 
             case GAMEPLAY:
+                if(IsKeyPressed(KEY_S))
+                    save = framecount;
+
+
+
+
+
                 //chamada do controle da gameplay
                 controle_gameplay_loop(&mapa, &morte, &framecount, &vida_atual, &currentScreen);
                 // controle da câmera e gravidade
@@ -118,6 +126,12 @@ int main() {
                 desenha_nivel(&mapa, imagens);
                 EndMode2D();
                 desenha_hud(&mapa, imagens);
+                //Se Jogador salvou então desenha mensagem
+                if(save){
+                    desenha_msg_checkpoint();
+                    if(framecount - save == 60)
+                        save = 0;
+                }
                 //salva a última pontuação do jogador
                 pontuacao_nova=mapa.jogador.pontuacao;
                 break;
@@ -148,7 +162,7 @@ int main() {
 
                 while (key > 0){
 
-                    if ((key >= 32) && (key <= 125) && (letra < TAM_NOME)){
+                    if ((key >= 32) && (key <= 125) && (letra < TAM_NOME2)){
                         nome_ranking[letra] = (char)key;
                         nome_ranking[letra+1] = '\0';
                         letra++;
