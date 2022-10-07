@@ -3,6 +3,7 @@
 #define ESP 90
 #define TAM_VETOR 5
 
+
 /*
     desenha_ranking:
     Desenha o ranking na tela.
@@ -61,6 +62,7 @@ void desenha_retorna_menu(){
     DrawText("[N]", (LARGURA-MeasureText("[N]",TAMANHO_FONTE*2))/2 + 50, ALTURA/2 + 50, TAMANHO_FONTE*2, WHITE);
 }
 
+
 /*
     desenha_load:
     Desenha mensagem de load na tela.
@@ -71,9 +73,14 @@ void desenha_load(){
 
 }
 
+
 /*
     desenha_gameover:
     Desenha mensagem de gameover na tela.
+    @param Texture2D imagens[]: um vetor de imagens para a tela de gameover.
+    @param int pontuacao: quantidade de pontos do jogador.
+    @param int ultimo_lugar: pontuação do ultimo colocado no ranking.
+    @param char nome_ranking[]: nome do jogador no ranking.
 */
 void desenha_gameover(Texture2D imagens[], int pontuacao, int ultimo_lugar, char nome_ranking[]){
 
@@ -97,6 +104,14 @@ void desenha_gameover(Texture2D imagens[], int pontuacao, int ultimo_lugar, char
 }
 
 
+/*
+    desenha_fim:
+    Desenha a tela de fim de jogo.
+    @param Texture2D imagens[]: um vetor de imagens para a tela de fim.
+    @param int pontuacao: quantidade de pontos do jogador.
+    @param int ultimo_lugar: pontuação do ultimo colocado no ranking.
+    @param char nome_ranking[]: nome do jogador no ranking.
+*/
 void desenha_fim(Texture2D imagens[], int pontuacao, int ultimo_lugar, char nome_ranking[]){
 
     DrawText("FIM", (LARGURA-MeasureText("FIM!",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
@@ -116,6 +131,10 @@ void desenha_fim(Texture2D imagens[], int pontuacao, int ultimo_lugar, char nome
 }
 
 
+/*
+    desenha_proximo:
+    Desenha a mensagem de próximo nível.
+*/
 void desenha_proximo(){
 
     DrawText("Passou de Nivel", (LARGURA-MeasureText("Passou de Nivel",TAMANHO_FONTE*3))/2, ALTURA/2 - 50, TAMANHO_FONTE*3, WHITE);
@@ -123,6 +142,10 @@ void desenha_proximo(){
 }
 
 
+/*
+    desenha_msg_checkpoint:
+    Desenha a mensagem de checkpoint.
+*/
 void desenha_msg_checkpoint(){
 
     DrawText("Checkpoint...", BASE_X + (TAMANHO_CHECKPOINT / 2), ALTURA - (TAMANHO_CHECKPOINT * 1.625), TAMANHO_FONTE, WHITE);
@@ -130,6 +153,11 @@ void desenha_msg_checkpoint(){
 }
 
 
+/*
+    desenha_menu:
+    Desenha o menu de opções do jogo.
+    @param int selecionada: inteiro que representa a opção selecionada.
+*/
 void desenha_menu(int selecionada) {
 
     char menu[OPCOES][TAMANHO_TEXTO] = {"Novo Jogo", "Carregar Jogo","Ranking de Pontos", "Sair"};
@@ -177,6 +205,11 @@ void desenha_menu(int selecionada) {
 }
 
 
+/*
+    desenha_hud:
+    @param Mapa *mapa: ponteiro para o mapa do jogo.
+    @param Texture2D imagens[]: vetor de imagens para carregar no hud.
+*/
 void desenha_hud(Mapa *mapa, Texture2D imagens[]) {
 
     char saida_pontos[TAMANHO_TEXTO], saida_vida[TAMANHO_TEXTO], saida_fase[TAMANHO_TEXTO], saida_chave[TAMANHO_TEXTO];
@@ -220,6 +253,11 @@ void desenha_hud(Mapa *mapa, Texture2D imagens[]) {
 }
 
 
+/*
+    desenha_nivel:
+    @param Mapa *mapa: ponteiro para o mapa do jogo.
+    @param Texture2D imagens[]: vetor de imagens para carregar no mapa do jogo.
+*/
 void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
 
     int i, j;
