@@ -149,6 +149,7 @@ int main() {
 
             case RETORNAR_MENU:
                 desenha_retorna_menu();
+                vida_atual=3;
                 controle_retorna_menu(&currentScreen, &mapa);
                 break;
 
