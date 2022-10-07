@@ -265,10 +265,7 @@ void desenha_nivel(Mapa *mapa, Texture2D imagens[]){
         for(j = 0; j < mapa->dimencao.coluna; j++){
                 //Parede
                 if(mapa->mapa[i][j] == 'X')
-                    if(i==0)
-                        DrawTexture(imagens[9], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
-                    else
-                        DrawTexture(imagens[0], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
+                    DrawTexture(imagens[0], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 if((mapa->mapa[i][j] == 'P') && (mapa->chave == 0))
                     DrawTexture(imagens[9], (0 + QUADRADO_LARGURA *j), (0 + QUADRADO_ALTURA * i), WHITE);
                 //Jogador
